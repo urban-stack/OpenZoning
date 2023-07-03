@@ -46,14 +46,26 @@
                 "multi-family"
               ]
             }
+          },
+          "floorAreaAD": {
+            "type": "object",
+            "properties": {
+              "maximumAD": {
+                "$comment": "TODO: Renaming this to floorAreaAD to floorAreaADOptionality",
+                "type": "array",
+                "items": {
+                  "type": "object"
+                }
+              }
+            }
           }
-        },
-        "allOf": [
-          {
-            "$ref": "#/definitions/dynamicConstraints"
-          }
-        ]
-      }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/dynamicConstraints"
+        }
+      ]
     },
     "garageOptionality": {
       "type": "array",
@@ -105,6 +117,27 @@
             "$ref": "#/definitions/dynamicConstraints"
           }
         ]
+      }
+    },
+    "ADbulkOptionalities": {
+      "$comment": "Recheck this with Luke",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "ADbulk": {
+            "type": "string",
+            "items": {
+              "enum": [
+                "ADU",
+                "garage"
+              ]
+            }
+          },
+          "ADtypeOptionality": {
+            "$ref": "#/definitions/ADtypeOptionality"
+          }
+        }
       }
     },
     "dynamicConstraints": {
@@ -496,25 +529,7 @@
                     "type": "object",
                     "properties": {
                       "ADbulkOptionalities": {
-                        "$comment": "Recheck this with Luke",
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "ADbulk": {
-                              "type": "string",
-                              "items": {
-                                "enum": [
-                                  "ADU",
-                                  "garage"
-                                ]
-                              }
-                            },
-                            "ADtypeOptionality": {
-                              "$ref": "#/definitions/ADtypeOptionality"
-                            }
-                          }
-                        }
+                        "$ref": "#/definitions/ADbulkOptionalities"
                       },
                       "bulkOptionalities": {
                         "$ref": "#/definitions/bulkOptionalities"
