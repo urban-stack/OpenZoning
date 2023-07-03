@@ -2,6 +2,111 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "definitions": {
+    "maximum": {
+      "$comment": "TODO: Fix this one ",
+      "type": "number"
+    },
+    "minimum": {
+      "$comment": "TODO: Fix this one ",
+      "type": "number"
+    },
+    "constraintsModule": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "floorArea",
+          "FAR",
+          "floorWidth",
+          "lotArea",
+          "lotWidth",
+          "footprint",
+          "height",
+          "stories",
+          "storyFloors",
+          "lotCoverage",
+          "allowedUses",
+          "district",
+          "setbacks"
+        ]
+      },
+      "minItems": 1
+    },
+    "bulkOptionalities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "bulks": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "single-family",
+                "two-family",
+                "three-family",
+                "multi-family"
+              ]
+            }
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/dynamicConstraints"
+          }
+        ]
+      }
+    },
+    "garageOptionality": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "garageType": {
+            "type": "object",
+            "properties": {
+              "not": {
+                "type": "string",
+                "items": {
+                  "enum": [
+                    "single-family",
+                    "two-family",
+                    "three-family",
+                    "multi-family"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/dynamicConstraints"
+          }
+        ]
+      }
+    },
+    "ADtypeOptionality": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "ADtype": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "interior",
+                "attached",
+                "detached"
+              ]
+            }
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/dynamicConstraints"
+          }
+        ]
+      }
+    },
     "dynamicConstraints": {
       "properties": {
         "maximum": {
@@ -300,6 +405,30 @@
             "storiesContribution": {
               "type": "number"
             },
+            "districtTypeGroups": {
+              "type": "array",
+              "items": {
+                "allOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "districts": {
+                        "type": "array",
+                        "items": {
+                          "enum": [
+                            "district1",
+                            "district2"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "$ref": "#/definitions/bulkOptionalities"
+                  }
+                ]
+              }
+            },
             "floorAreaContribution": {
               "type": "object",
               "properties": {
@@ -330,135 +459,6 @@
           }
         }
       }
-    },
-    "maximum": {
-      "$comment": "TODO: Fix this one ",
-      "type": "number"
-    },
-    "minimum": {
-      "$comment": "TODO: Fix this one ",
-      "type": "number"
-    },
-    "constraintsModule": {
-      "type": "array",
-      "items": {
-        "enum": [
-          "floorArea",
-          "FAR",
-          "floorWidth",
-          "lotArea",
-          "lotWidth",
-          "footprint",
-          "height",
-          "stories",
-          "storyFloors",
-          "lotCoverage",
-          "allowedUses",
-          "district",
-          "setbacks"
-        ]
-      },
-      "minItems": 1
-    },
-    "bulkOptionalities": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "bulks": {
-            "type": "array",
-            "items": {
-              "enum": [
-                "single-family",
-                "two-family",
-                "three-family",
-                "multi-family"
-              ]
-            }
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/definitions/dynamicConstraints"
-          }
-        ]
-      }
-    },
-    "garageOptionality": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "garageType": {
-            "type": "object",
-            "properties": {
-              "not": {
-                "type": "string",
-                "items": {
-                  "enum": [
-                    "single-family",
-                    "two-family",
-                    "three-family",
-                    "multi-family"
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/definitions/dynamicConstraints"
-          }
-        ]
-      }
-    },
-    "districtTypeGroups": {
-      "type": "array",
-      "items": {
-        "allOf": [
-          {
-            "type": "object",
-            "properties": {
-              "districts": {
-                "type": "array",
-                "items": {
-                  "enum": [
-                    "district1",
-                    "district2"
-                  ]
-                }
-              }
-            }
-          },
-          {
-            "$ref": "#/definitions/bulkOptionalities"
-          }
-        ]
-      }
-    },
-    "ADtypeOptionality": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "ADtype": {
-            "type": "array",
-            "items": {
-              "enum": [
-                "interior",
-                "attached",
-                "detached"
-              ]
-            }
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/definitions/dynamicConstraints"
-          }
-        ]
-      }
     }
   },
   "properties": {
@@ -473,9 +473,6 @@
         {
           "type": "object",
           "properties": {
-            "districtTypeGroups": {
-              "$ref": "#/definitions/districtTypeGroups"
-            },
             "developmentOptionalities": {
               "type": "array",
               "items": {
