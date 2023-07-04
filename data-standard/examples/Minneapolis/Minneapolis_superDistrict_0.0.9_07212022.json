@@ -44,11 +44,11 @@
 					}
 
 				},
-				"developmentOptionalities": [
+				"developmentOptionality": [
 					{
 						"developmentType": "primary/accessory",
 						"primaryStructures": {
-							"bulkOptionalities": [
+							"bulkOptionality": [
 								{
 									"bulks": ["single-family", "two-family", "three-family"],
 									"floorwidth": { //we should have a field for a municipality's defining which access width is measured for each muni.
@@ -177,10 +177,10 @@
 		{
 			"constraintsModule": ["lotArea", "lotWidth"],
 			"lot": {
-				"developmentOptionalities": [
+				"developmentOptionality": [
 					{
 						"developmentType": "primary/accessory",
-			 			"bulkOptionalities": [
+			 			"bulkOptionality": [
 							{
 								"bulks": "multi-family",
 								"lotArea": {
@@ -200,7 +200,7 @@
 		{
 			"constraintsModule": "footprint",
 			"lot": {
-				"developmentOptionalities": [
+				"developmentOptionality": [
 					{
 						"developmentType": "primary/accessory",
 			 			"primaryStructures": {
@@ -242,7 +242,7 @@
 		{
 			"constraintsModule": ["height", "stories"],
 			"lot": {
-				"developmentOptionalities": [
+				"developmentOptionality": [
 					{
 						"developmentType": "primary/accessory",
 			 			"primaryStructures": {
@@ -308,7 +308,7 @@
 		{
 			"constraintsModule": ["setbacks", "ADlotLocation"],
 			"lot": {
-				"developmentOptionalities": [
+				"developmentOptionality": [
 					{
 						"developmentType": "primary/accessory",
 						"primaryStructures": {
