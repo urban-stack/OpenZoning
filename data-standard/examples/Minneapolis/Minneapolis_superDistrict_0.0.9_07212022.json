@@ -203,22 +203,24 @@
 						},
 						"accessoryStructures": {
 							"footprint": {
-								"maximum": {
-									"leastof" :[
-										{
-											"greaterOf": [
-												{
-													"maximum": 676
-												}
-												{
-													"maximum": "10% of the lot area"
-												}
-											]
-										},
-										{
-											"maximum": 1000,
-										}
-									]
+								"total": {
+									"maximum": {
+										"lesserOf" :[
+											{
+												"greaterOf": [
+													{
+														"maximum": 676
+													}
+													{
+														"maximum": "10% of the lot area"
+													}
+												]
+											},
+											{
+												"maximum": 1000,
+											}
+										]
+									}
 								}
 							},
 							"ADtypeOptionality": [ //we can workshop this title
