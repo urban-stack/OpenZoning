@@ -1,0 +1,125 @@
+{
+	"municipality": "Minneapolis",
+  "state": "Minnesota",
+  "last_updated": "20230704",
+	"author": "LukeReeve",
+  "zoningCodes": [
+    {
+      "title": "pre-Minneapolis 2040 plan",
+      "dateAdopted": "06_30_23",
+      "districtTypes" : [
+        {
+          "name": "superDistrict",
+          "status": "required",
+        },
+        {
+          "name": "base",
+          "status": "required"
+          "subTypes": [
+            {
+              "name": "Residence",
+              "districts": [
+                "R1 Multiple-family District",
+                "R1A Multiple-family District",
+                "R2 Multiple-family District",
+                "R2B Multiple-family District",
+                "R3 Multiple-family District",
+                "R4 Multiple-family District",
+                "R5 Multiple-family District",
+                "R6 Multiple-family District"
+              ]
+            },
+            {
+              "name": "OfficeResidence",
+              "districts": [
+                "OR1 Neighborhood Office Residence District",
+                "OR2 High Density Office Residence District",
+                "OR3 Institutional Office Residence District"
+              ]
+            },
+            {
+              "name": "Commercial",
+              "districts": [
+                "C1 Neighborhood Commercial District",
+                "C2 Neighborhood Corridor Commercial District",
+                "C3A Community Activity Center District",
+                "C3S Community Shopping Center District",
+                "C4 General Commercial District"
+              ]
+            },
+            {
+              "name": "Downtown",
+              "districts": [
+                "B4 Downtown Business District",
+                "B4S Downtown Service District",
+                "B4C Downtown Commercial District",
+                "B4N Downtown Neighborhood District"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "overlay_1",
+          "status": "optional",
+          "subTypes": [
+            {
+              "name": "Overlay"
+              "districts": [
+                "PO Pedestrian Oriented Overlay District",
+                "IL Industrial Living Overlay District",
+                "TP Transitional Parking Overlay District",
+                "DP Downtown Parking Overlay District",
+                "B4H Downtown Housing Overlay District",
+                "NM Nicollet Mall Overlay District",
+                "HA Harmon Area Overlay District",
+                "NP North Phillips Overlay District",
+                "AP Airport Overlay District",
+                "WB West Broadway Overlay District",
+                "UA University Area Overlay District",
+                "DS Downtown Shelter Overlay District",
+                "SZ Split Zoning Overlay District",
+                "SH Shoreland Overlay District",
+                "FP Floodplain Overlay District",
+                "MR Mississippi River Corridor Critical Area Overlay District"
+              ]
+            },
+          ]
+        },
+        {
+          "name": "overlay_2",
+          "status": "required",
+          "subTypes": [
+            {
+              "name": "Built Form Overlay",
+              "districts": [
+                "BFI1 Interior 1 Built Form Overlay District",
+                "BFI2 Interior 2 Built Form Overlay District",
+                "BFI3 Interior 3 Built Form Overlay District",
+                "BFI3 Interior 3 Built Form Overlay District",
+                "BFC4 Corridor 4 Built Form Overlay District",
+                "BFC6 Corridor 6 Built Form Overlay District",
+                "BFT10 Transit 10 Built Form Overlay District",
+                "BFT15 Transit 15 Built Form Overlay District",
+                "BFT20 Transit 20 Built Form Overlay District",
+                "BFT30 Transit 30 Built Form Overlay District",
+                "BFC50 Core 50 Built Form Overlay District",
+                "BFPA Parks Built Form Overlay District",
+                "BFPR Production Built Form Overlay District"
+              ]
+            },
+          ]
+        }
+      ],
+      "districtsHeirarchy: [
+        "superDistrict",
+        "base",
+        "overlay_1",
+        "overlay_2"
+      ]
+    },
+    {
+      "dataAdopted": "07_1_23",
+      "title": "Minneapolis 2040 plan" 
+    }
+  ]
+}
