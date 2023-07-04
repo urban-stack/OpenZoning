@@ -177,23 +177,18 @@
 		{
 			"constraintsModule": ["lotArea", "lotWidth"],
 			"lot": {
-				"developmentOptionality": [
+				"bulkOptionality": [
 					{
-						"developmentType": "primary/accessory",
-			 			"bulkOptionality": [
-							{
-								"bulks": "multi-family",
-								"lotArea": {
-									"minimum": 5000, //sqf
-									"maximum": 7500 //sqf
-								},
-								"lotWidth": {
-									//"interior": { I'm currently operating under the assumption that width implies side yard
-									"minimum": [15, [22, "driveway"]], //if principal entrance facing the interior lot line
-								}
-							}
-						]
-					}	
+						"bulks": "multi-family",
+						"lotArea": {
+							"minimum": 5000, //sqf
+							"maximum": 7500 //sqf
+						},
+						"lotWidth": {
+							//"interior": {I'm currently operating under the assumption that width implies side yard
+							"minimum": [15, [22, "driveway"]], //if principal entrance facing the interior lot line
+						}
+					}
 				]
 			}
 		}
