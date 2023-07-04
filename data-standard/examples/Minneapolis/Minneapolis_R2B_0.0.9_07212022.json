@@ -13,10 +13,10 @@
 		{
 			"constraintsModule": ["lotArea", "lotWidth"],
 			"lot": {
-				"developmentOptionalities": [
+				"developmentOptionality": [
 					{
 						"developmentType": "primary/accessory",
-			 			"bulkOptionalities": [
+			 			"bulkOptionality": [
 							{
 								"bulks": ["one-family", "two-family", "three-family"],
 								"lotArea": {
