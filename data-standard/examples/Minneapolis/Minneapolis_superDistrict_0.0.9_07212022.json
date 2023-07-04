@@ -16,11 +16,11 @@
 	"allowedUses": {
 		"permitted": ["single-family", "two-family", "three-family"], 
 		"conditional": [],
-		"accessoryStructuresPermissions": {
-			"bulkOptionalities": [
+		"accessoryStructurePermissions": {
+			"bulkOptionality": [
 				{
 					"bulks": ["single-family", "two-family"],
-					"allowedAccessoryStructures": {
+					"allowances": {
 						"num": 1,
 						"types": "ADU, garage", //I need to check this for factuality
 					}
