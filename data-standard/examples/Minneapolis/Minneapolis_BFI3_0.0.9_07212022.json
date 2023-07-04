@@ -12,11 +12,11 @@
 		{
 			"constraintsModule": ["height", "stories"],
 			"lot": {
-				"developmentOptionalities": [
+				"developmentOptionality": [
 					{
 						"developmentType": "primary/accessory",
 				 		"primaryStructures": {
-							"bulkOptionalities": [
+							"bulkOptionality": [
 								{
 									"bulks": ["single-family", "two-family"],
 									"height": {
@@ -49,7 +49,7 @@
 		{
 			"constraintsModule": "setbacks",
 			"lot": {
-				"developmentOptionalities": [
+				"developmentOptionality": [
 					{
 						"developmentType": "primary/accessory",
 				 		"primaryStructures": {
@@ -57,7 +57,7 @@
 								"front": 20,
 								"rear": 5,
 								"side": { //the variances in values per height still need to be incorporated
-									"bulkOptionalities": [
+									"bulkOptionality": [
 										{
 											"bulks": ["single-family", "two-family", "three-family"],
 											"interior": 5,
@@ -82,7 +82,7 @@
 				"districtTypeGroups": [
 					{
 						"districtTypes": ["Residential", "Office Residential"],
-						"bulkOptionalities": [
+						"bulkOptionality": [
 							{
 								"bulks": "single-family",
 								"FAR": {
@@ -111,7 +111,7 @@
 					}
 					{
 						"districtTypes": "allOthers",
-						"bulkOptionalities": [
+						"bulkOptionality": [
 							{
 								"bulks": "single-family",
 								"FAR": {
@@ -144,10 +144,10 @@
 		{
 			"constraintsModule": ["lotArea", "lotWidth"],
 			"lot": {
-				"developmentOptionalities": [
+				"developmentOptionality": [
 					{
 						"developmentType": "primary/accessory",
-			 			"bulkOptionalities": [
+			 			"bulkOptionality": [
 							{
 								"bulks": "multi-family",
 								"lotArea": {
