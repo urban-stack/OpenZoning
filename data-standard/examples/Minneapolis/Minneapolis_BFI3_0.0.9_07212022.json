@@ -5,9 +5,6 @@
 	},
 	"last_updated": "20220721",
 	"author": "OZFS Team",
-	"usePermissions": {
-		"permitted": ["single-family", "two-family", "three-family"]
-	}
 	"constraints": [
 		{
 			"constraintsModule": ["height", "stories"],
