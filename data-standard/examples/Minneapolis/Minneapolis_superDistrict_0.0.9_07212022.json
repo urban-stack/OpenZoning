@@ -13,20 +13,16 @@
 	//  		- article I. - General Provisions
 	//			- article V. - R2B Multiple-family District
 
-	"allowedUses": {
-		"permitted": ["single-family", "two-family", "three-family"], 
-		"conditional": [],
-		"accessoryStructurePermissions": {
-			"bulkOptionality": [
-				{
-					"bulks": ["single-family", "two-family"],
-					"allowances": {
-						"num": 1,
-						"types": "ADU, garage", //I need to check this for factuality
-					}
+	"accessoryStructurePermissions": {
+		"bulkOptionality": [
+			{
+				"bulks": ["single-family", "two-family"],
+				"allowances": {
+					"num": 1,
+					"types": "ADU, garage", //I need to check this for factuality
 				}
-			]
-		}
+			}
+		]
 	},
 	}
 	"constraints": [
