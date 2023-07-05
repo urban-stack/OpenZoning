@@ -64,7 +64,6 @@
 										{
 											"ADtype": "detached",
 											"floorArea": {
-												// "minimum": 300, not sure where this came from atm
 												"maximum": [
 													{
 														"lesserOf": 
@@ -186,40 +185,45 @@
 						
 						},
 						"accessoryStructures": {
-							"footprint": {
-								"total": {
-									"maximum": {
-										"lesserOf" :[
-											{
-												"greaterOf": [
+							"ADtypeOptionality": [
+								{
+									"types": ["detached"],
+									"footprint": {
+										"total": {
+											"maximum": {
+												"lesserOf" :[
 													{
-														"maximum": 676
-													}
+														"greaterOf": [
+															{
+																"maximum": 676
+															}
+															{
+																"maximum": "10% of the lot area"
+															}
+														]
+													},
 													{
-														"maximum": "10% of the lot area"
+														"maximum": 1000,
 													}
 												]
-											},
-											{
-												"maximum": 1000,
 											}
-										]
-									}
-								}
-							},
-							"ADtypeOptionality": [ //we can workshop this title
-								{
-									"types": ["internal", "attached"],
-									"floorArea": {
-										"maximum": [800, ["V1_before 2015", "max. = floor area of the first floor of the primary structure"]]
+										}
 									}
 								}
 							]
-						},
+						}
 					}	
 				]
 			}
-		}
+		},
+		"ADtypeOptionality": [
+			{
+				"types": "internal",
+				"stories": {
+					"maximum": 1
+				}
+			}
+		]
 		{
 			"constraintsModule": ["height", "stories"],
 			"lot": {
@@ -230,66 +234,64 @@
 						
 						},
 						"accessoryStructures": {
-							"ADtypeOptionality": [ //we can workshop this title
-								{
-									"types": "internal",
-									"stories": {
-										"maximum": 1
-									}
-								}
-								{
-									"types": "attached",
-									"height": {
-										"wall": {
-											"maximum": 14
-										},
-										"roof": {
-											"maximum": 20
+							"height": {
+								"maximum": "same as primary structure",
+								"codeLink": "https://library.municode.com/mn/minneapolis/codes/code_of_ordinances?nodeId=MICOOR_TIT20ZOCO_CH537ACUSST_537.50MAHE",
+								"ADtypeOptionality": [
+									{
+										"types": "attached",
+										"height": {
+											"wall": {
+												"maximum": 14
+											},
+											"roof": {
+												"maximum": 20
+											},
+											"codeLink": "(insert link here)"
 										}
-									}
-								}
-								{
-									"types": "detached",
-									"height": {
-										"maximum": 21
-										"codeLink": "https://library.municode.com/mn/minneapolis/codes/code_of_ordinances?nodeId=MICOOR_TIT20ZOCO_CH537ACUSST_537.110ALACUSST"
-									}
-									"districtTypeGroups": [
-										{
-											"districts": ["Residential", "OR1"],
-											"height": {
-												"wall": {
-													"maximum": [10, [14, "..."]]
-												},
-												"roof": {
-													"maximum": [10, [16, "..."], [20, "..."]]
+									},
+									{
+										"types": "detached",
+										"height": {
+											"maximum": 21,
+											"codeLink": "https://library.municode.com/mn/minneapolis/codes/code_of_ordinances?nodeId=MICOOR_TIT20ZOCO_CH537ACUSST_537.110ALACUSST"
+										}
+										"districtTypeGroups":  [
+											{
+												"districts": ["Residential", "OR1"],
+												"height": {
+													"wall": {
+														"maximum": [10, [14, "..."]]
+													},
+													"roof": {
+														"maximum": [10, [16, "..."], [20, "..."]]
+													},
+													"codeLink": "https://library.municode.com/mn/minneapolis/codes/code_of_ordinances?nodeId=MICOOR_TIT20ZOCO_CH537ACUSST_537.50MAHE"
 												}
-											}
+											},
+										]
+									}
+								],
+								"bulkOptionality": [
+									{
+										"bulks": ["single-family", "two-family", "three-family"],
+										"height": {
+											"wall": {
+												"maximum": [10, [14, "..."]]
+											},
+											"roof": {
+												"maximum": [10, [16, "..."], [20, "..."]]
+											},
+											"codeLink": "https://library.municode.com/mn/minneapolis/codes/code_of_ordinances?nodeId=MICOOR_TIT20ZOCO_CH537ACUSST_537.50MAHE"
 										}
-										{
-											"districts": "all others",
-											"bulkOptionality": [
-												{
-													"bulks": ["single-family", "two-family", "three-family"],
-													"height": {
-														"wall": {
-															"maximum": [10, [14, "..."]]
-														},
-														"roof": {
-															"maximum": [10, [16, "..."], [20, "..."]]
-														}
-													}
-												}
-											]
-										}
-									]
-								}
-							]
-						},
-					}	
+									}
+								]
+							}
+						}
+					}
 				]
 			}
-		}
+		},								
 		{
 			"constraintsModule": ["setbacks", "ADlotLocation"],
 			"lot": {
@@ -304,11 +306,11 @@
 				 				"ADtypeOptionality": [
 				 					{
 				 						"type": "attached",
-				 						"ADlotLocation": ["interior side yard", "rear yard"]
+				 						"value": ["interior side yard", "rear yard"]
 				 					}
 				 					{
 				 						"type": "detached",
-				 						"ADlotLocation": "rear yard",
+				 						"value": "rear yard",
 				 					}
 				 				]
 				 			},
@@ -349,35 +351,15 @@
 				 								"fromAnotherStructure": {
 				 									"habitableDwelling": 6
 				 								}
-				 							},			 							
+				 							}			 							
 				 						}
 				 					]
 				 				}
-				 			],
+				 			]
 						}	
 					}
 				]
 			}
 		}
-	],
-}
-
-#Luke [7/5/23]: unable to validate these numbers -- the sections I've found have no general requirements for lotArea nor lotWidth
-{
-	"constraintsModule": ["lotArea", "lotWidth"],
-	"lot": {
-		"bulkOptionality": [
-			{
-				#"bulks": "multi-family",
-				#"lotArea": {
-					#"minimum": 5000, //sqf
-					#"maximum": 7500 //sqf
-				#},
-				"lotWidth": {
-					//"interior": {I'm currently operating under the assumption that width implies side yard
-					"minimum": [15, [22, "driveway"]], //if principal entrance facing the interior lot line
-				}
-			}
-		]
-	}
+	]
 }
