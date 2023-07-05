@@ -11,18 +11,22 @@
 	        		{
 	          			"name": "superDistrict",
 	          			"status": "required",
+					"definesUse": 0
 	        		},
 	        		{
 	          			"name": "base",
-	          			"status": "required"
+	          			"status": "required",
+					"definesUse": 1
 	        		},
 	        		{
 	          			"name": "overlay_1",
 	          			"status": "optional",
+					"definesUse": 0
 	        		},
 	        		{
 	          			"name": "overlay_2",
 	          			"status": "required",
+					"definesUse": 0
 	        		}
 			],
 			"districtsHeirarchy: [
