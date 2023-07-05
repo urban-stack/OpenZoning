@@ -1,9 +1,9 @@
 {
 	"district": {
-		"identifier": "MN-HennepinCo-Minneapolis-R2B", //-all bulks/uses
-		"name": "R2B Multiple-Family District",
+		"identifier": "MN-HennepinCo-Minneapolis-superDistrict", //-all bulks/uses
+		"name": "superDistrict",
 	},
-	"last_updated": "20220705",
+	"last_updated": "20230705",
 	"author": "OZFS Team",
 	//notes: this base district contains all constraints that are "generally" listed, i.e. within the following sections of Minneapolis's code: 
 	//	- chapter 535: Regulations of General Applicability
@@ -83,6 +83,12 @@
 														}
 													}
 												] 
+											}
+										},
+										{
+											"ADtype": ["internal", "attached"],
+											"floorArea": {
+												"maximum": 800
 											}
 										},
 									]
@@ -171,24 +177,6 @@
 			}
 		},
 		{
-			"constraintsModule": ["lotArea", "lotWidth"],
-			"lot": {
-				"bulkOptionality": [
-					{
-						"bulks": "multi-family",
-						"lotArea": {
-							"minimum": 5000, //sqf
-							"maximum": 7500 //sqf
-						},
-						"lotWidth": {
-							//"interior": {I'm currently operating under the assumption that width implies side yard
-							"minimum": [15, [22, "driveway"]], //if principal entrance facing the interior lot line
-						}
-					}
-				]
-			}
-		}
-		{
 			"constraintsModule": "footprint",
 			"lot": {
 				"developmentOptionality": [
@@ -262,6 +250,10 @@
 								}
 								{
 									"types": "detached",
+									"height": {
+										"maximum": 21
+										"codeLink": "https://library.municode.com/mn/minneapolis/codes/code_of_ordinances?nodeId=MICOOR_TIT20ZOCO_CH537ACUSST_537.110ALACUSST"
+									}
 									"districtTypeGroups": [
 										{
 											"districts": ["Residential", "OR1"],
@@ -323,20 +315,21 @@
 				 			"bulkOptionality": [
 				 				{
 				 					"bulk": "ADU",
-				 					"setbacks": {
-					 					"rear": [3, [1, "located in greater of rear 40 feet or 20% of the lot AND setback:fromPrimaryStructure:min.:10 AND height:max: 16'"]], 
-					 					"side": {
-					 						"interior": [3, [1, "located in greater of rear 40 feet or 20% of the lot AND setback:fromPrimaryStructure: min.:10"]]
-					 					},
-					 				},
+				 	
 				 					"ADtypeOptionality": [
 				 						{
 				 							"type": "detached",
 				 							"setbacks": {
+												"rear": [3, [1, "located in greater of rear 40 feet or 20% of the lot AND setback fromPrimaryStructure is a min. of 10' AND height is a max if 16'"], ["primary", "where vehicle access doors face the interior side lot line"], [5, "when coincides with side lot line of a property in a residence or office residence district"]], 
+												"side": {
+													"interior": [3, [1, "located in greater of rear 40 feet or 20% of the lot AND setback fromPrimaryStructure is min.:10"], ["primary", "where vehicle access doors face the interior side lot line"]]
+												},
+												"reverseCorner": ["A detached accessory dwelling unit on a reverse corner lot shall be no closer to the side lot line adjacent to the street than a distance equal to two-thirds (⅔) of the depth of the required front yard specified in the yard requirements table of the district of the adjacent property to the rear"]
 				 								"fromAnotherStructure": {
 				 									"primaryResidentialStructure": 20,
 				 									"habitableDwelling": 6
 				 								}
+												"codeLink": "https://library.municode.com/mn/minneapolis/codes/code_of_ordinances?nodeId=MICOOR_TIT20ZOCO_CH537ACUSST_537.110ALACUSST"
 				 							},
 				 						}
 									]
@@ -367,4 +360,24 @@
 			}
 		}
 	],
+}
+
+#Luke [7/5/23]: unable to validate these numbers -- the sections I've found have no general requirements for lotArea nor lotWidth
+{
+	"constraintsModule": ["lotArea", "lotWidth"],
+	"lot": {
+		"bulkOptionality": [
+			{
+				#"bulks": "multi-family",
+				#"lotArea": {
+					#"minimum": 5000, //sqf
+					#"maximum": 7500 //sqf
+				#},
+				"lotWidth": {
+					//"interior": {I'm currently operating under the assumption that width implies side yard
+					"minimum": [15, [22, "driveway"]], //if principal entrance facing the interior lot line
+				}
+			}
+		]
+	}
 }
