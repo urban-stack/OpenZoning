@@ -293,7 +293,7 @@
 			}
 		},								
 		{
-			"constraintsModule": ["setbacks", "ADlotLocation"],
+			"constraintsModule": ["setbacks", "ADallowedLotLocation"],
 			"lot": {
 				"developmentOptionality": [
 					{
@@ -302,7 +302,7 @@
 
 						},
 				 		"accessoryStructures": {
-				 			"ADlotLocation": {
+				 			"ADallowedLotLocation": {
 				 				"ADtypeOptionality": [
 				 					{
 				 						"type": "attached",
