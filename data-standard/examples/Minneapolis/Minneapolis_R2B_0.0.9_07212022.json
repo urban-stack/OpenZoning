@@ -2,6 +2,7 @@
 	"district": {
 		"identifier": "MN-HennepinCo-Minneapolis-R2B", //-all bulks/uses
 		"name": "R2B Multiple-Family District",
+		"districtType": "base"
 	},
 	"last_updated": "20220721",
 	"author": "OZFS Team",
