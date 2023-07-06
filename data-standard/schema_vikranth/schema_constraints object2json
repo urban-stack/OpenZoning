@@ -31,7 +31,7 @@
       },
       "minItems": 1
     },
-    "bulkOptionalities": {
+    "bulkOptionality": {
       "type": "array",
       "items": {
         "type": "object",
@@ -115,18 +115,22 @@
         "allOf": [
           {
             "$ref": "#/definitions/dynamicConstraints"
+          },
+          {
+            "$comment": "To prevent circular references",
+            "$ref": "#/definitions/ADbulkOptionality"
           }
         ]
       }
     },
-    "ADbulkOptionalities": {
+    "ADbulkOptionality": {
       "$comment": "Recheck this with Luke",
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
           "ADbulk": {
-            "type": "string",
+            "type": "array",
             "items": {
               "enum": [
                 "ADU",
@@ -457,7 +461,7 @@
                     }
                   },
                   {
-                    "$ref": "#/definitions/bulkOptionalities"
+                    "$ref": "#/definitions/bulkOptionality"
                   }
                 ]
               }
@@ -520,19 +524,22 @@
                   "primaryStructures": {
                     "type": "object",
                     "properties": {
-                      "bulkOptionalities": {
-                        "$ref": "#/definitions/bulkOptionalities"
+                      "bulkOptionality": {
+                        "$ref": "#/definitions/bulkOptionality"
                       }
                     }
                   },
                   "accessoryStructures": {
                     "type": "object",
                     "properties": {
-                      "ADbulkOptionalities": {
-                        "$ref": "#/definitions/ADbulkOptionalities"
+                      "ADtypeOptionality": {
+                        "$ref": "#/definitions/bulkOptionality"
                       },
-                      "bulkOptionalities": {
-                        "$ref": "#/definitions/bulkOptionalities"
+                      "ADbulkOptionality": {
+                        "$ref": "#/definitions/ADbulkOptionality"
+                      },
+                      "bulkOptionality": {
+                        "$ref": "#/definitions/bulkOptionality"
                       }
                     }
                   }

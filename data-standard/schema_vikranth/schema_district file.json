@@ -11,6 +11,10 @@
         },
         "name": {
           "type": "string"
+        },
+        "districtType": {
+          "type": "string",
+          "enum": ["superDistrict", "base", "overlay1", "overlay2"]
         }
       },
       "required": ["identifier", "name"]
