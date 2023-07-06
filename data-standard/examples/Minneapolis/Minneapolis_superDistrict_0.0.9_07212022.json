@@ -2,6 +2,7 @@
 	"district": {
 		"identifier": "MN-HennepinCo-Minneapolis-superDistrict", //-all bulks/uses
 		"name": "superDistrict",
+		"districtType": "superDistrict"
 	},
 	"last_updated": "20230705",
 	"author": "OZFS Team",
