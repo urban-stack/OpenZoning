@@ -29,7 +29,7 @@
 					"definesUse": 0
 	        		}
 			],
-			"districtsHeirarchy: [
+			"districtsHeirarchy": [
 			        "superDistrict",
 			        "base",
 			        "overlay_1",
