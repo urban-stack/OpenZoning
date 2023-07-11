@@ -58,6 +58,12 @@
                 }
               }
             }
+          },
+          "interior": {
+            "type": "number"
+          },
+          "corner": {
+            "type": "number"
           }
         }
       },
@@ -152,151 +158,6 @@
         },
         "minimum": {
           "type": "number"
-        },
-        "setbacks": {
-          "type": "object",
-          "properties": {
-            "front": {
-              "type": "array",
-              "items": [
-                {
-                  "type": "number"
-                },
-                {
-                  "type": "array",
-                  "items": [
-                    {
-                      "type": "number"
-                    },
-                    {
-                      "type": "string"
-                    }
-                  ]
-                }
-              ]
-            },
-            "rear": {
-              "type": "array",
-              "items": [
-                {
-                  "type": "number"
-                },
-                {
-                  "type": "array",
-                  "items": [
-                    {
-                      "type": "number"
-                    },
-                    {
-                      "type": "string"
-                    }
-                  ]
-                }
-              ]
-            },
-            "sideInterior": {
-              "type": "object",
-              "properties": {
-                "interior": {
-                  "type": "array",
-                  "items": [
-                    {
-                      "type": "number"
-                    },
-                    {
-                      "type": "array",
-                      "items": [
-                        {
-                          "type": "number"
-                        },
-                        {
-                          "type": "string"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                "corner": {
-                  "type": "array",
-                  "items": [
-                    {
-                      "type": "number"
-                    },
-                    {
-                      "type": "array",
-                      "items": [
-                        {
-                          "type": "number"
-                        },
-                        {
-                          "type": "string"
-                        }
-                      ]
-                    }
-                  ]
-                }
-              }
-            },
-            "fromAnotherStructure": {
-              "type": "object",
-              "properties": {
-                "primaryResidentialStructure": {
-                  "type": "number"
-                },
-                "habitableDwelling": {
-                  "type": "number"
-                }
-              }
-            }
-          }
-        },
-        "lotCoverage": {
-          "type": "object",
-          "properties": {
-            "maximum": {
-              "$ref": "#/definitions/maximum"
-            }
-          }
-        },
-        "allowedUses": {
-          "type": "object",
-          "properties": {
-            "permitted": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "enum": [
-                  "single-family",
-                  "two-family",
-                  "three-family",
-                  "multi-family"
-                ]
-              }
-            },
-            "conditional": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "enum": [
-                  "single-family",
-                  "two-family",
-                  "three-family",
-                  "multi-family"
-                ]
-              }
-            },
-            "accessoryStructuresPermissions": {
-              "type": "object",
-              "properties": {
-                "allowedNumADs": {
-                  "type": "boolean"
-                },
-                "allowedTypesADs": {
-                  "type": "boolean"
-                }
-              }
-            }
-          }
         },
         "height": {
           "$comment": "Renamed this to height instead of heightValue",
@@ -413,7 +274,67 @@
           "type": "object",
           "properties": {
             "maximum": {
-              "$ref": "#/definitions/maximum"
+              "type": "object",
+              "properties": {
+                "leastof": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "oneOf": [
+                      {
+                        "properties": {
+                          "greaterOf": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "maximum": {
+                                  "oneOf": [
+                                    {
+                                      "type": "integer"
+                                    },
+                                    {
+                                      "type": "string"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "properties": {
+                          "maximum": {
+                            "type": "integer"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "floorAreaAD": {
+          "type": "object",
+          "properties": {
+            "maximum": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                ]
+              }
             }
           }
         },
@@ -494,6 +415,165 @@
               }
             }
           }
+        },
+        "setbacks": {
+          "type": "object",
+          "properties": {
+            "front": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                }
+              ]
+            },
+            "rear": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                }
+              ]
+            },
+            "side": {
+              "type": "object",
+              "properties": {
+                "interior": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "corner": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "bulkOptionality": {
+                  "$ref": "#/definitions/bulkOptionality"
+                }
+              }
+            },
+            "fromAnotherStructure": {
+              "type": "object",
+              "properties": {
+                "primaryResidentialStructure": {
+                  "type": "number"
+                },
+                "habitableDwelling": {
+                  "type": "number"
+                }
+              }
+            },
+            "bulkOptionality": {
+              "$ref": "#/definitions/bulkOptionality"
+            },
+            "lotCoverage": {
+              "type": "object",
+              "properties": {
+                "maximum": {
+                  "$ref": "#/definitions/maximum"
+                }
+              }
+            }
+          }
+        },
+        "lotCoverage": {
+          "type": "object",
+          "properties": {
+            "maximum": {
+              "$ref": "#/definitions/maximum"
+            }
+          }
+        },
+        "allowedUses": {
+          "type": "object",
+          "properties": {
+            "permitted": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "single-family",
+                  "two-family",
+                  "three-family",
+                  "multi-family"
+                ]
+              }
+            },
+            "conditional": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "single-family",
+                  "two-family",
+                  "three-family",
+                  "multi-family"
+                ]
+              }
+            },
+            "accessoryStructuresPermissions": {
+              "type": "object",
+              "properties": {
+                "allowedNumADs": {
+                  "type": "boolean"
+                },
+                "allowedTypesADs": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -510,7 +590,7 @@
         {
           "type": "object",
           "properties": {
-            "developmentOptionalities": {
+            "developmentOptionality": {
               "type": "array",
               "items": {
                 "type": "object",
@@ -545,6 +625,15 @@
                   }
                 }
               }
+            },
+            "constraintsModule": {
+              "$ref": "#/definitions/constraintsModule"
+            },
+            "bulkOptionality": {
+              "$ref": "#/definitions/bulkOptionality"
+            },
+            "districtTypeGroups": {
+              "$ref": "#/definitions/districtTypeGroups"
             }
           },
           "additionalProperties": false
