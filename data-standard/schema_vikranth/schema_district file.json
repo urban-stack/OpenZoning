@@ -26,8 +26,50 @@
     "author": {
       "type": "string"
     },
-    "allowedUses": {
-      "$ref": "schema_constraints module.json#/definitions/allowedUses"
+    "usePermissions": {
+      "type": "object",
+      "properties": {
+        "permitted": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "single-family",
+              "two-family",
+              "three-family",
+              "intentional community",
+              "Community residential facility, 0-16 people"
+            ]
+          }
+        },
+        "conditional": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "single-family",
+              "two-family",
+              "three-family",
+              "multi-family",
+              "cluster development"
+            ]
+          }
+        }
+      }
+    },
+    "accessoryStructuresPermissions": {
+      "type": "object",
+      "properties": {
+        "allowedNumADs": {
+          "type": "boolean"
+        },
+        "allowedTypesADs": {
+          "type": "boolean"
+        },
+        "bulkOptionality": {
+          "$ref": "schema_constraints object_final.json#/definitions/bulkOptionality"
+        }
+      }
     }
   },
   "required": ["district", "last_updated", "author", "allowedUses"]
