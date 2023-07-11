@@ -64,6 +64,22 @@
           },
           "corner": {
             "type": "number"
+          },
+          "allowances": {
+            "type": "object",
+            "properties": {
+              "num": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "types": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": ["ADU", "garage"]
+                }
+              }
+            }
           }
         }
       },
@@ -110,11 +126,7 @@
           "ADtype": {
             "type": "array",
             "items": {
-              "enum": [
-                "interior",
-                "attached",
-                "detached"
-              ]
+              "enum": ["interior", "attached", "detached"]
             }
           }
         },
@@ -138,10 +150,7 @@
           "ADbulk": {
             "type": "array",
             "items": {
-              "enum": [
-                "ADU",
-                "garage"
-              ]
+              "enum": ["ADU", "garage"]
             }
           },
           "ADtypeOptionality": {
@@ -158,6 +167,9 @@
         },
         "minimum": {
           "type": "number"
+        },
+        "constraintsModule": {
+          "$ref": "#/definitions/constraintsModule"
         },
         "height": {
           "$comment": "Renamed this to height instead of heightValue",
@@ -373,10 +385,7 @@
                       "districts": {
                         "type": "array",
                         "items": {
-                          "enum": [
-                            "district1",
-                            "district2"
-                          ]
+                          "enum": ["district1", "district2"]
                         }
                       }
                     }
@@ -596,10 +605,7 @@
                 "type": "object",
                 "properties": {
                   "developmentType": {
-                    "enum": [
-                      "primary/accessory",
-                      "cluster development"
-                    ]
+                    "enum": ["primary/accessory", "cluster development"]
                   },
                   "primaryStructures": {
                     "type": "object",
@@ -641,7 +647,5 @@
       ]
     }
   },
-  "required": [
-    "constraintsModule"
-  ]
+  "required": ["constraintsModule"]
 }
