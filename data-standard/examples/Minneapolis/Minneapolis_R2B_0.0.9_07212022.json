@@ -6,7 +6,7 @@
 	},
 	"last_updated": "20220721",
 	"author": "OZFS Team",
-	"usePermissions": {
+	"allowedUses": {
 		"permitted": ["single-family", "two-family", "three-family", "intentional community", "Community residential facility, 0-16 people"],
 		"conditional": ["cluster development"]
 	},
