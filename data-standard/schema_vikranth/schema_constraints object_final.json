@@ -135,7 +135,7 @@
             "$ref": "#/definitions/dynamicConstraints"
           },
           {
-            "$comment": "To prevent circular references",
+            "$comment": "prevent circular references",
             "$ref": "#/definitions/ADbulkOptionality"
           }
         ]
@@ -588,64 +588,71 @@
     }
   },
   "properties": {
-    "constraintsModule": {
-      "$ref": "#/definitions/constraintsModule"
-    },
-    "lot": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/dynamicConstraints"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "developmentOptionality": {
-              "type": "array",
-              "items": {
+    "constraints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "constraintsModule": {
+            "$ref": "#/definitions/constraintsModule"
+          },
+          "lot": {
+            "allOf": [
+              {
+                "$ref": "#/definitions/dynamicConstraints"
+              },
+              {
                 "type": "object",
                 "properties": {
-                  "developmentType": {
-                    "enum": ["primary/accessory", "cluster development"]
-                  },
-                  "primaryStructures": {
-                    "type": "object",
-                    "properties": {
-                      "bulkOptionality": {
-                        "$ref": "#/definitions/bulkOptionality"
+                  "developmentOptionality": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "developmentType": {
+                          "enum": ["primary/accessory", "cluster development"]
+                        },
+                        "primaryStructures": {
+                          "type": "object",
+                          "properties": {
+                            "bulkOptionality": {
+                              "$ref": "#/definitions/bulkOptionality"
+                            }
+                          }
+                        },
+                        "accessoryStructures": {
+                          "type": "object",
+                          "properties": {
+                            "ADtypeOptionality": {
+                              "$ref": "#/definitions/bulkOptionality"
+                            },
+                            "ADbulkOptionality": {
+                              "$ref": "#/definitions/ADbulkOptionality"
+                            },
+                            "bulkOptionality": {
+                              "$ref": "#/definitions/bulkOptionality"
+                            }
+                          }
+                        }
                       }
                     }
                   },
-                  "accessoryStructures": {
-                    "type": "object",
-                    "properties": {
-                      "ADtypeOptionality": {
-                        "$ref": "#/definitions/bulkOptionality"
-                      },
-                      "ADbulkOptionality": {
-                        "$ref": "#/definitions/ADbulkOptionality"
-                      },
-                      "bulkOptionality": {
-                        "$ref": "#/definitions/bulkOptionality"
-                      }
-                    }
+                  "constraintsModule": {
+                    "$ref": "#/definitions/constraintsModule"
+                  },
+                  "bulkOptionality": {
+                    "$ref": "#/definitions/bulkOptionality"
+                  },
+                  "districtTypeGroups": {
+                    "$ref": "#/definitions/districtTypeGroups"
                   }
-                }
+                },
+                "additionalProperties": false
               }
-            },
-            "constraintsModule": {
-              "$ref": "#/definitions/constraintsModule"
-            },
-            "bulkOptionality": {
-              "$ref": "#/definitions/bulkOptionality"
-            },
-            "districtTypeGroups": {
-              "$ref": "#/definitions/districtTypeGroups"
-            }
-          },
-          "additionalProperties": false
+            ]
+          }
         }
-      ]
+      }
     }
-  },
-  "required": ["constraintsModule"]
+  }
 }

@@ -1,0 +1,233 @@
+{
+  "municipality": "Minneapolis",
+  "state": "Minnesota",
+  "last_updated": "20230704",
+  "author": "LukeReeve",
+  "zoningCodes": [
+    {
+      "title": "pre-Minneapolis 2040 plan",
+      "dateAdopted": "06_30_23",
+      "districtTypes": [
+        {
+          "name": "superDistrict",
+          "status": "required",
+          "definesUse": 0
+        },
+        {
+          "name": "base",
+          "status": "required",
+          "definesUse": 1
+        },
+        {
+          "name": "overlay_1",
+          "status": "optional",
+          "definesUse": 0
+        },
+        {
+          "name": "overlay_2",
+          "status": "required",
+          "definesUse": 0
+        }
+      ],
+      "districtsHeirarchy": ["superDistrict", "base", "overlay_1", "overlay_2"],
+      "districts": [
+        {
+          "name": "R1 Multiple-family District",
+          "type": "base"
+        },
+        {
+          "name": "R1A Multiple-family District",
+          "type": "base"
+        },
+        {
+          "name": "R2 Multiple-family District",
+          "type": "base"
+        },
+        {
+          "name": "R2B Multiple-family District",
+          "type": "base"
+        },
+        {
+          "name": "R3 Multiple-family District",
+          "type": "base"
+        },
+        {
+          "name": "R4 Multiple-family District",
+          "type": "base"
+        },
+        {
+          "name": "R5 Multiple-family District",
+          "type": "base"
+        },
+        {
+          "name": "R6 Multiple-family District",
+          "type": "base"
+        },
+        {
+          "name": "OR1 Neighborhood Office Residence District",
+          "type": "base"
+        },
+        {
+          "name": "OR2 High Density Office Residence District",
+          "type": "base"
+        },
+        {
+          "name": "OR3 Institutional Office Residence District",
+          "type": "base"
+        },
+        {
+          "name": "C1 Neighborhood Commercial District",
+          "type": "base"
+        },
+        {
+          "name": "C2 Neighborhood Corridor Commercial District",
+          "type": "base"
+        },
+        {
+          "name": "C3A Community Activity Center District",
+          "type": "base"
+        },
+        {
+          "name": "C3S Community Shopping Center District",
+          "type": "base"
+        },
+        {
+          "name": "C4 General Commercial District",
+          "type": "base"
+        },
+        {
+          "name": "B4 Downtown Business District",
+          "type": "base"
+        },
+        {
+          "name": "B4S Downtown Service District",
+          "type": "base"
+        },
+        {
+          "name": "B4C Downtown Commercial District",
+          "type": "base"
+        },
+        {
+          "name": "B4N Downtown Neighborhood District",
+          "type": "base"
+        },
+        {
+          "name": "PO Pedestrian Oriented Overlay District",
+          "type": "overlay_1"
+        },
+        {
+          "name": "IL Industrial Living Overlay District",
+          "type": "overlay_1"
+        },
+        {
+          "name": "TP Transitional Parking Overlay District",
+          "type": "overlay_1"
+        },
+        {
+          "name": "DP Downtown Parking Overlay District",
+          "type": "overlay_1"
+        },
+        {
+          "name": "B4H Downtown Housing Overlay District",
+          "type": "overlay_1"
+        },
+        {
+          "name": "NM Nicollet Mall Overlay District",
+          "type": "overlay_1"
+        },
+        {
+          "name": "HA Harmon Area Overlay District",
+          "type": "overlay_1"
+        },
+        {
+          "name": "NP North Phillips Overlay District",
+          "type": "overlay_1"
+        },
+        {
+          "name": "AP Airport Overlay District",
+          "type": "overlay_1"
+        },
+        {
+          "name": "WB West Broadway Overlay District",
+          "type": "overlay_1"
+        },
+        {
+          "name": "UA University Area Overlay District",
+          "type": "overlay_1"
+        },
+        {
+          "name": "DS Downtown Shelter Overlay District",
+          "type": "overlay_1"
+        },
+        {
+          "name": "SZ Split Zoning Overlay District",
+          "type": "overlay_1"
+        },
+        {
+          "name": "SH Shoreland Overlay District",
+          "type": "overlay_1"
+        },
+        {
+          "name": "FP Floodplain Overlay District",
+          "type": "overlay_1"
+        },
+        {
+          "name": "MR Mississippi River Corridor Critical Area Overlay District",
+          "type": "overlay_1"
+        },
+        {
+          "name": "BFI1 Interior 1 Built Form Overlay District",
+          "type": "overlay_2"
+        },
+        {
+          "name": "BFI2 Interior 2 Built Form Overlay District",
+          "type": "overlay_2"
+        },
+        {
+          "name": "BFI3 Interior 3 Built Form Overlay District",
+          "type": "overlay_2"
+        },
+        {
+          "name": "BFC4 Corridor 4 Built Form Overlay District",
+          "type": "overlay_2"
+        },
+        {
+          "name": "BFC6 Corridor 6 Built Form Overlay District",
+          "type": "overlay_2"
+        },
+        {
+          "name": "BFT10 Transit 10 Built Form Overlay District",
+          "type": "overlay_2"
+        },
+        {
+          "name": "BFT15 Transit 15 Built Form Overlay District",
+          "type": "overlay_2"
+        },
+        {
+          "name": "BFT20 Transit 20 Built Form Overlay District",
+          "type": "overlay_2"
+        },
+        {
+          "name": "BFT30 Transit 30 Built Form Overlay District",
+          "type": "overlay_2"
+        },
+        {
+          "name": "BFC50 Core 50 Built Form Overlay District",
+          "type": "overlay_2"
+        },
+        {
+          "name": "BFPA Parks Built Form Overlay District",
+          "type": "overlay_2"
+        },
+        {
+          "name": "BFPR Production Built Form Overlay District",
+          "type": "overlay_2"
+        }
+      ]
+    },
+    {
+      "dataAdopted": "07_1_23",
+      "title": "Minneapolis 2040 plan"
+    }
+  ]
+}

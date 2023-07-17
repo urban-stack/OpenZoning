@@ -2,6 +2,7 @@
   "$id": "District File Schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
+  "$comment": "Add a reference to constraints file",
   "properties": {
     "district": {
       "type": "object",
@@ -70,7 +71,9 @@
           "$ref": "schema_constraints object_final.json#/definitions/bulkOptionality"
         }
       }
+    },
+    "constraints": {
+      "$ref": "schema_constraints object_final.json#/properties/constraints"
     }
-  },
-  "required": ["district", "last_updated", "author", "allowedUses"]
+  }
 }

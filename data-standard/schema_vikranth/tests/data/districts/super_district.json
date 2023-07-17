@@ -1,0 +1,55 @@
+{
+  "district": {
+    "identifier": "MN-HennepinCo-Minneapolis-superDistrict",
+    "name": "superDistrict",
+    "districtType": "superDistrict"
+  },
+  "last_updated": "20230705",
+  "author": "OZFS Team",
+  "accessoryStructurePermissions": {
+    "bulkOptionality": [
+      {
+        "bulks": ["single-family", "two-family"],
+        "allowances": {
+          "num": 1,
+          "types": "ADU, garage"
+        }
+      }
+    ]
+  },
+  "constraints": [
+    {
+      "constraintsModule": ["floorArea", "floorWidth"],
+      "lot": {
+        "floorArea": {
+          "unit": {
+            "standard": {
+              "minimum": 500
+            },
+            "efficiency": {
+              "minimum": 350
+            }
+          }
+        },
+        "developmentOptionality": [
+          {
+            "developmentType": "primary/accessory",
+            "primaryStructures": {
+              "bulkOptionality": [
+                {
+                  "bulks": ["single-family", "two-family", "three-family"],
+                  "floorwidth": {
+                    "minimum": {
+                      "value": 18,
+                      "applicableFloorArea": 0.8
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

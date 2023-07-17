@@ -1,6 +1,6 @@
 {
 	"district": {
-		"identifier": "MN-HennepinCo-Minneapolis-R2B", //-all bulks/uses
+		"identifier": "MN-HennepinCo-Minneapolis-R2B", 
 		"name": "R2B Multiple-Family District",
 		"districtType": "base"
 	},

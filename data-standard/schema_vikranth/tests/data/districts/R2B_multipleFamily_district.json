@@ -1,0 +1,60 @@
+{
+  "district": {
+    "identifier": "MN-HennepinCo-Minneapolis-R2B",
+    "name": "R2B Multiple-Family District",
+    "districtType": "base"
+  },
+  "last_updated": "20220721",
+  "author": "OZFS Team",
+  "usePermissions": {
+    "permitted": [
+      "single-family",
+      "two-family",
+      "three-family",
+      "intentional community",
+      "Community residential facility, 0-16 people"
+    ],
+    "conditional": ["cluster development"]
+  },
+  "constraints": [
+    {
+      "constraintsModule": ["lotArea", "lotWidth"],
+      "lot": {
+        "bulkOptionality": [
+          {
+            "bulks": ["one-family", "two-family", "three-family"],
+            "lotArea": {
+              "minimum": 5000,
+              "maximum": 7500
+            },
+            "lotWidth": {
+              "minimum": 40
+            }
+          }
+        ],
+        "developmentOptionality": [
+          {
+            "developmentType": "cluster development",
+            "lotArea": {
+              "minimum": [
+                {
+                  "greaterOf": [
+                    {
+                      "minimum": 5000
+                    },
+                    {
+                      "maximum": "1,666 sq. ft. per dwelling unit"
+                    }
+                  ]
+                }
+              ]
+            },
+            "lotWidth": {
+              "minimum": 40
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

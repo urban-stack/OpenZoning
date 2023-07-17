@@ -1,0 +1,176 @@
+{
+  "district": {
+    "identifier": "MN-HennepinCo-Minneapolis-Overall",
+    "name": "Minneapolis (Super) Definition File",
+    "base": 1,
+    "districtType": "superDistrict"
+  },
+  "last_updated": "20220707",
+  "author": "OZFS Team",
+  "permittedUses": {
+    "permitted": ["single-family", "two-family", "three-family"],
+    "conditional": []
+  },
+  "constraints": {
+    "lot": {
+      "structures": [
+        {
+          "structureNum": 2,
+          "structureName": "Accessory",
+          "structureBulkOptions": [
+            {
+              "structureBulkNum": 1,
+              "structureBulkName": "ADU",
+              "contributesToFloorArea": 0,
+              "usesAllowedIn": [
+                {
+                  "uses": ["single-family", "two-family"],
+                  "allowedNumberOfBulks": 1
+                }
+              ],
+              "placementAllowed": ["internal", "attached", "detached"],
+              "internal": {
+                "stories": {
+                  "max": 1,
+                  "floorArea": {
+                    "maximum": [
+                      800,
+                      [
+                        "V1_before 2015",
+                        "max. = floor area of the first floor of the primary structure"
+                      ]
+                    ]
+                  }
+                }
+              },
+              "attached": {
+                "basePlanes": [
+                  {
+                    "base0": "ground",
+                    "height": 0,
+                    "setbacks": {
+                      "all": 3
+                    }
+                  },
+                  {
+                    "baseMax": "topOfRoof",
+                    "height": 21
+                  }
+                ],
+                "stories": {
+                  "floorArea": {
+                    "maximum": [
+                      800,
+                      [
+                        "V1_before 2015",
+                        "max. = floor area of the first floor of the primary structure"
+                      ]
+                    ]
+                  }
+                }
+              },
+              "detached": {
+                "basePlanes": [
+                  {
+                    "base0": "ground",
+                    "height": 0,
+                    "setbacks": {
+                      "all": 3,
+                      "fromPrimaryStructure": 20
+                    }
+                  },
+                  {
+                    "baseMax": "topOfRoof",
+                    "height": 21
+                  }
+                ],
+                "stories": {
+                  "floorArea": {
+                    "minimum": 300,
+                    "maximum": [
+                      1300,
+                      [0.16, "of lot area", "maximum of 1600sqft"]
+                    ]
+                  },
+                  "floors": [
+                    {
+                      "floorNum": 0,
+                      "floorName": "ground",
+                      "footprint": {
+                        "maximum": [
+                          676,
+                          [0.1, "of lot area", "maximum of 1000sqft"]
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "structureBulkNum": 2,
+              "structureBulkName": "garage",
+              "contributesToFloorArea": 0,
+              "usesAllowedIn": [
+                {
+                  "uses": ["single-family", "two-family", "three-family"],
+                  "allowedNumberOfBulks": 1
+                }
+              ],
+              "attached": {
+                "basePlanes": [
+                  {
+                    "base0": "ground",
+                    "height": 0,
+                    "setbacks": {
+                      "front": [15, "if garage door faces front lot line"],
+                      "allOthers": [
+                        3,
+                        [0, "when garage doors face the lot line"]
+                      ]
+                    },
+                    "width": {
+                      "front": {
+                        "max": [0.6, "of front length of structure"]
+                      }
+                    }
+                  }
+                ]
+              },
+              "detached": {
+                "basePlanes": [
+                  {
+                    "base0": "ground",
+                    "height": 0,
+                    "setbacks": {
+                      "all": [3, [0, "when garage doors face the lot line"]],
+                      "fromPrimaryStructure": 20
+                    }
+                  },
+                  {
+                    "base1": "topOfWall",
+                    "height": {
+                      "default": 10
+                    }
+                  },
+                  {
+                    "baseMax": "topOfRoof",
+                    "height": {
+                      "default": 13,
+                      "other": [16, 20]
+                    }
+                  }
+                ],
+                "stories": {
+                  "floorArea": {
+                    "maximum": [676, [0.1, "lot area", "maximum of 1000sqft"]]
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "constraint_1": {
+    "superDistrict-constraintsModule_0": "height",
+    "overlay_1-constraintsModule_1": "stories",
+    "overlay_1-lot-developmentOptionality_0-developmentType": "primary/accessory",
+    "superDistrict-lot-developmentOptionality_0-primaryStructures-bulkOptionality_0-bulks": [
+      "single-family",
+      "two-family"
+    ],
+    "overlay_1-lot-developmentOptionality_0-primaryStructures-bulkOptionality_0-height-wall-max": 28,
+    "overlay_1-lot-developmentOptionality_0-primaryStructures-bulkOptionality_0-height-roof-max": 33,
+    "superDistrict-lot-developmentOptionality_0-primaryStructures-bulkOptionality_0-stories-max": 2.5,
+    "superDistrict-lot-developmentOptionality_0-primaryStructures-bulkOptionality_1-bulks": [
+      "three-family",
+      "cluster"
+    ],
+    "overlay_1-lot-developmentOptionality_0-primaryStructures-bulkOptionality_1-height-maximum": 42,
+    "overlay_1-lot-developmentOptionality_0-primaryStructures-bulkOptionality_1-stories-maximum": 3
+  },
+
+  "constraint_4": {
+    "overlay_1-constraintsModule_0": "lotArea",
+    "overlay_1-constraintsModule_1": "lotWidth",
+    "overlay_1-lot-developmentOptionality_0-developmentType": "primary/accessory",
+    "overlay_1-lot-developmentOptionality_0-bulkOptionality_0-bulks": "multi-family",
+    "overlay_1-lot-developmentOptionality_0-bulkOptionality_0-lotArea-minimum": 5000,
+    "overlay_1-lot-developmentOptionality_0-bulkOptionality_0-lotArea-maximum": 18000,
+    "overlay_1-lot-developmentOptionality_0-bulkOptionality_0-lotWidth-minimum": 40
+  },
+  "constraint_5": {
+    "overlay_1-constraintsModule": "lotCoverage",
+    "overlay_1-lot-lotCoverage-maximum": 0.6
+  }
+}
