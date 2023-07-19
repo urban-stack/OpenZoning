@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "test_lot",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "fid": 123284, "OBJECTID": 419459, "PID": "3402924320195", "HOUSE_NO": 2708, "FRAC_HOUSE_NO": "   ", "STREET_NM": "GRAND AVE S         ", "CONDO_NO": "     ", "LOT": "   ", "BLOCK": "004", "BUILD_YR": "1968", "PARCEL_AREA": 11448.8344399, "LAT": 44.953408, "LON": -93.284623, "ShapeSTArea": 1062.706947682804, "ShapeSTLength": 133.86705041759771 }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -93.2843697, 44.9534968 ], [ -93.2843694, 44.9535325 ], [ -93.2848896, 44.9535328 ], [ -93.2848899, 44.9534971 ], [ -93.2848905, 44.9534231 ], [ -93.2848911, 44.9533381 ], [ -93.2848914, 44.953301 ], [ -93.2848914, 44.9532997 ], [ -93.2843712, 44.9532994 ], [ -93.2843709, 44.9533378 ], [ -93.2843697, 44.9534968 ] ] ] } }
+]
+}
