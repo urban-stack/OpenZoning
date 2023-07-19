@@ -3,12 +3,17 @@
 .RData
 .Ruserdata
 *.Rproj
+*.lock
+
+#geospatial helper files
+*.gpkg-shm
+*.gpkg-wal
+*.qmd
 
 # Large shapefiles from MAPC
 MAPC-files/Base Districts/
 MAPC-files/Overlay Districts/
 MAPC-files/~$PC Zoning Atlas Technical Appendix notes.docx
-*.lock
-*.gpkg-shm
-*.gpkg-wal
-*.qmd
+
+#Script outputs
+geo-standard/output/
