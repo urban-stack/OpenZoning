@@ -1,25 +1,38 @@
 import json as json
 
+# Add base_data, and change this accordingly on how to handle it asking Luke
 
-def extract_nested_constraints(nested_dict, parent_key=""):
 
-    items = []
+def extract_nested_constraints(nested_dict, base_data=None):
+    constraints = {}
     for k, v in nested_dict.items():
-        new_key = f"{parent_key}-{k}" if parent_key else k
-        if k == "bulks":
-            items.append((new_key, v))
+        if k == "bulkOptionality":
+            for option in v:
+                # Check if "bulks" is a list or a string and convert to list if necessary
+                bulks = option["bulks"] if isinstance(
+                    option["bulks"], list) else [option["bulks"]]
+
+                for bulk in bulks:
+                    if bulk not in constraints:
+                        constraints[bulk] = {}
+                    for key, value in option.items():
+                        if key != "bulks":
+                            constraints[bulk][key] = value
+
         elif isinstance(v, dict):
-            items.extend(extract_nested_constraints(v, new_key).items())
+            constraints.update(extract_nested_constraints(v, base_data))
         elif isinstance(v, list):
             for i, item in enumerate(v):
                 if isinstance(item, dict):
-                    items.extend(extract_nested_constraints(
-                        item, f"{new_key}_{i}").items())
-                else:
-                    items.append((f"{new_key}_{i}", item))
+                    constraints.update(
+                        extract_nested_constraints(item, base_data))
         else:
-            items.append((new_key, v))
-    return dict(items)
+            # Check if 'bulkOptionality' was not encountered and base_data is available
+            if not any("bulkOptionality" in bulk for bulk in constraints) and base_data:
+                for bulk in base_data["usePermissions"]["permitted"]:
+                    constraints[bulk] = {k: v}
+
+    return constraints
 
 
 def extract_nested_constraints_wrapper(file_path):
@@ -27,11 +40,27 @@ def extract_nested_constraints_wrapper(file_path):
     data = json.load(
         open(file_path, 'r'))
 
-    print("here")
+    base_data = json.load(
+        open('../schema_vikranth/tests/data/districts/R2B_multipleFamily_district.json', 'r'))
 
     constraints = {}
     for i, constraint in enumerate(data['constraints']):
-        constraints[f"constraint_{i+1}"] = extract_nested_constraints(
-            constraint, data['district']['districtType'])
+        # constraints[f"constraint_{i+1}"] = extract_nested_constraints(
+        #     constraint,  base_data)
 
-    # print(constraints)
+        temp_constraint = extract_nested_constraints(
+            constraint,  base_data)
+
+        for key, value in temp_constraint.items():
+            if key in constraints:
+                constraints[key].update(value)
+            else:
+                constraints[key] = value
+
+    # print({data['district']['districtType']: constraints})
+
+    return {data['district']['districtType']: constraints}
+
+
+# extract_nested_constraints_wrapper(
+#     '../schema_vikranth/tests/data/districts/BFI3_district.json')

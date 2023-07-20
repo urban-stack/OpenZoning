@@ -1,34 +1,68 @@
 {
-  "constraint_1": {
-    "superDistrict-constraintsModule_0": "height",
-    "overlay_1-constraintsModule_1": "stories",
-    "overlay_1-lot-developmentOptionality_0-developmentType": "primary/accessory",
-    "superDistrict-lot-developmentOptionality_0-primaryStructures-bulkOptionality_0-bulks": [
-      "single-family",
-      "two-family"
-    ],
-    "overlay_1-lot-developmentOptionality_0-primaryStructures-bulkOptionality_0-height-wall-max": 28,
-    "overlay_1-lot-developmentOptionality_0-primaryStructures-bulkOptionality_0-height-roof-max": 33,
-    "superDistrict-lot-developmentOptionality_0-primaryStructures-bulkOptionality_0-stories-max": 2.5,
-    "superDistrict-lot-developmentOptionality_0-primaryStructures-bulkOptionality_1-bulks": [
-      "three-family",
-      "cluster"
-    ],
-    "overlay_1-lot-developmentOptionality_0-primaryStructures-bulkOptionality_1-height-maximum": 42,
-    "overlay_1-lot-developmentOptionality_0-primaryStructures-bulkOptionality_1-stories-maximum": 3
+  "superDistrict": {
+    "single-family": {
+      "floorwidth": { "minimum": { "value": 18, "applicableFloorArea": 0.8 } }
+    },
+    "two-family": {
+      "floorwidth": { "minimum": { "value": 18, "applicableFloorArea": 0.8 } }
+    },
+    "three-family": {
+      "floorwidth": { "minimum": { "value": 18, "applicableFloorArea": 0.8 } }
+    },
+    "intentional community": { "developmentType": "primary/accessory" },
+    "Community residential facility, 0-16 people": {
+      "developmentType": "primary/accessory"
+    }
   },
-
-  "constraint_4": {
-    "overlay_1-constraintsModule_0": "lotArea",
-    "overlay_1-constraintsModule_1": "lotWidth",
-    "overlay_1-lot-developmentOptionality_0-developmentType": "primary/accessory",
-    "overlay_1-lot-developmentOptionality_0-bulkOptionality_0-bulks": "multi-family",
-    "overlay_1-lot-developmentOptionality_0-bulkOptionality_0-lotArea-minimum": 5000,
-    "overlay_1-lot-developmentOptionality_0-bulkOptionality_0-lotArea-maximum": 18000,
-    "overlay_1-lot-developmentOptionality_0-bulkOptionality_0-lotWidth-minimum": 40
-  },
-  "constraint_5": {
-    "overlay_1-constraintsModule": "lotCoverage",
-    "overlay_1-lot-lotCoverage-maximum": 0.6
+  "overlay_1": {
+    "single-family": {
+      "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
+      "stories": { "max": 2.5 },
+      "interior": 5,
+      "corner": 8,
+      "districtTypes": "allOthers",
+      "FAR": { "residential": 0.5 },
+      "developmentType": "primary/accessory",
+      "maximum": 0.6
+    },
+    "two-family": {
+      "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
+      "stories": { "max": 2.5 },
+      "interior": 5,
+      "corner": 8,
+      "districtTypes": "allOthers",
+      "FAR": { "residential": 0.6 },
+      "developmentType": "primary/accessory",
+      "maximum": 0.6
+    },
+    "three-family": {
+      "height": { "maximum": 42 },
+      "stories": { "maximum": 3 },
+      "interior": 5,
+      "corner": 8,
+      "districtTypes": "allOthers",
+      "FAR": { "residential": 0.7 },
+      "developmentType": "primary/accessory",
+      "maximum": 0.6
+    },
+    "intentional community": {
+      "developmentType": "primary/accessory",
+      "rear": 5,
+      "districtTypes": "allOthers",
+      "maximum": 0.6
+    },
+    "Community residential facility, 0-16 people": {
+      "developmentType": "primary/accessory",
+      "rear": 5,
+      "districtTypes": "allOthers",
+      "maximum": 0.6
+    },
+    "cluster": { "height": { "maximum": 42 }, "stories": { "maximum": 3 } },
+    "allOthers": { "interior": "...", "corner": "..." },
+    "four-family": { "FAR": { "residential": 1.6 } },
+    "multi-family": {
+      "lotArea": { "minimum": 5000, "maximum": 18000 },
+      "lotWidth": { "minimum": 40 }
+    }
   }
 }

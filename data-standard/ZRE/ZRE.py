@@ -5,17 +5,40 @@ def merge_dictionaries_based_on_hierarchy(dicts, hierarchy):
     """
     Function to merge dictionaries based on a hierarchy. 
     In case of duplicate keys, the value from the dictionary with the higher hierarchy is used.
+
+    Since the format of the constraints returned is:
+
+    {
+
+    overlay_2: {
+    Height:{}
+    },
+    overlay_1: {
+    FAR:{}
+    },
+    base: {
+    FAR:{}
+    },
+    superDistrict: {
+    FAR:{}
+    }
+
+    we can start from superDistrict and go down the hierarchy, updating if there are similar keys.
+
+    }
     """
     merged_dict = {}
-    for d in dicts:
-        for key, value in d.items():
-            if key.split('-')[0] in hierarchy:
-                if key in merged_dict:
-                    # If the key is already in the merged_dict, only update the value if the current hierarchy is higher
-                    if hierarchy.index(key.split('-')[0]) > hierarchy.index(merged_dict[key].split('-')[0]):
-                        merged_dict[key] = value
-                else:
+
+    # final_list = []
+
+    for hierarchy_level in hierarchy:
+        for key, value in dicts.items():
+            if key == hierarchy_level:
+                if key not in merged_dict:
                     merged_dict[key] = value
+                else:
+                    merged_dict[key].update(value)
+
     return merged_dict
 
 
@@ -23,6 +46,10 @@ def merge_dictionaries_based_on_hierarchy(dicts, hierarchy):
 districtsHierarchy = ["superDistrict", "base", "overlay_1", "overlay_2"]
 
 # Test extractions
+"../"
+
+
+# Make this more automated basically running the files in a for loop
 
 file1 = extract_nested_constraints_wrapper(
     '../schema_vikranth/tests/data/districts/BFI3_district.json')
@@ -30,12 +57,19 @@ file2 = extract_nested_constraints_wrapper(
     '../schema_vikranth/tests/data/districts/super_district.json')
 # file3 = extract_nested_constraints_wrapper(
 #     '../schema_vikranth/tests/data/districts/overall.json')
+print("-----------------------------------")
+# print(file1)
+print("-----------------------------------")
+# print(file2)
+print("-------------****************---------------")
 
-print(extract_nested_constraints_wrapper)
-print(file1)
+
+merged_dict = {**file1, **file2}
 
 
 # Merge the dictionaries based on the hierarchy
-merged_dict_hierarchy = merge_dictionaries_based_on_hierarchy(
-    [file1, file2], districtsHierarchy)
-merged_dict_hierarchy
+ZRE_output = merge_dictionaries_based_on_hierarchy(
+    merged_dict, districtsHierarchy)
+
+print("-------------********THISSSSS********---------------")
+print(ZRE_output)
