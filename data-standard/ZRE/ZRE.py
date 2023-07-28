@@ -3,7 +3,7 @@ from nested_constraints_extractor import extract_nested_constraints_wrapper
 
 def merge_dictionaries_based_on_hierarchy(dicts, hierarchy):
     """
-    Function to merge dictionaries based on a hierarchy. 
+    Function to merge dictionaries based on a hierarchy.
     In case of duplicate keys, the value from the dictionary with the higher hierarchy is used.
 
     Since the format of the constraints returned is:
@@ -68,8 +68,25 @@ merged_dict = {**file1, **file2}
 
 
 # Merge the dictionaries based on the hierarchy
-ZRE_output = merge_dictionaries_based_on_hierarchy(
+merge_output = merge_dictionaries_based_on_hierarchy(
     merged_dict, districtsHierarchy)
+
+aggregate_data = {}
+
+for key in merge_output:
+
+    for sub_key in merge_output[key]:
+
+        if sub_key in aggregate_data:
+            aggregate_data[sub_key].update(merge_output[key][sub_key])
+
+        else:
+            aggregate_data[sub_key] = merge_output[key][sub_key]
+
+ZRE_output = {
+    "final_constraints": aggregate_data,
+    **merge_output
+}
 
 print("-------------********THISSSSS********---------------")
 print(ZRE_output)
