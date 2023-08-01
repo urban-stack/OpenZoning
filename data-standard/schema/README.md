@@ -5,4 +5,4 @@ There are 4 Open Zoning schemas that dictate the format of information within th
 # Municipality file
 Information in the Municipality file is formatted per the "Municipality Schema". 
 * love
-** love
+* love
