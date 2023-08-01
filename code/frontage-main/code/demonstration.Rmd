@@ -1,0 +1,263 @@
+---
+title: "Finding the front"
+author: "Carole Voulgaris"
+date: "2023-07-13"
+output: html_document
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+The purpose of this page is to test and demonstrate an approach to
+finding the front of a parcel. This is assuming we have a dataset with
+the boundaries of all parcels in a continguous area if interest and
+another dataset defining street centerlines.
+
+This analysis uses the following R packages:
+
+```{r, message=FALSE, results='hide', warning=FALSE}
+library(tidyverse)
+library(sf)
+library(here)
+library(nngeo)
+library(units)
+library(knitr)
+library(RColorBrewer)
+library(leaflet)
+
+here("code",
+     "helpers.R") |>
+  source()
+```
+
+## Sample data
+
+First I'll read in the test data.
+
+```{r, message=FALSE, results='hide'}
+parcels <- here("data",
+                "test-parcels.geojson") |>
+  st_read()
+
+streets <- here("data",
+                "test-streets.geojson") |>
+  st_read()
+```
+
+Here are the parcels:
+
+```{r}
+ggplot(parcels) +
+  geom_sf() +
+  theme_void()
+```
+
+And here are the centerlines:
+
+```{r}
+ggplot(streets) +
+  geom_sf() +
+  theme_void()
+```
+
+## Even smaller sample
+
+Actually, let's start with an even smaller sample of parcels.
+
+```{r}
+fewer_parcels <- parcels[2:55,] |>
+  select(PID)
+
+fewer_parcels_bbox <- st_buffer(fewer_parcels, 50) |>
+  st_bbox()
+
+ggplot(fewer_parcels) +
+  geom_sf() +
+  geom_sf(data = streets,
+          linewidth = 2,
+          color = "gray") +
+  coord_sf(xlim = c(fewer_parcels_bbox["xmin"],
+                    fewer_parcels_bbox["xmax"]),
+           ylim = c(fewer_parcels_bbox["ymin"],
+                    fewer_parcels_bbox["ymax"])) +
+  theme_void()
+```
+
+## Find label the sides
+
+Here's a function that will label the sides.
+
+The front of the parcel will be the side that's not shared with another
+parcel and is closest to its closest parallel street. If the closest
+street segment isn't parallel (within a threshold) I'm assuming the
+second-closest is.
+
+The rear will be parallel to the front, and everything that isn't a
+front or a rear will be a side.
+
+```{r, message=FALSE, warning=FALSE}
+
+label_sides <- function(my_parcels,
+                        my_streets,
+                        close_threshold = 3,
+                        parallel_threshold = 15) {
+  
+  edges <- my_parcels |>
+    st_segments(progress = FALSE) 
+  
+  edges$edge_id <- seq(1:nrow(edges))
+
+  shared <- st_equals(edges, edges, remove_self = TRUE) |>
+    sapply(length)
+
+  edges$unique = (shared == 0)
+  
+  street_segs <- st_segments(streets, progress = FALSE)
+
+  close_street_index <- st_nn(edges, street_segs, 
+                            k = 2, progress = FALSE)
+    
+    close_street_index_df <- matrix(unlist(close_street_index),
+                                    ncol=2,
+                                    byrow=TRUE) |>
+    as_tibble() 
+    
+    close_street_1 <- street_segs[close_street_index_df$V1,] 
+  close_street_2 <- street_segs[close_street_index_df$V2,] 
+  
+  edges$street_bearing_1 <- fun_bearing(st_transform(close_street_1, 2812))
+  edges$street_bearing_2 <- fun_bearing(st_transform(close_street_2, 2812))
+  edges$edge_bearing <- fun_bearing(st_transform(edges, 2812))
+  
+  edges_labeled <- edges |>
+    mutate(angle_1 = abs(edge_bearing - street_bearing_1),
+           angle_2 = abs(edge_bearing - street_bearing_2)) |>
+    mutate(dist_to_para_st = ifelse(angle_1 < parallel_threshold,
+                                     st_distance(edges, 
+                                                 close_street_1, 
+                                                 by_element = TRUE),
+                                     st_distance(edges, 
+                                                 close_street_2, 
+                                                 by_element = TRUE))) |>
+    group_by(PID) |>
+    mutate(min_dist = min(dist_to_para_st)) |>
+    mutate(diff = dist_to_para_st - min_dist) |>
+    mutate(front = diff <= close_threshold &
+             unique) |>
+    mutate(nfronts = sum(front),
+           front_bearings = list(edge_bearing[front])) |>
+    ungroup() |>
+    mutate(angle_from_front = mapply(fn_min_diff, front_bearings, edge_bearing)) |>
+    mutate(side = case_when(front ~ "front",
+                            angle_from_front < parallel_threshold ~ "rear",
+                            TRUE ~ "side")) |>
+    select(PID, side) |>
+    group_by(PID, side) |>
+    summarise(geometry = st_union(result))
+}
+```
+
+Here's how it looks on our small set of parcels.
+
+The side/rear distinction might look off in a couple places - that's
+because the side of one parcel is being drawn on top of the rear of
+another.
+
+```{r, message=FALSE, warning=FALSE}
+edges_labeled <- label_sides(fewer_parcels, streets)
+
+ggplot(fewer_parcels) +
+  geom_sf() +
+  geom_sf(data = streets,
+          linewidth = 2,
+          color = "gray") +
+  geom_sf(data = edges_labeled,
+          aes(color = side),
+          linewidth = 1.2) +
+  coord_sf(xlim = c(fewer_parcels_bbox["xmin"],
+                    fewer_parcels_bbox["xmax"]),
+           ylim = c(fewer_parcels_bbox["ymin"],
+                    fewer_parcels_bbox["ymax"])) +
+  theme_void()
+```
+
+Here's the table for the first couple of those parcels.
+
+```{r}
+kable(edges_labeled[1:8,])
+```
+
+## Bigger test
+
+Now let's hold our breath and test it on a bigger set of parcels
+
+```{r, message=FALSE, warning=FALSE}
+edges_labeled_more <- label_sides(parcels, streets)
+
+side_pal <- colorFactor(palette = brewer.pal(4, "Dark2"),
+                        domain = edges_labeled_more$side)
+
+leaflet(edges_labeled_more) |>
+  addPolylines(data = streets,
+               weight = 1,
+               color = "black") |>
+  addPolylines(color = ~side_pal(side),
+               weight = 1.2,
+               opacity = 0.5) |>
+  addLegend("bottomright", pal = side_pal, values = ~side,
+    title = "Side of parcel",
+    opacity = 1) |>
+  setView(lng = -93.29577, lat = 45.0026, zoom = 16)
+
+  
+```
+
+Write to geojson
+
+``` r
+{r, message=FALSE, warning=FALSE}
+st_write(edges_labeled_more, "edges_labeled_more.geojson") 
+```
+
+# Whole City of Minneapolis
+
+## Parcels & Streets
+
+```{r, message=FALSE, results='hide'}
+minn_parcels <- here("data",
+                "Minn_parcels.gpkg") |>
+  st_read()
+
+minn_streets <- here("data",
+                "PW_Street_Centerline.geojson") |>
+  st_read()
+```
+
+## Label ALL Edges
+
+```{r, message=FALSE, warning=FALSE}
+edges_labeled_all <- label_sides(minn_parcels, minn_streets)
+
+st_write(edges_labeled_all, "edges_labeled_all.geojson") 
+
+side_pal <- colorFactor(palette = brewer.pal(4, "Dark2"),
+                        domain = edges_labeled_all$side)
+
+leaflet(edges_labeled_more) |>
+  addPolylines(data = streets,
+               weight = 1,
+               color = "black") |>
+  addPolylines(color = ~side_pal(side),
+               weight = 1.2,
+               opacity = 0.5) |>
+  addLegend("bottomright", pal = side_pal, values = ~side,
+    title = "Side of parcel",
+    opacity = 1) |>
+  setView(lng = -93.29577, lat = 45.0026, zoom = 16)
+```
