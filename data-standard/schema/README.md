@@ -8,11 +8,11 @@ Information in the Municipality file is formatted per the **municipality Schema*
 * love
   - love
 
-**district files**  
+## district files  
 
 Information in the district files is formatted per three nested schemas: 1. the **district file schema**, which internally references the 2. **constraints application schema**, which, in turn, internally references the 3. **constraints values schema**. 
 
-1. **districts file schema**  
+1. ### districts file schema  
 The **districts file schema** is structured as follows with the indicated properties and sub-properties, including the status of each: required, conditionally required, or not required.
 * *district*
   * *identifier* [required] (type: string, value: can be the code-specified abbreviation of any zoning district)
@@ -23,11 +23,11 @@ The **districts file schema** is structured as follows with the indicated proper
 * *constraints* [required] (type: an array of objects)
   * (objects formatted according to the **constraints application schema**)
 
-2. *constraints application schema*  
+2. ### constraints application schema  
 The *constraints application schema* is structured as follows with the indicated properties and sub-properties, including the status of each: required, conditionally required, or not required.
 * (first property here)
 
-3. *constraints values schema*  
+3. ### constraints values schema   
 The *constraints values schema* is structured as follows with the indicated properties and sub-properties, including the status of each: required, conditionally required, or not required.
 * (first property here
 
