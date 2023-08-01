@@ -10,9 +10,9 @@ Information in the Municipality file is formatted per the "Municipality Schema".
 
 **district files**  
 
-Information in the district files is formatted per three nested schemas: the "district file" schema, which internally references the "constraint application" schema, which, in turn, internally references the "constraints values" schema. 
+Information in the district files is formatted per three nested schemas: 1. the "district file" schema, which internally references the 2. "constraint application" schema, which, in turn, internally references the 3. "constraints values" schema. 
 
-*district file schema*
+1. *district file schema*
 The district file schema is structured as follows with the indicated properties and sub-properties, including whether a given property is required, conditionally required, or not required:
 * 
 
