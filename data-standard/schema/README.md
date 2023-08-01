@@ -2,7 +2,7 @@
 
 There are 4 Open Zoning schemas that dictate the format of information within the two types of feed files, the municipality file and district files.
 
-**Municipality file**  
+## Municipality file  
 
 Information in the Municipality file is formatted per the **municipality Schema**. The schema is structured as follows with the indicated properties and sub-properties, including the status of each: required, conditionally required, or not required.
 * love
