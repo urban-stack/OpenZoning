@@ -159,6 +159,27 @@
         }
       }
     },
+    "districtTypeGroups": {
+      "type": "array",
+      "items": {
+        "allOf": [
+          {
+            "type": "object",
+            "properties": {
+              "districts": {
+                "type": "array",
+                "items": {
+                  "enum": ["district1", "district2"]
+                }
+              }
+            }
+          },
+          {
+            "$ref": "#/definitions/bulkOptionality"
+          }
+        ]
+      }
+    },
     "dynamicConstraints": {
       "properties": {
         "maximum": {
@@ -375,27 +396,7 @@
             "storiesContribution": {
               "type": "number"
             },
-            "districtTypeGroups": {
-              "type": "array",
-              "items": {
-                "allOf": [
-                  {
-                    "type": "object",
-                    "properties": {
-                      "districts": {
-                        "type": "array",
-                        "items": {
-                          "enum": ["district1", "district2"]
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "$ref": "#/definitions/bulkOptionality"
-                  }
-                ]
-              }
-            },
+
             "floorAreaContribution": {
               "type": "object",
               "properties": {

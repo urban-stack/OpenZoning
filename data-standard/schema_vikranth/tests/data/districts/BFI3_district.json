@@ -2,7 +2,8 @@
   "district": {
     "identifier": "MN-HennepinCo-Minneapolis-BFI3",
     "name": "BFI3 Interior 3 Built Form Overlay District",
-    "districtType": "overlay_1"
+    "districtType": "overlay_1",
+    "districtId": "BFI3"
   },
   "last_updated": "20220721",
   "author": "OZFS Team",
