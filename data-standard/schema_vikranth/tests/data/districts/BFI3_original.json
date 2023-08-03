@@ -1,0 +1,174 @@
+{
+  "district": {
+    "identifier": "MN-HennepinCo-Minneapolis-BFI3",
+    "name": "BFI3 Interior 3 Built Form Overlay District",
+    "districtType": "overlay_1",
+    "districtId": "BFI3"
+  },
+  "last_updated": "20220721",
+  "author": "OZFS Team",
+  "constraints": [
+    {
+      "constraintsModule": ["height", "stories"],
+      "lot": {
+        "developmentOptionality": [
+          {
+            "developmentType": "primary/accessory",
+            "primaryStructures": {
+              "bulkOptionality": [
+                {
+                  "bulks": ["single-family", "two-family"],
+                  "height": {
+                    "wall": {
+                      "max": 28
+                    },
+                    "roof": {
+                      "max": 33
+                    }
+                  },
+                  "stories": {
+                    "max": 2.5
+                  }
+                },
+                {
+                  "bulks": ["three-family", "cluster"],
+                  "height": {
+                    "maximum": 42
+                  },
+                  "stories": {
+                    "maximum": 3
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "constraintsModule": "setbacks",
+      "lot": {
+        "developmentOptionality": [
+          {
+            "developmentType": "primary/accessory",
+            "primaryStructures": {
+              "setbacks": {
+                "front": 20,
+                "rear": 5,
+                "side": {
+                  "bulkOptionality": [
+                    {
+                      "bulks": ["single-family", "two-family", "three-family"],
+                      "interior": 5,
+                      "corner": 8
+                    },
+                    {
+                      "bulks": "allOthers",
+                      "interior": "...",
+                      "corner": "..."
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "constraintsModule": "FAR",
+      "lot": {
+        "districtTypeGroups": [
+          {
+            "districtTypes": ["Residential", "Office Residential"],
+            "bulkOptionality": [
+              {
+                "bulks": "single-family",
+                "FAR": {
+                  "residential": 0.5
+                }
+              },
+              {
+                "bulks": "two-family",
+                "FAR": {
+                  "residential": 0.6
+                }
+              },
+              {
+                "bulks": "three-family",
+                "FAR": {
+                  "residential": 0.7
+                }
+              },
+              {
+                "bulks": "four-family",
+                "FAR": {
+                  "residential": 1.4
+                }
+              }
+            ]
+          },
+          {
+            "districtTypes": "allOthers",
+            "bulkOptionality": [
+              {
+                "bulks": "single-family",
+                "FAR": {
+                  "residential": 0.5
+                }
+              },
+              {
+                "bulks": "two-family",
+                "FAR": {
+                  "residential": 0.6
+                }
+              },
+              {
+                "bulks": "three-family",
+                "FAR": {
+                  "residential": 0.7
+                }
+              },
+              {
+                "bulks": "four-family",
+                "FAR": {
+                  "residential": 1.6
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "constraintsModule": ["lotArea", "lotWidth"],
+      "lot": {
+        "developmentOptionality": [
+          {
+            "developmentType": "primary/accessory",
+            "bulkOptionality": [
+              {
+                "bulks": "multi-family",
+                "lotArea": {
+                  "minimum": 5000,
+                  "maximum": 18000
+                },
+                "lotWidth": {
+                  "minimum": 40
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "constraintsModule": "lotCoverage",
+      "lot": {
+        "lotCoverage": {
+          "maximum": 0.6
+        }
+      }
+    }
+  ]
+}

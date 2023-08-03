@@ -57,11 +57,11 @@ file2 = extract_nested_constraints_wrapper(
     '../schema_vikranth/tests/data/districts/super_district.json')
 # file3 = extract_nested_constraints_wrapper(
 #     '../schema_vikranth/tests/data/districts/overall.json')
-print("-----------------------------------")
-# print(file1)
-print("-----------------------------------")
-# print(file2)
-print("-------------****************---------------")
+# print("-----------------------------------")
+# # print(file1)
+# print("-----------------------------------")
+# # print(file2)
+# print("-------------****************---------------")
 
 
 merged_dict = {**file1, **file2}

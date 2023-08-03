@@ -6,6 +6,8 @@ import json as json
 def extract_nested_constraints(nested_dict, base_data=None):
     constraints = {}
     for k, v in nested_dict.items():
+        #
+        # print(f"Key : {k},\n v:{v} \n\n")
         if k == "bulkOptionality":
             for option in v:
                 # Check if "bulks" is a list or a string and convert to list if necessary
@@ -19,18 +21,57 @@ def extract_nested_constraints(nested_dict, base_data=None):
                         if key != "bulks":
                             constraints[bulk][key] = value
 
+        elif k == "constraintsModule":
+            continue
+
+        elif k == "setbacks":
+            print(f"k: {k} \n")
+            print(f"v: {v} \n \n")
+            extracted_constraints = extract_nested_constraints(
+                v, base_data)
+
+            for k, v in extracted_constraints.items():
+                # Add a new dictionary with the key "setbacks", and assign the original value to it
+                constraints[k] = {"setbacks": v}
+
         elif isinstance(v, dict):
-            constraints.update(extract_nested_constraints(v, base_data))
+            # print("\n\n")
+            # print("!!!!!! DICT GOING DOWN A LEVEL !!!!!!!")
+            # print(f"Key : {k},\n v:{v} \n\n")
+
+            extracted_constraints = extract_nested_constraints(v, base_data)
+            constraints = {
+                k: {**constraints.get(k, {}), **v} for k, v in extracted_constraints.items()}
+
+            # print("***** DICT GOING UP A LEVEL *****!")
+            # print("constraints: ")
+            # print(constraints)
         elif isinstance(v, list):
             for i, item in enumerate(v):
+                # print(f"Key: {k}")
+
+                # print("ITEMS IN LIST: ", item)
                 if isinstance(item, dict):
-                    constraints.update(
-                        extract_nested_constraints(item, base_data))
+                    # print("\n")
+                    # print("!!!!!! DICT1 GOING DOWN A LEVEL !!!!!!!")
+                    # print(f"Key : {k},\n v:{v} \n\n")
+                    extracted_constraints = extract_nested_constraints(
+                        item, base_data)
+                    constraints = {
+                        k: {**constraints.get(k, {}), **v} for k, v in extracted_constraints.items()}
+
+                    # constraints.update(
+                    #     extract_nested_constraints(item, base_data))
         else:
             # Check if 'bulkOptionality' was not encountered and base_data is available
             if not any("bulkOptionality" in bulk for bulk in constraints) and base_data:
                 for bulk in base_data["usePermissions"]["permitted"]:
-                    constraints[bulk] = {k: v}
+
+                    # constraints[bulk] = { k: v}
+                    constraints[bulk] = {**constraints[bulk],
+                                         k: v} if bulk in constraints else {k: v}
+
+        # print("constraints: ", constraints)
 
     return constraints
 
@@ -50,6 +91,9 @@ def extract_nested_constraints_wrapper(file_path):
 
         temp_constraint = extract_nested_constraints(
             constraint,  base_data)
+
+        # print(temp_constraint)
+        # print("\n\n")
 
         for key, value in temp_constraint.items():
             if key in constraints:
