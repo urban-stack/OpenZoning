@@ -16,7 +16,7 @@ The OZFS is comprised of two types of files, the *municipality file* and *distri
 Formatting the *municipality file* and *district files* are 4 Open Zoning schemas. These schemas define the structure of the zoning information language that these files must speak and that machines must be able to read. These schemas are listed in the table below and described in detail below.
 
 **Open Zoning Feed Specification**
-| file type | schemas | description |
+| file type | schema | description |
 | --- | --- | --- |
 | **municipality file** | municipality schema | --- |
 | **district file(s)** | districts file schema | --- |
@@ -32,7 +32,7 @@ Information in the Municipality file is formatted per the **municipality Schema*
 
 ### District files  
 
-Information in the district files is formatted per three nested schemas: 1. the **district file schema**, which internally references the 2. **constraints application schema**, which, in turn, internally references the 3. **constraints values schema**. 
+Information in the district files is formatted per three nested schemas: 1. the **district file schema**, which is partially formatted via the 2. **constraints application schema**, which, in turn, is partially formatted via the 3. **constraints values schema**. This heirarchy can be seen in the diagram following the **Open Zoning Feed Specification** table
 
 1. ### districts file schema  
 The **districts file schema** is structured as follows with the indicated properties and sub-properties, including the status of each: required, conditionally required, or not required.
