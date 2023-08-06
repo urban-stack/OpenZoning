@@ -6,7 +6,7 @@ There are 4 Open Zoning schemas that dictate the format of information within th
 * Date - Service day in the YYYYMMDD format. Since time within a service day can be above 24:00:00, a service day often contains information for the subsequent day(s).
 Example: 20180913 for September 13th, 2018.
 * Email - An email address.
-* Example: example@example.com
+  Example: example@example.com
 Enum - An option from a set of predefined constants defined in the "Description" column.
 Example: The route_type field contains a 0 for tram, a 1 for subway...
 ID - An ID field value is an internal ID, not intended to be shown to riders, and is a sequence of any UTF-8 characters. Using only printable ASCII characters is recommended. IDs defined in one .txt file are often referenced in another .txt file.
