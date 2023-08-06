@@ -43,6 +43,13 @@ The **districts file schema** is structured as follows with the indicated proper
 | *district* | | object | required | --- |
 | | *identifier* |string | required | --- |
 | | *name* | string | required | --- |
+| *author* | | string | required | --- |
+| *date created* | | date | required | --- |
+| *last updated* | | array | required | --- |
+| *constraints* | | array | required | --- |
+| | (objects formatted according to the **constraints application schema**  and/or **constraints value schema** | object | required | --- |
+
+
 
 
 
