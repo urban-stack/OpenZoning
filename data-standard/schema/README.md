@@ -76,7 +76,7 @@ The *constraints application schema* is structured as follows with the indicated
 The *constraints values schema* is structured as follows with the indicated properties and sub-properties, including the status of each: required, conditionally required, or not required.
 * (first property here
 
-| constraint | sub-property | sub-property | sub-property | type | required | description |
+| constraint | sub-property | <div style="width:100px">sub-property</div> | sub-property | type | required | description |
 | --- | --- | --- | --- | --- | ---| --- | 
 | *lotWidth* | | | | object | optional | --- |
 | | *minimum* | | | non-negative integer | required | --- |
