@@ -6,11 +6,16 @@
 This section defines terms that are used throughout this document.
 * **machine-readable**: in a form that computers can process
 * **municipality data feed**: a municipality's collection of machine-readable zoning information, collected within the required files written in the required format as specified by the Open Zoning Feed Specification
-* **schema**: file defining the format of zoning and municipality information, referenced by municipality data feed files
+* **schema**: a file defining the format of zoning and municipality information and, regulates **municipality data feed** file information
 
+## Open Zoning Feed Specification
 The OZFS defines the format and structure of the files needed to create a municipality's **municipality data feed**. A municipality's data feed is the collection of its zoning information into files written in Open Zoning's pre-defined language, a machine-readable language. Once the required files with the required zoning information have been created in OZ's lanaguage, machines can then access the files and read them simply by understanding our pre-defined zoning language.  
 
-### Open Zoning Feed Specification
+The OZFS is comprised of two types of files, the *municipality file* and *district files*. Each **municipality data feed** has one municipality file but can and should have multiple district files. Both files are described in detail below. 
+
+Formatting the *municipality file* and *district files* are 4 Open Zoning schemas. These schemas define the structure of the zoning information language that these files must speak and that machines must be able to read. These schemas are listed in the table below and described in detail below.
+
+**Open Zoning Feed Specification**
 | file type | schemas | description |
 | --- | --- | --- |
 | **municipality file** | municipality schema | --- |
@@ -18,54 +23,14 @@ The OZFS defines the format and structure of the files needed to create a munici
 | | ---> constraints application schema | --- |
 | | ------> constraints value schema | --- |
 
-
-
-## OZFS Files
-
-The OZFS is comprised of two types of files, the *municipality file* and *district files*. Each **municipality data feed** has one municipality file but can and should have multiple district files. Both files are described in more detail below. For a **municipality data feed** to be considered complete by Open Zoning, it must:
-1. contain a *district file* for each zoning district within the municipality, as listed within the *municipality file*
-2. capture the following constraints for each allowed use for each residential zoned lot within its jurisdiction:
-*  maximum height(s) (all height values -- e.g. wall, roof -- defined within the *municipality file*)
-*  setback values (all setback values -- e.g. front, side, rear -- defined within the *municipality file*)
-*  FAR
-*  number of stories
-*  required parking (if denoted as regulated within the *municipality file*)
-*  minimum lot size (if denoted as regulated within the *municipality file*)
-*  maxiumum lot size (if denoted as regulated within the *municipality file*)
-*  maximum lot coverage (if denoted as regulated within the *municipality file*)
-
-Formatting the the *municipality file* and *district files* are 4 Open Zoning schemas. These schmas define the structure of the zoning information language that these files must speak and that machines must be able to read.
-
-### Field types
-* Date - Service day in the YYYYMMDD format. Since time within a service day can be above 24:00:00, a service day often contains information for the subsequent day(s).
-Example: 20180913 for September 13th, 2018.
-* Email - An email address.
-  Example: example@example.com
-* Enum - An option from a set of predefined constants defined in the "Description" column.
-Example: The route_type field contains a 0 for tram, a 1 for subway...
-* ID - An ID field value is an internal ID, not intended to be shown to riders, and is a sequence of any UTF-8 characters. Using only printable ASCII characters is recommended. IDs defined in one .txt file are often referenced in another .txt file.
-Example: The stop_id field in stops.txt is a ID. The stop_id field in stop_times.txt is an ID referencing stops.stop_id.
-* Language Code - An IETF BCP 47 language code. For an introduction to IETF BCP 47, refer to http://www.rfc-editor.org/rfc/bcp/bcp47.txt and http://www.w3.org/International/articles/language-tags/.
-Example: en for English, en-US for American English or de for German.
-* Latitude - WGS84 latitude in decimal degrees. The value must be greater than or equal to -90.0 and less than or equal to 90.0.
-Example: 41.890169 for the Colosseum in Rome.
-* Longitude - WGS84 longitude in decimal degrees. The value must be greater than or equal to -180.0 and less than or equal to 180.0.
-Example: 12.492269 for the Colosseum in Rome.
-* Non-negative Float - A floating point number greater than or equal to 0.
-* Non-negative Integer - A integer greater than or equal to 0.
-* Phone number - A phone number.
-* Time - Time in the HH:MM:SS format (H:MM:SS is also accepted). The time is measured from "noon minus 12h" of the service day (effectively midnight except for days on which daylight savings time changes occur. For more information, see the guidelines article). For times occurring after midnight, enter the time as a value greater than 24:00:00 in HH:MM:SS local time for the day on which the trip schedule begins.
-Example: 14:30:00 for 2:30PM or 25:35:00 for 1:35AM on the next day.
-* Text - A string of UTF-8 characters, which is aimed to be displayed and which must therefore be human readable.
-* URL - A fully qualified URL that includes http:// or https://, and any special characters in the URL must be correctly escaped. See the following http://www.w3.org/Addressing/URL/4_URI_Recommentations.html for a description of how to create fully qualified URL values.
-
-## Municipality file  
+### OZFS Files
+### Municipality file  
 
 Information in the Municipality file is formatted per the **municipality Schema**. The schema is structured as follows with the indicated properties and sub-properties, including the status of each: required, conditionally required, or not required.
 * love
   - love
 
-## District files  
+### District files  
 
 Information in the district files is formatted per three nested schemas: 1. the **district file schema**, which internally references the 2. **constraints application schema**, which, in turn, internally references the 3. **constraints values schema**. 
 
@@ -158,6 +123,40 @@ The *constraints values schema* is structured as follows with the indicated prop
 | | | | *minimum* | non-negative integer | required | --- |
 | | | | *floorAreaPerimeterPercentage* | non-negative integer | optional | --- |
 
+For a **municipality data feed** to be considered complete by Open Zoning, it must:
+1. contain a *district file* for each zoning district within the municipality, as listed within the *municipality file*
+2. capture the following constraints for each allowed use for each residential zoned lot within its jurisdiction:
+*  maximum height(s) (all height values -- e.g. wall, roof -- defined within the *municipality file*)
+*  setback values (all setback values -- e.g. front, side, rear -- defined within the *municipality file*)
+*  FAR
+*  number of stories
+*  required parking (if denoted as regulated within the *municipality file*)
+*  minimum lot size (if denoted as regulated within the *municipality file*)
+*  maxiumum lot size (if denoted as regulated within the *municipality file*)
+*  maximum lot coverage (if denoted as regulated within the *municipality file*)
+
+### Field types
+* Date - Service day in the YYYYMMDD format. Since time within a service day can be above 24:00:00, a service day often contains information for the subsequent day(s).
+Example: 20180913 for September 13th, 2018.
+* Email - An email address.
+  Example: example@example.com
+* Enum - An option from a set of predefined constants defined in the "Description" column.
+Example: The route_type field contains a 0 for tram, a 1 for subway...
+* ID - An ID field value is an internal ID, not intended to be shown to riders, and is a sequence of any UTF-8 characters. Using only printable ASCII characters is recommended. IDs defined in one .txt file are often referenced in another .txt file.
+Example: The stop_id field in stops.txt is a ID. The stop_id field in stop_times.txt is an ID referencing stops.stop_id.
+* Language Code - An IETF BCP 47 language code. For an introduction to IETF BCP 47, refer to http://www.rfc-editor.org/rfc/bcp/bcp47.txt and http://www.w3.org/International/articles/language-tags/.
+Example: en for English, en-US for American English or de for German.
+* Latitude - WGS84 latitude in decimal degrees. The value must be greater than or equal to -90.0 and less than or equal to 90.0.
+Example: 41.890169 for the Colosseum in Rome.
+* Longitude - WGS84 longitude in decimal degrees. The value must be greater than or equal to -180.0 and less than or equal to 180.0.
+Example: 12.492269 for the Colosseum in Rome.
+* Non-negative Float - A floating point number greater than or equal to 0.
+* Non-negative Integer - A integer greater than or equal to 0.
+* Phone number - A phone number.
+* Time - Time in the HH:MM:SS format (H:MM:SS is also accepted). The time is measured from "noon minus 12h" of the service day (effectively midnight except for days on which daylight savings time changes occur. For more information, see the guidelines article). For times occurring after midnight, enter the time as a value greater than 24:00:00 in HH:MM:SS local time for the day on which the trip schedule begins.
+Example: 14:30:00 for 2:30PM or 25:35:00 for 1:35AM on the next day.
+* Text - A string of UTF-8 characters, which is aimed to be displayed and which must therefore be human readable.
+* URL - A fully qualified URL that includes http:// or https://, and any special characters in the URL must be correctly escaped. See the following http://www.w3.org/Addressing/URL/4_URI_Recommentations.html for a description of how to create fully qualified URL values.
 
 ###  
 
