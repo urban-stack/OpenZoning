@@ -39,7 +39,7 @@ Information in the district files is formatted per three nested schemas: 1. the 
 The **districts file schema** is structured as follows with the indicated properties and sub-properties, including the status of each: required, conditionally required, or not required.
 
 | property | type | required | description |
-| ___ | ___ | ___ | ___ |
+| --- | --- | --- | --- |
 
 
 * *district*
