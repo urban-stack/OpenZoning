@@ -47,10 +47,15 @@ The **districts file schema** is structured as follows with the indicated proper
 | *date created* | | date | required | --- |
 | *last updated* | | array | required | --- |
 | *constraints* | | array of objects | required | --- |
-| | (objects) | object | required |  formatted according to the **constraints application schema**  and/or **constraints value schema** |
+| | *constraintsModule* | object | required | --- |
+| | *lot* | object | required | --- |
 
 2. ### constraints application schema  
-The *constraints application schema* is structured as follows with the indicated properties and sub-properties, including the status of each: required, conditionally required, or not required. Any of the following properties can be sub-properties of any other one, i.e. any property can be nested as a sub-property within any other property. The intent of this design is to allow the structure of the zoning code that is regulating the constraint to be captured as close to how it is written as possible. 
+The *constraints application schema* is structured as follows with the indicated properties and sub-properties, including the status of each: required, conditionally required, or not required.  
+
+**notes**  
+* Any of the following properties can be sub-properties of any other one, i.e. any property can be nested as a sub-property within any other property. The intent of this design is to allow the structure of the zoning code that is regulating the constraint to be captured as close as possible to how it is written.
+* Any of the following properties can take a constraint module as a sub-property. Constraint modules are defined within the **constraints value schema** section.
 
 | property | sub-property | type | required | description |
 | --- | --- | --- | --- | --- |
@@ -73,9 +78,9 @@ The *constraints values schema* is structured as follows with the indicated prop
 
 | constraint | sub-property | sub-property | sub-property | type | required | description |
 | --- | --- | --- | --- | --- | ---| --- | 
-| *lot width* | | | | object | optional | --- |
+| *lotWidth* | | | | object | optional | --- |
 | | *minimum* | | | non-negative integer | required | --- |
-| *lot area* | | | | object | optional | --- |
+| *lotArea* | | | | object | optional | --- |
 | | *minimum* | | | non-negative integer | conditionally required | --- |
 | | *maximum* | | | non-negative integer | conditionally required | --- |
 | *height* | | | | object | optional | --- |
@@ -83,3 +88,40 @@ The *constraints values schema* is structured as follows with the indicated prop
 | | | *maximum*| | non-negative integer | required | --- |
 | | *roof* | | | object | conditionally required | --- |
 | | | *maximum*| | non-negative integer | required | --- |
+| *setbacks* | | | | object | optional | --- |
+| | *front* | | | non-negative integer | required | --- |
+| | *rear* | | | non-negative integer | required | --- |
+| | *side* | | | object | required | --- |
+| | | *interior* | | non-negative integer | required | --- |
+| | | *corner* | | non-negative integer | conditionally required | --- |
+| | | *bulkOptionality* | | non-negative integer | optional | --- |
+| | | | (see **constraints application schema** section) | non-negative integer | required | --- |
+| | | | *interior* | non-negative integer | required | --- |
+| | | | *corner* | non-negative integer | conditionally required | --- |
+| | *fromAnotherStructure* | | | non-negative integer | optional | --- |
+| | | *primaryResidentialStructure* | | non-negative integer | conditionally required | --- |
+| | | *habitableDwelling* | | non-negative integer | conditionally required | --- |
+| | *bulkOptionality* | | | non-negative integer | optional | --- |
+| | | (any *setbacks* property) | | n/a | n/a | --- |
+| *lot coverage* | | | | object | optional | --- |
+| | *maximum* | | | non-negative integer | required | --- |
+| *FAR* | | | | object | optional | --- |
+| | *residential* | | | non-negative integer | required | --- |
+| *floorArea* | | | | object | optional | --- |
+| | *unit* | | | object | required | --- |
+| | | *standard* | | object | conditionally required | --- |
+| | | | *minimum* | non-negative integer | required | --- |
+| | | *efficiecny* | | object | conditionally required | --- |
+| | | | *minimum* | non-negative integer | required | --- |
+| *floorWidth* | | | | object | optional | --- |
+| | *minimum* | | | object | required | --- |
+| | | *value* | | non-negative integer | required | --- |
+| | | *applicableFloorArea* | | non-negative integer | optional | --- |
+| *stories* | | | | object | optional | --- |
+| | *maximum* | | | non-negative integer | conditionally required | --- |
+| | *floorAreaContribution* | | | object | conditionally required | --- |
+| | | *storyFloorElevation* | | object | conditionally required | --- |
+| | | | *minimum* | non-negative integer | required | --- |
+| | | | *floorAreaPerimeterPercentage* | non-negative integer | optional | --- |
+
+
