@@ -78,17 +78,17 @@ The *constraints values schema* is structured as follows with the indicated prop
 
 | constraint | sub-property | <div style="width:10px">sub-property</div> | sub-property | type | required | description |
 | --- | --- | --- | --- | --- | ---| --- | 
-| *lotWidth* | | | | object | optional | --- |
+| ***lotWidth*** | | | | object | optional | --- |
 | | *minimum* | | | non-negative integer | required | --- |
-| *lotArea* | | | | object | optional | --- |
+| ***lotArea*** | | | | object | optional | --- |
 | | *minimum* | | | non-negative integer | conditionally required | --- |
 | | *maximum* | | | non-negative integer | conditionally required | --- |
-| *height* | | | | object | optional | --- |
+| ***height*** | | | | object | optional | --- |
 | | *wall* | | | object | conditionally required | --- |
 | | | *maximum*| | non-negative integer | required | --- |
 | | *roof* | | | object | conditionally required | --- |
 | | | *maximum*| | non-negative integer | required | --- |
-| *setbacks* | | | | object | optional | --- |
+| ***setbacks*** | | | | object | optional | --- |
 | | *front* | | | non-negative integer | required | --- |
 | | *rear* | | | non-negative integer | required | --- |
 | | *side* | | | object | required | --- |
@@ -103,21 +103,21 @@ The *constraints values schema* is structured as follows with the indicated prop
 | | | *habitableDwelling* | | non-negative integer | conditionally required | --- |
 | | *bulkOptionality* | | | non-negative integer | optional | --- |
 | | | (any *setbacks* property) | | n/a | n/a | --- |
-| *lot coverage* | | | | object | optional | --- |
+| ***lot coverage*** | | | | object | optional | --- |
 | | *maximum* | | | non-negative integer | required | --- |
-| *FAR* | | | | object | optional | --- |
+| ***FAR*** | | | | object | optional | --- |
 | | *residential* | | | non-negative integer | required | --- |
-| *floorArea* | | | | object | optional | --- |
+| ***floorArea*** | | | | object | optional | --- |
 | | *unit* | | | object | required | --- |
 | | | *standard* | | object | conditionally required | --- |
 | | | | *minimum* | non-negative integer | required | --- |
 | | | *efficiecny* | | object | conditionally required | --- |
 | | | | *minimum* | non-negative integer | required | --- |
-| *floorWidth* | | | | object | optional | --- |
+| ***floorWidth*** | | | | object | optional | --- |
 | | *minimum* | | | object | required | --- |
 | | | *value* | | non-negative integer | required | --- |
 | | | *applicableFloorArea* | | non-negative integer | optional | --- |
-| *stories* | | | | object | optional | --- |
+| ***stories*** | | | | object | optional | --- |
 | | *maximum* | | | non-negative integer | conditionally required | --- |
 | | *floorAreaContribution* | | | object | conditionally required | --- |
 | | | *storyFloorElevation* | | object | conditionally required | --- |
