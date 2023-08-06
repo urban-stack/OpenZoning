@@ -40,7 +40,7 @@ The **districts file schema** is structured as follows with the indicated proper
 
 | property | sub-property | type | required | description |
 | --- | --- | --- | --- | --- |
-| *district* | object | required | --- |
+| *district* | | object | required | --- |
 | | *identifier* |string | required | --- |
 | | *name* | string | required | --- |
 
