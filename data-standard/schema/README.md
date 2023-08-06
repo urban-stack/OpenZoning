@@ -46,27 +46,40 @@ The **districts file schema** is structured as follows with the indicated proper
 | *author* | | string | required | --- |
 | *date created* | | date | required | --- |
 | *last updated* | | array | required | --- |
-| *constraints* | | array | required | --- |
+| *constraints* | | array of objects | required | --- |
 | | (objects) | object | required |  formatted according to the **constraints application schema**  and/or **constraints value schema** |
 
-
-
-
-
-* *district*
-  * *identifier* [required] (type: string, value: can be the code-specified abbreviation of any zoning district)
-  * *name* [required] (type: string, value: the full name of the zoning district, as specified in the zoning code)
-* *author* [required] (type: string, value: the name of the author who created the file, optionally accompanied by their organization and/or affiliation)
-* *date created* [required] (type: date, value: the date the file was created)
-* *last updated* [required] (type: a 2-dimensional array (type_1: date, value: the date of the last time the file was edited, type_2: string, value: the name of the author who created the file, optionally accompanied by their organization and/or affiliation)
-* *constraints* [required] (type: an array of objects)
-  * (objects formatted according to the **constraints application schema**)
-
 2. ### constraints application schema  
-The *constraints application schema* is structured as follows with the indicated properties and sub-properties, including the status of each: required, conditionally required, or not required.
-* (first property here)
+The *constraints application schema* is structured as follows with the indicated properties and sub-properties, including the status of each: required, conditionally required, or not required. Any of the following properties can be sub-properties of any other one, i.e. any property can be nested as a sub-property within any other property. The intent of this design is to allow the structure of the zoning code that is regulating the constraint to be captured as close to how it is written as possible. 
+
+| property | sub-property | type | required | description |
+| --- | --- | --- | --- | --- |
+| *bulkOptionality* | | array of objects | optional | --- |
+| | *bulks* | array | required | --- |
+| *developmentOptionality* | | array of objects | optional | --- |
+| | *developmentType* | array | required | --- |
+| | *primaryStructures* | array | conditionally required | --- |
+| | *accessoryStructures* | array | conditionally required | --- |
+| *ADbulkOptionality* | | array of objects | optional | --- |
+| | *ADbulk* | array | required | --- |
+| *ADtypeOptionality* | | array of objects | optional | --- |
+| | *ADtype* | array | required | --- |
+| *disrictTypeGroups* | | array of objects | optional | --- |
+| | *districtTypes* | array | required | --- |
 
 3. ### constraints values schema   
 The *constraints values schema* is structured as follows with the indicated properties and sub-properties, including the status of each: required, conditionally required, or not required.
 * (first property here
 
+| constraint | sub-property | sub-property | sub-property | type | required | description |
+| --- | --- | --- | --- | --- | ---| --- | 
+| *lot width* | | | | object | optional | --- |
+| | *minimum* | | | non-negative integer | required | --- |
+| *lot area* | | | | object | optional | --- |
+| | *minimum* | | | non-negative integer | conditionally required | --- |
+| | *maximum* | | | non-negative integer | conditionally required | --- |
+| *height* | | | | object | optional | --- |
+| | *wall* | | | object | conditionally required | --- |
+| | | *maximum*| | non-negative integer | required | --- |
+| | *roof* | | | object | conditionally required | --- |
+| | | *maximum*| | non-negative integer | required | --- |
