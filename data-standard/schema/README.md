@@ -40,13 +40,13 @@ The **districts file schema** is structured as follows with the indicated proper
 
 | property | sub-property | type | required | description |
 | --- | --- | --- | --- | --- |
-| *district* | | object | required | --- |
+| ***district*** | | object | required | --- |
 | | *identifier* |string | required | --- |
 | | *name* | string | required | --- |
-| *author* | | string | required | --- |
-| *date created* | | date | required | --- |
-| *last updated* | | array | required | --- |
-| *constraints* | | array of objects | required | --- |
+| ***author*** | | string | required | --- |
+| ***date created*** | | date | required | --- |
+| ***last updated*** | | array | required | --- |
+| ***constraints*** | | array of objects | required | --- |
 | | *constraintsModule* | object | required | --- |
 | | *lot* | object | required | --- |
 
@@ -59,17 +59,17 @@ The *constraints application schema* is structured as follows with the indicated
 
 | property | sub-property | type | required | description |
 | --- | --- | --- | --- | --- |
-| *bulkOptionality* | | array of objects | optional | --- |
+| ***bulkOptionality*** | | array of objects | optional | --- |
 | | *bulks* | array | required | --- |
-| *developmentOptionality* | | array of objects | optional | --- |
+| ***developmentOptionality*** | | array of objects | optional | --- |
 | | *developmentType* | array | required | --- |
 | | *primaryStructures* | array | conditionally required | --- |
 | | *accessoryStructures* | array | conditionally required | --- |
-| *ADbulkOptionality* | | array of objects | optional | --- |
+| ***ADbulkOptionality*** | | array of objects | optional | --- |
 | | *ADbulk* | array | required | --- |
-| *ADtypeOptionality* | | array of objects | optional | --- |
+| ***ADtypeOptionality*** | | array of objects | optional | --- |
 | | *ADtype* | array | required | --- |
-| *disrictTypeGroups* | | array of objects | optional | --- |
+| ***disrictTypeGroups*** | | array of objects | optional | --- |
 | | *districtTypes* | array | required | --- |
 
 3. ### constraints values schema   
