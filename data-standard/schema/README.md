@@ -47,7 +47,7 @@ The **districts file schema** is structured as follows with the indicated proper
 | *date created* | | date | required | --- |
 | *last updated* | | array | required | --- |
 | *constraints* | | array | required | --- |
-| | (objects formatted according to the **constraints application schema**  and/or **constraints value schema** | object | required | --- |
+| | (objects) | object | required |  formatted according to the **constraints application schema**  and/or **constraints value schema** |
 
 
 
