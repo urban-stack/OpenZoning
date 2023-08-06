@@ -13,10 +13,10 @@ The OZFS defines the format and structure of the files needed to create a munici
 ### Open Zoning Feed Specification
 | file type | schemas | description |
 | --- | --- | --- |
-| *municipality file* | municipality schema | --- |
-| *district file(s)* | districts file schema | --- |
-| | constraints application schema | --- |
-| | constraints value schema | --- |
+| **municipality file** | municipality schema | --- |
+| **district file(s)** | districts file schema | --- |
+| | ---> constraints application schema | --- |
+| | ------> constraints value schema | --- |
 
 
 
