@@ -1,14 +1,26 @@
 # the Open Zoning Feed Specification
 
-**The Open Zoning Feed Specification (OZFS)** is a first-of-its-kind national data language for zoning codes, allowing zoning codes to be machine-readable. The following information is meant to explain the OZFS in full, in a way that is accessible to anyone.   
+**The Open Zoning Feed Specification (OZFS)** is a first-of-its-kind national data language for zoning codes, allowing zoning codes to be machine-readable. The following information is meant to explain the OZFS in full and in a way that is accessible to anyone.   
 
-**Term Definitions**  
+1. [Definitions for frequently used terms] (#Definitions-for-frequently-used-terms)
+2. [Open Zoning Feed Specification (OZFS) explained] (#Open-Zoning-Feed-Specification)
+  1. [Feeds and machine-readability] (#Feeds-and-machine-readability
+  2. [a municipality data feed] (#a-municipality-data-feed)
+  3. [OZFS files] (#OZFS-files)
+  4. [OZFS file schemas] (#OZFS-file-schemas) 
+5. [OZFS Files and File Schemas] (#Open Zoning Feed Specification)
+6. [Municipality file] (#Municipality-file)
+   1. [the municipality file schema] (#the-municipality-file-schema
+8. [Districts File] (#Districts-file)
+   
+## Definitions for frequently used terms  
 This section defines terms that are used throughout this document.
 * **machine-readable**: in a form that computers can process
 * **municipality data feed**: a municipality's collection of machine-readable zoning information, collected within the required files written in the required format as specified by the Open Zoning Feed Specification
 * **schema**: a file defining the format of zoning and municipality information and, regulates **municipality data feed** file information
 
 ## Open Zoning Feed Specification
+### Feeds and machine readability
 The OZFS defines the format and structure of the files needed to create a municipality's **municipality data feed**. A municipality's data feed is the collection of its zoning information into files written in Open Zoning's pre-defined language, a machine-readable language. Once the required files with the required zoning information have been created in OZ's lanaguage, machines can then access the files and read them simply by understanding our pre-defined zoning language.  
 
 The OZFS is comprised of two types of files, the *municipality file* and *district files*. Each **municipality data feed** has one municipality file but can and should have multiple district files. Both files are described in detail below. 
