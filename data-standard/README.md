@@ -55,6 +55,19 @@ Municipality File             |  District files
 
 </details>
 
+**Open Zoning Feed Specification**
+| file type | schema | description |
+| --- | --- | --- |
+| **municipality file** | municipality schema | --- |
+| **district file(s)** | districts file schema | --- |
+| | ---> constraints application schema | --- |
+| | ------> constraints value schema | --- |
+
+  
+Municipality File             |  District files
+:-------------------------:|:-------------------------:
+![image](https://github.com/urban-stack/OpenZoning/assets/70850778/76632b82-74b5-4d19-b31e-94b2e6b438a7) | ![image](https://github.com/urban-stack/OpenZoning/assets/70850778/1a82565a-aa36-4717-a4cb-5a7382f3f1ea)
+
 ## OZFS Files and File Schemas, explained in detail
 ### Field Types
 <details><summary></summary>
