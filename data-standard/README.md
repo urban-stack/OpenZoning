@@ -9,7 +9,8 @@
   3. [OZFS files](#OZFS-files)
   4. [OZFS file schemas](#OZFS-file-schemas) 
 5. [OZFS Files and File Schemas, explained in detail](#OZFS-Files-and-File-Schemas,-explained-in-detail)
-6. [Municipality file](#Municipality-file)
+6. [Field types](#Field-types)
+7. [Municipality file](#Municipality-file)
    1. [the municipality file schema](#the-municipality-file-schema)
 8. [Districts File](#Districts-file)
   1. [the districts file schema](#the-districts-file-schema)
@@ -56,6 +57,34 @@ Municipality File             |  District files
   
 
 ## OZFS Files and File Schemas, explained in detail
+### Field Types
+<details><summary></summary>
+
+### Field types
+* Date - Service day in the YYYYMMDD format. Since time within a service day can be above 24:00:00, a service day often contains information for the subsequent day(s).
+Example: 20180913 for September 13th, 2018.
+* Email - An email address.
+  Example: example@example.com
+* Enum - An option from a set of predefined constants defined in the "Description" column.
+Example: The route_type field contains a 0 for tram, a 1 for subway...
+* ID - An ID field value is an internal ID, not intended to be shown to riders, and is a sequence of any UTF-8 characters. Using only printable ASCII characters is recommended. IDs defined in one .txt file are often referenced in another .txt file.
+Example: The stop_id field in stops.txt is a ID. The stop_id field in stop_times.txt is an ID referencing stops.stop_id.
+* Language Code - An IETF BCP 47 language code. For an introduction to IETF BCP 47, refer to http://www.rfc-editor.org/rfc/bcp/bcp47.txt and http://www.w3.org/International/articles/language-tags/.
+Example: en for English, en-US for American English or de for German.
+* Latitude - WGS84 latitude in decimal degrees. The value must be greater than or equal to -90.0 and less than or equal to 90.0.
+Example: 41.890169 for the Colosseum in Rome.
+* Longitude - WGS84 longitude in decimal degrees. The value must be greater than or equal to -180.0 and less than or equal to 180.0.
+Example: 12.492269 for the Colosseum in Rome.
+* Non-negative Float - A floating point number greater than or equal to 0.
+* Non-negative Integer - A integer greater than or equal to 0.
+* Phone number - A phone number.
+* Time - Time in the HH:MM:SS format (H:MM:SS is also accepted). The time is measured from "noon minus 12h" of the service day (effectively midnight except for days on which daylight savings time changes occur. For more information, see the guidelines article). For times occurring after midnight, enter the time as a value greater than 24:00:00 in HH:MM:SS local time for the day on which the trip schedule begins.
+Example: 14:30:00 for 2:30PM or 25:35:00 for 1:35AM on the next day.
+* Text - A string of UTF-8 characters, which is aimed to be displayed and which must therefore be human readable.
+* URL - A fully qualified URL that includes http:// or https://, and any special characters in the URL must be correctly escaped. See the following http://www.w3.org/Addressing/URL/4_URI_Recommentations.html for a description of how to create fully qualified URL values.
+
+</details>
+
 ### Municipality file
 <details><summary></summary>
 
@@ -172,29 +201,6 @@ For a **municipality data feed** to be considered complete by Open Zoning, it mu
 *  minimum lot size (if denoted as regulated within the *municipality file*)
 *  maxiumum lot size (if denoted as regulated within the *municipality file*)
 *  maximum lot coverage (if denoted as regulated within the *municipality file*)
-
-### Field types
-* Date - Service day in the YYYYMMDD format. Since time within a service day can be above 24:00:00, a service day often contains information for the subsequent day(s).
-Example: 20180913 for September 13th, 2018.
-* Email - An email address.
-  Example: example@example.com
-* Enum - An option from a set of predefined constants defined in the "Description" column.
-Example: The route_type field contains a 0 for tram, a 1 for subway...
-* ID - An ID field value is an internal ID, not intended to be shown to riders, and is a sequence of any UTF-8 characters. Using only printable ASCII characters is recommended. IDs defined in one .txt file are often referenced in another .txt file.
-Example: The stop_id field in stops.txt is a ID. The stop_id field in stop_times.txt is an ID referencing stops.stop_id.
-* Language Code - An IETF BCP 47 language code. For an introduction to IETF BCP 47, refer to http://www.rfc-editor.org/rfc/bcp/bcp47.txt and http://www.w3.org/International/articles/language-tags/.
-Example: en for English, en-US for American English or de for German.
-* Latitude - WGS84 latitude in decimal degrees. The value must be greater than or equal to -90.0 and less than or equal to 90.0.
-Example: 41.890169 for the Colosseum in Rome.
-* Longitude - WGS84 longitude in decimal degrees. The value must be greater than or equal to -180.0 and less than or equal to 180.0.
-Example: 12.492269 for the Colosseum in Rome.
-* Non-negative Float - A floating point number greater than or equal to 0.
-* Non-negative Integer - A integer greater than or equal to 0.
-* Phone number - A phone number.
-* Time - Time in the HH:MM:SS format (H:MM:SS is also accepted). The time is measured from "noon minus 12h" of the service day (effectively midnight except for days on which daylight savings time changes occur. For more information, see the guidelines article). For times occurring after midnight, enter the time as a value greater than 24:00:00 in HH:MM:SS local time for the day on which the trip schedule begins.
-Example: 14:30:00 for 2:30PM or 25:35:00 for 1:35AM on the next day.
-* Text - A string of UTF-8 characters, which is aimed to be displayed and which must therefore be human readable.
-* URL - A fully qualified URL that includes http:// or https://, and any special characters in the URL must be correctly escaped. See the following http://www.w3.org/Addressing/URL/4_URI_Recommentations.html for a description of how to create fully qualified URL values.
 
 ###  
 
