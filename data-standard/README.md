@@ -1,6 +1,6 @@
 # the Open Zoning Feed Specification
 
-**The Open Zoning Feed Specification (OZFS)** is a first-of-its-kind national data language for zoning codes, allowing zoning codes to be machine-readable.  
+**The Open Zoning Feed Specification (OZFS)** is a first-of-its-kind national data language for zoning codes, allowing zoning codes to be machine-readable. The following information is meant to explain the OZFS in full, in a way that is accessible to anyone.   
 
 **Term Definitions**  
 This section defines terms that are used throughout this document.
