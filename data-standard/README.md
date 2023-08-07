@@ -20,10 +20,10 @@
    
 ## Definitions for frequently used terms  
 This section defines terms that are used throughout this document.
-* **machine-readable**: in a form that computers can process*
+* **machine-readable**: in a form that computers can proces
 * **data feed**: a set of data written in a machine-readable language
 * **municipality data feed**: a municipality's collection of machine-readable zoning information, collected within the required files written in the required format as specified by the Open Zoning Feed Specification
-* **schema**: a file defining the language that zoning and municipality information must be written in, regulates **municipality data feed** file information
+* **schema**: a file defining the language that zoning and municipality information must be written in -- regulates **municipality data feed** file information
 
 ## Open Zoning Feed Specification 
 <details><summary></summary>
