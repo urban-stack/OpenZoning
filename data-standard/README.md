@@ -41,10 +41,12 @@ Formatting the *municipality file* and *district files* are 4 Open Zoning schema
 | | ---> constraints application schema | --- |
 | | ------> constraints value schema | --- |
 
+  
 Municipality File             |  District files
 :-------------------------:|:-------------------------:
 ![image](https://github.com/urban-stack/OpenZoning/assets/70850778/76632b82-74b5-4d19-b31e-94b2e6b438a7) | ![image](https://github.com/urban-stack/OpenZoning/assets/70850778/1a82565a-aa36-4717-a4cb-5a7382f3f1ea)
 
+  
 
 ### OZFS Files and File Schemas, explained in detail
 ### Municipality file  
@@ -55,7 +57,7 @@ Information in the Municipality file is formatted per the **municipality Schema*
 
 ### District files  
 
-Information in the district files is formatted per three nested schemas: 1. the **district file schema**, which is partially formatted via the 2. **constraints application schema**, which, in turn, is partially formatted via the 3. **constraints values schema**. This heirarchy can be seen in the diagram following the **Open Zoning Feed Specification** table
+Information in the district files is formatted per three nested schemas: 1. the **district file schema**, which is partially formatted via the 2. **constraints application schema**, which, in turn, is partially formatted via the 3. **constraints values schema**. This hierarchy can be seen in the diagram following the **Open Zoning Feed Specification** table
 
 1. ### districts file schema  
 The **districts file schema** is structured as follows with the indicated properties and sub-properties, including the status of each: required, conditionally required, or not required.
