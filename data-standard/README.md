@@ -1,211 +1,85 @@
-# the Open Zoning Feed Specification
+---
+description: 'Making Zoning Meaningful: Open Zoning, Open Possibilities'
+---
 
-**The Open Zoning Feed Specification (OZFS)** is a first-of-its-kind national data language for zoning codes, allowing zoning codes to be machine-readable. The following information is meant to explain the OZFS in full and in a way that is accessible to anyone.   
+# 🙌 Open Zoning
 
-## Table of Contents
-1. [Definitions for frequently used terms](#Definitions-for-frequently-used-terms)
-2. [Open Zoning Feed Specification (OZFS)](#Open-Zoning-Feed-Specification-(OZFS))
-  1. [Feeds and machine-readability](#Feeds-and-machine-readability)
-  2. [a municipality data feed](#a-municipality-data-feed)
-  3. [OZFS files](#OZFS-files)
-  4. [OZFS file schemas](#OZFS-file-schemas) 
-5. [OZFS Files and File Schemas, explained in detail](#OZFS-Files-and-File-Schemas,-explained-in-detail)
-6. [Field types](#Field-types)
-7. [Municipality file](#Municipality-file)
-   1. [the municipality file schema](#the-municipality-file-schema)
-8. [Districts File](#Districts-file)
-  1. [the districts file schema](#the-districts-file-schema)
-  2. [the constraints application schema](#the-constraints-application-schema)
-  3. [the constraints values schema](#the-constraints-values-schema)
-9. [Municipality data feed completeness](#Municipality-data-feed-completeness)
-   
-## Definitions for frequently used terms  
-<details><summary></summary>
+## Overview and Table of Contents
 
-This section defines terms that are used throughout this document.
-* **machine-readable**: in a form that computers can proces
-* **data feed**: a set of files that contain data written in a machine-readable language
-* **feed specification**: a set of rules for a data feed's files that allow machines to understand and process them
-* **municipality data feed**: a municipality's collection of machine-readable zoning information, collected within the required files written in the required format as specified by the Open Zoning Feed Specification
-* **schema**: a file defining the language that zoning and municipality information must be written in -- regulates **municipality data feed** file information
+**Open Zoning's mission** is to democratize zoning codes, transforming them into legible, actionable data to spark a bottoms-up response to the housing crisis.&#x20;
 
-</details>
+This wiki deep dives into the technological backend that is supporting this effort:
 
-## Open Zoning Feed Specification (OZFS)
-<details><summary></summary>
+* [**the Open Zoning Feed Specification**](./#the-open-zoning-feed-specification-explained), as well as the concept of data feeds
+* [**using our API to access our zoning information**](./#using-our-api-to-pull-zoning-information) from our OZ zoning database
+* [**creating a municipality feed** ](./#creating-a-municipality-feed)
+* [**contributing to an existing municipality's zoning database**](./#contributing-to-an-existing-municipalitys-zoning-database)
+* [**our backend processing "engines"**](./#our-backend-processing-engines)**, resolving zoning information into build information**
 
-### Feeds and machine readability
-The Open Zoning Feed Specification specifies how a data feed of zoning data should be structured and formatted in order to be successfully machine-readable. A data feed is a set of data written in a machine-readable language. Machine-readable languages are created specifically to be able to communicate the unique semantic structures of the data that it was designed to communicate. Therefore, any computer hoping to read and process a data feed must speak its specific language, and thus be able make sense of it. 
+***
 
-### a municipality data feed
-The OZFS is a rule book that allows municipalities to create their own data feed of zoning data, i.e. their unique **municipality data feed**. A municipality's data feed is the collection of its zoning information into files written in Open Zoning's pre-defined machine-readable language. Once the required files with the required zoning information have been created in OZ's language, machines can then understand a municipality's zoning. 
+## the Open Zoning Feed Specification explained
 
-### OZFS files
-The OZFS is made up of only two types of files, the *municipality file* and *district files*. Each **municipality data feed** has one municipality file but can and should have multiple district files. A **municipality data feed** is simply an online database with these two types of files in it. Both files are described in detail below. 
+**The Open Zoning Feed Specification (OZFS)** is a first-of-its-kind national data language for zoning codes, allowing zoning codes to be machine-readable. The following information is meant to explain the OZFS in full and in a way that is accessible to anyone.
 
-### OZFS file schemas
-Formatting the *municipality file* and *district files* are 4 Open Zoning schemas, i.e. instructions for the language that their contents must be written in, including what information is required, conditionally required, and optional. These schemas define the language and the structure of the zoning information language that these files must speak and that machines must be able to read. The Open Zoning schemas live as json files (a type of data meta-language) within this Github repository and are listed in the table below. They have been translated from their json format into a more human-readable form within the **OZFS Files and File Schemas, explained in detail** section.
+{% content-ref url="the-open-zoning-feed-specification-explained/definitions-for-frequently-used-terms.md" %}
+[definitions-for-frequently-used-terms.md](the-open-zoning-feed-specification-explained/definitions-for-frequently-used-terms.md)
+{% endcontent-ref %}
 
-**Open Zoning Feed Specification**
-| file type | schema | description |
-| --- | --- | --- |
-| **municipality file** | municipality schema | --- |
-| **district file(s)** | districts file schema | --- |
-| | ---> constraints application schema | --- |
-| | ------> constraints value schema | --- |
+{% content-ref url="the-open-zoning-feed-specification-explained/the-open-zoning-feed-specification-ozfs.md" %}
+[the-open-zoning-feed-specification-ozfs.md](the-open-zoning-feed-specification-explained/the-open-zoning-feed-specification-ozfs.md)
+{% endcontent-ref %}
 
-  
-Municipality File             |  District files
-:-------------------------:|:-------------------------:
-![image](https://github.com/urban-stack/OpenZoning/assets/70850778/76632b82-74b5-4d19-b31e-94b2e6b438a7) | ![image](https://github.com/urban-stack/OpenZoning/assets/70850778/1a82565a-aa36-4717-a4cb-5a7382f3f1ea)
+{% content-ref url="the-open-zoning-feed-specification-explained/ozfs-files-and-file-schemas-explained-in-detail.md" %}
+[ozfs-files-and-file-schemas-explained-in-detail.md](the-open-zoning-feed-specification-explained/ozfs-files-and-file-schemas-explained-in-detail.md)
+{% endcontent-ref %}
 
-</details>
+{% content-ref url="the-open-zoning-feed-specification-explained/municipality-data-feed-completeness.md" %}
+[municipality-data-feed-completeness.md](the-open-zoning-feed-specification-explained/municipality-data-feed-completeness.md)
+{% endcontent-ref %}
 
-## OZFS Files and File Schemas, explained in detail
-### Field Types
-<details><summary></summary>
+***
 
-* Date - Service day in the YYYYMMDD format. Since time within a service day can be above 24:00:00, a service day often contains information for the subsequent day(s).
-Example: 20180913 for September 13th, 2018.
-* Email - An email address.
-  Example: example@example.com
-* Enum - An option from a set of predefined constants defined in the "Description" column.
-Example: The route_type field contains a 0 for tram, a 1 for subway...
-* ID - An ID field value is an internal ID, not intended to be shown to riders, and is a sequence of any UTF-8 characters. Using only printable ASCII characters is recommended. IDs defined in one .txt file are often referenced in another .txt file.
-Example: The stop_id field in stops.txt is a ID. The stop_id field in stop_times.txt is an ID referencing stops.stop_id.
-* Language Code - An IETF BCP 47 language code. For an introduction to IETF BCP 47, refer to http://www.rfc-editor.org/rfc/bcp/bcp47.txt and http://www.w3.org/International/articles/language-tags/.
-Example: en for English, en-US for American English or de for German.
-* Latitude - WGS84 latitude in decimal degrees. The value must be greater than or equal to -90.0 and less than or equal to 90.0.
-Example: 41.890169 for the Colosseum in Rome.
-* Longitude - WGS84 longitude in decimal degrees. The value must be greater than or equal to -180.0 and less than or equal to 180.0.
-Example: 12.492269 for the Colosseum in Rome.
-* Non-negative Float - A floating point number greater than or equal to 0.
-* Non-negative Integer - A integer greater than or equal to 0.
-* Phone number - A phone number.
-* Time - Time in the HH:MM:SS format (H:MM:SS is also accepted). The time is measured from "noon minus 12h" of the service day (effectively midnight except for days on which daylight savings time changes occur. For more information, see the guidelines article). For times occurring after midnight, enter the time as a value greater than 24:00:00 in HH:MM:SS local time for the day on which the trip schedule begins.
-Example: 14:30:00 for 2:30PM or 25:35:00 for 1:35AM on the next day.
-* Text - A string of UTF-8 characters, which is aimed to be displayed and which must therefore be human readable.
-* URL - A fully qualified URL that includes http:// or https://, and any special characters in the URL must be correctly escaped. See the following http://www.w3.org/Addressing/URL/4_URI_Recommentations.html for a description of how to create fully qualified URL values.
+## Using our API to pull zoning information
 
-</details>
+(description)
 
-### Municipality file
-<details><summary></summary>
+{% content-ref url="using-our-api-to-pull-zoning-information/page-1.md" %}
+[page-1.md](using-our-api-to-pull-zoning-information/page-1.md)
+{% endcontent-ref %}
 
-Information in the Municipality file is formatted per the **municipality Schema**. The schema is structured as follows with the indicated properties and sub-properties, including the status of each: required, conditionally required, or not required.
-* love
-  - love
- 
-</details>
+***
 
-### District files  
-<details><summary></summary>
+## Creating a Municipality feed
 
-Information in the district files is formatted per three nested schemas: 1. the **district file schema**, which is partially formatted via the 2. **constraints application schema**, which, in turn, is partially formatted via the 3. **constraints values schema**. This hierarchy can be seen in the diagram following the **Open Zoning Feed Specification** table
+(description)
 
-1. **districts file schema**  
-The **districts file schema** is structured as follows with the indicated properties and sub-properties, including the status of each: required, conditionally required, or not required.
+{% content-ref url="creating-a-municipality-feed/page-1.md" %}
+[page-1.md](creating-a-municipality-feed/page-1.md)
+{% endcontent-ref %}
 
-| property | sub-property | type | required | description |
-| --- | --- | --- | --- | --- |
-| ***district*** | | object | required | --- |
-| | *identifier* |string | required | --- |
-| | *name* | string | required | --- |
-| ***author*** | | string | required | --- |
-| ***date created*** | | date | required | --- |
-| ***last updated*** | | array | required | --- |
-| ***constraints*** | | array of objects | required | --- |
-| | *constraintsModule* | object | required | --- |
-| | *lot* | object | required | --- |
+***
 
-2. **constraints application schema**  
-The **constraints application schema** is structured as follows with the indicated properties and sub-properties, including the status of each: required, conditionally required, or not required.  
+## Contributing to an existing Municipality's zoning database
 
-**notes**  
-* Any of the following properties can be sub-properties of any other one, i.e. any property can be nested as a sub-property within any other property. The intent of this design is to allow the structure of the zoning code that is regulating the constraint to be captured as close as possible to how it is written.
-* Any of the following properties can take a constraint module as a sub-property. Constraint modules are defined within the **constraints value schema** section.
+(description)
 
-| property | sub-property | type | required | description |
-| --- | --- | --- | --- | --- |
-| ***bulkOptionality*** | | array of objects | optional | --- |
-| | *bulks* | array | required | --- |
-| ***developmentOptionality*** | | array of objects | optional | --- |
-| | *developmentType* | array | required | --- |
-| | *primaryStructures* | array | conditionally required | --- |
-| | *accessoryStructures* | array | conditionally required | --- |
-| ***ADbulkOptionality*** | | array of objects | optional | --- |
-| | *ADbulk* | array | required | --- |
-| ***ADtypeOptionality*** | | array of objects | optional | --- |
-| | *ADtype* | array | required | --- |
-| ***disrictTypeGroups*** | | array of objects | optional | --- |
-| | *districtTypes* | array | required | --- |
+{% content-ref url="contributing-to-an-existing-municipalitys-zoning-database/page-1.md" %}
+[page-1.md](contributing-to-an-existing-municipalitys-zoning-database/page-1.md)
+{% endcontent-ref %}
 
-3. **constraints values schema**   
-The **constraints values schema** is structured as follows with the indicated properties and sub-properties, including the status of each: required, conditionally required, or not required.
+***
 
-| constraint | sub-property | <div style="width:10px">sub-property</div> | sub-property | type | required | description |
-| --- | --- | --- | --- | --- | ---| --- | 
-| ***lotWidth*** | | | | object | optional | --- |
-| | *minimum* | | | non-negative integer | required | --- |
-| ***lotArea*** | | | | object | optional | --- |
-| | *minimum* | | | non-negative integer | conditionally required | --- |
-| | *maximum* | | | non-negative integer | conditionally required | --- |
-| ***height*** | | | | object | optional | --- |
-| | *wall* | | | object | conditionally required | --- |
-| | | *maximum*| | non-negative integer | required | --- |
-| | *roof* | | | object | conditionally required | --- |
-| | | *maximum*| | non-negative integer | required | --- |
-| ***setbacks*** | | | | object | optional | --- |
-| | *front* | | | non-negative integer | required | --- |
-| | *rear* | | | non-negative integer | required | --- |
-| | *side* | | | object | required | --- |
-| | | *interior* | | non-negative integer | required | --- |
-| | | *corner* | | non-negative integer | conditionally required | --- |
-| | | *bulkOptionality* | | non-negative integer | optional | --- |
-| | | | (see **constraints application schema** section) | non-negative integer | required | --- |
-| | | | *interior* | non-negative integer | required | --- |
-| | | | *corner* | non-negative integer | conditionally required | --- |
-| | *fromAnotherStructure* | | | non-negative integer | optional | --- |
-| | | *primaryResidentialStructure* | | non-negative integer | conditionally required | --- |
-| | | *habitableDwelling* | | non-negative integer | conditionally required | --- |
-| | *bulkOptionality* | | | non-negative integer | optional | --- |
-| | | (any *setbacks* property) | | n/a | n/a | --- |
-| ***lot coverage*** | | | | object | optional | --- |
-| | *maximum* | | | non-negative integer | required | --- |
-| ***FAR*** | | | | object | optional | --- |
-| | *residential* | | | non-negative integer | required | --- |
-| ***floorArea*** | | | | object | optional | --- |
-| | *unit* | | | object | required | --- |
-| | | *standard* | | object | conditionally required | --- |
-| | | | *minimum* | non-negative integer | required | --- |
-| | | *efficiecny* | | object | conditionally required | --- |
-| | | | *minimum* | non-negative integer | required | --- |
-| ***floorWidth*** | | | | object | optional | --- |
-| | *minimum* | | | object | required | --- |
-| | | *value* | | non-negative integer | required | --- |
-| | | *applicableFloorArea* | | non-negative integer | optional | --- |
-| ***stories*** | | | | object | optional | --- |
-| | *maximum* | | | non-negative integer | conditionally required | --- |
-| | *floorAreaContribution* | | | object | conditionally required | --- |
-| | | *storyFloorElevation* | | object | conditionally required | --- |
-| | | | *minimum* | non-negative integer | required | --- |
-| | | | *floorAreaPerimeterPercentage* | non-negative integer | optional | --- |
+## Our backend processing "engines"
 
-</details>
+{% content-ref url="our-backend-processing-engines/the-district-intersection-engine.md" %}
+[the-district-intersection-engine.md](our-backend-processing-engines/the-district-intersection-engine.md)
+{% endcontent-ref %}
 
-## Municipality data feed completeness
-<details><summary></summary>
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
+{% endcontent-ref %}
 
-For a **municipality data feed** to be considered complete by Open Zoning, it must:
-1. contain a *district file* for each zoning district within the municipality, as listed within the *municipality file*
-2. capture the following constraints for each allowed use for each residential zoned lot within its jurisdiction:
-*  maximum height(s) (all height values -- e.g. wall, roof -- defined within the *municipality file*)
-*  setback values (all setback values -- e.g. front, side, rear -- defined within the *municipality file*)
-*  FAR
-*  number of stories
-*  required parking (if denoted as regulated within the *municipality file*)
-*  minimum lot size (if denoted as regulated within the *municipality file*)
-*  maxiumum lot size (if denoted as regulated within the *municipality file*)
-*  maximum lot coverage (if denoted as regulated within the *municipality file*)
-
-</details>
+{% content-ref url="our-backend-processing-engines/the-spatial-engine.md" %}
+[the-spatial-engine.md](our-backend-processing-engines/the-spatial-engine.md)
+{% endcontent-ref %}
