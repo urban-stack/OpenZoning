@@ -20,12 +20,16 @@
 9. [Municipality data feed completeness](#Municipality-data-feed-completeness)
    
 ## Definitions for frequently used terms  
+<details><summary></summary>
+
 This section defines terms that are used throughout this document.
 * **machine-readable**: in a form that computers can proces
 * **data feed**: a set of files that contain data written in a machine-readable language
 * **feed specification**: a set of rules for a data feed's files that allow machines to understand and process them
 * **municipality data feed**: a municipality's collection of machine-readable zoning information, collected within the required files written in the required format as specified by the Open Zoning Feed Specification
 * **schema**: a file defining the language that zoning and municipality information must be written in -- regulates **municipality data feed** file information
+
+</details>
 
 ## Open Zoning Feed Specification (OZFS)
 <details><summary></summary>
@@ -56,19 +60,6 @@ Municipality File             |  District files
 ![image](https://github.com/urban-stack/OpenZoning/assets/70850778/76632b82-74b5-4d19-b31e-94b2e6b438a7) | ![image](https://github.com/urban-stack/OpenZoning/assets/70850778/1a82565a-aa36-4717-a4cb-5a7382f3f1ea)
 
 </details>
-
-**Open Zoning Feed Specification**
-| file type | schema | description |
-| --- | --- | --- |
-| **municipality file** | municipality schema | --- |
-| **district file(s)** | districts file schema | --- |
-| | ---> constraints application schema | --- |
-| | ------> constraints value schema | --- |
-
-  
-Municipality File             |  District files
-:-------------------------:|:-------------------------:
-![image](https://github.com/urban-stack/OpenZoning/assets/70850778/76632b82-74b5-4d19-b31e-94b2e6b438a7) | ![image](https://github.com/urban-stack/OpenZoning/assets/70850778/1a82565a-aa36-4717-a4cb-5a7382f3f1ea)
 
 ## OZFS Files and File Schemas, explained in detail
 ### Field Types
