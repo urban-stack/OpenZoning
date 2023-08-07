@@ -10,8 +10,11 @@
   4. [OZFS file schemas](#OZFS-file-schemas) 
 5. [OZFS Files and File Schemas, explained in detail](#OZFS-Files-and-File-Schemas,-explained-in-detail)
 6. [Municipality file](#Municipality-file)
-   1. [the municipality file schema](#the-municipality-file-schema
+   1. [the municipality file schema](#the-municipality-file-schema)
 8. [Districts File](#Districts-file)
+  1. [the districts file schema](#the-districts-file-schema)
+  2. [the constraints application schema](#the-constraints-application-schema)
+  3. [the constraints values schema](#the-constraints-values-schema)
    
 ## Definitions for frequently used terms  
 This section defines terms that are used throughout this document.
@@ -20,7 +23,8 @@ This section defines terms that are used throughout this document.
 * **municipality data feed**: a municipality's collection of machine-readable zoning information, collected within the required files written in the required format as specified by the Open Zoning Feed Specification
 * **schema**: a file defining the language that zoning and municipality information must be written in, regulates **municipality data feed** file information
 
-## Open Zoning Feed Specification
+<details><summary>## Open Zoning Feed Specification</summary>
+
 ### Feeds and machine readability
 The Open Zoning Feed Specification specifies how a data feed of zoning data should be structured and formatted in order to be successfully machine-readable. A data feed is a set of data written in a machine-readable language. Machine-readable languages are created specifically to be able to communicate the unique semantic structures of the data that it was designed to communicate. Therefore, any computer hoping to read and process a data feed must speak its specific language, and thus be able make sense of it. 
 
@@ -45,6 +49,8 @@ Formatting the *municipality file* and *district files* are 4 Open Zoning schema
 Municipality File             |  District files
 :-------------------------:|:-------------------------:
 ![image](https://github.com/urban-stack/OpenZoning/assets/70850778/76632b82-74b5-4d19-b31e-94b2e6b438a7) | ![image](https://github.com/urban-stack/OpenZoning/assets/70850778/1a82565a-aa36-4717-a4cb-5a7382f3f1ea)
+
+</details>
 
   
 
