@@ -16,6 +16,7 @@
   1. [the districts file schema](#the-districts-file-schema)
   2. [the constraints application schema](#the-constraints-application-schema)
   3. [the constraints values schema](#the-constraints-values-schema)
+9. [Municipality data feed completeness](#Municipality-data-feed-completeness)
    
 ## Definitions for frequently used terms  
 This section defines terms that are used throughout this document.
@@ -54,13 +55,10 @@ Municipality File             |  District files
 
 </details>
 
-  
-
 ## OZFS Files and File Schemas, explained in detail
 ### Field Types
 <details><summary></summary>
 
-### Field types
 * Date - Service day in the YYYYMMDD format. Since time within a service day can be above 24:00:00, a service day often contains information for the subsequent day(s).
 Example: 20180913 for September 13th, 2018.
 * Email - An email address.
@@ -99,7 +97,7 @@ Information in the Municipality file is formatted per the **municipality Schema*
 
 Information in the district files is formatted per three nested schemas: 1. the **district file schema**, which is partially formatted via the 2. **constraints application schema**, which, in turn, is partially formatted via the 3. **constraints values schema**. This hierarchy can be seen in the diagram following the **Open Zoning Feed Specification** table
 
-1. ### districts file schema  
+1. **districts file schema**  
 The **districts file schema** is structured as follows with the indicated properties and sub-properties, including the status of each: required, conditionally required, or not required.
 
 | property | sub-property | type | required | description |
@@ -114,8 +112,8 @@ The **districts file schema** is structured as follows with the indicated proper
 | | *constraintsModule* | object | required | --- |
 | | *lot* | object | required | --- |
 
-2. ### constraints application schema  
-The *constraints application schema* is structured as follows with the indicated properties and sub-properties, including the status of each: required, conditionally required, or not required.  
+2. **constraints application schema**  
+The **constraints application schema** is structured as follows with the indicated properties and sub-properties, including the status of each: required, conditionally required, or not required.  
 
 **notes**  
 * Any of the following properties can be sub-properties of any other one, i.e. any property can be nested as a sub-property within any other property. The intent of this design is to allow the structure of the zoning code that is regulating the constraint to be captured as close as possible to how it is written.
@@ -136,9 +134,8 @@ The *constraints application schema* is structured as follows with the indicated
 | ***disrictTypeGroups*** | | array of objects | optional | --- |
 | | *districtTypes* | array | required | --- |
 
-3. ### constraints values schema   
-The *constraints values schema* is structured as follows with the indicated properties and sub-properties, including the status of each: required, conditionally required, or not required.
-* (first property here
+3. **constraints values schema**   
+The **constraints values schema** is structured as follows with the indicated properties and sub-properties, including the status of each: required, conditionally required, or not required.
 
 | constraint | sub-property | <div style="width:10px">sub-property</div> | sub-property | type | required | description |
 | --- | --- | --- | --- | --- | ---| --- | 
@@ -190,6 +187,9 @@ The *constraints values schema* is structured as follows with the indicated prop
 
 </details>
 
+## Municipality data feed completeness
+<details><summary></summary>
+
 For a **municipality data feed** to be considered complete by Open Zoning, it must:
 1. contain a *district file* for each zoning district within the municipality, as listed within the *municipality file*
 2. capture the following constraints for each allowed use for each residential zoned lot within its jurisdiction:
@@ -202,12 +202,14 @@ For a **municipality data feed** to be considered complete by Open Zoning, it mu
 *  maxiumum lot size (if denoted as regulated within the *municipality file*)
 *  maximum lot coverage (if denoted as regulated within the *municipality file*)
 
+</details>
+
 ###  
 
 # OZFS Data Standard
 A portion of OZFS's work is establishing a minimum viable set of "core" constraints || set of core bulking components that are necessary to bulking on any given lot across America. Our work-in-progress list of these constraints are captured within an Airtable titled [OZFS schema](https://airtable.com/invite/l?inviteId=invIE9Rq8BJxoRZe9&inviteToken=c24d20d82c00f933e02ca4d7f9b78088b2eaefcef049f3691df85eb48f858fbc&utm_medium=email&utm_source=product_team&utm_content=transactional-alerts). 
 
-Within this table, each constraint is catagorized into a core component of what is known as bulking, which is the process through which structures take their form on a lot within the modern-day zoning concept (the bucket is titled "core bulking component"). OpenZoning considers these components to be the core devices through which modern society has used zoning to conceptualize and abstract the tangible resource of land as discrete containers for bulks, i.e. structures and buildings. These containers are called lots -- discrete areas of land plus the volumes of air above and earth beneath them -- and are the base units of zoning. When applied to the lot, modern society's conceptualization of land is executed through a set of components meant to control the realization of bulks (i.e. bulking) on these lots. They are:
+Within this table, each constraint is categorized into a core component of what is known as bulking, which is the process through which structures take their form on a lot within the modern-day zoning concept (the bucket is titled "core bulking component"). OpenZoning considers these components to be the core devices through which modern society has used zoning to conceptualize and abstract the tangible resource of land as discrete containers for bulks, i.e. structures and buildings. These containers are called lots -- discrete areas of land plus the volumes of air above and earth beneath them -- and are the base units of zoning. When applied to the lot, modern society's conceptualization of land is executed through a set of components meant to control the realization of bulks (i.e. bulking) on these lots. They are:
 
 - buildable area limits
 - height limits 
