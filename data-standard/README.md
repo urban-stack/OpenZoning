@@ -23,7 +23,7 @@ This section defines terms that are used throughout this document.
 * **municipality data feed**: a municipality's collection of machine-readable zoning information, collected within the required files written in the required format as specified by the Open Zoning Feed Specification
 * **schema**: a file defining the language that zoning and municipality information must be written in, regulates **municipality data feed** file information
 
-<details><summary>## Open Zoning Feed Specification</summary>
+## Open Zoning Feed Specification <details><summary>OZFS</summary>
 
 ### Feeds and machine readability
 The Open Zoning Feed Specification specifies how a data feed of zoning data should be structured and formatted in order to be successfully machine-readable. A data feed is a set of data written in a machine-readable language. Machine-readable languages are created specifically to be able to communicate the unique semantic structures of the data that it was designed to communicate. Therefore, any computer hoping to read and process a data feed must speak its specific language, and thus be able make sense of it. 
