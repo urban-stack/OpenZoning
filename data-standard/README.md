@@ -55,14 +55,18 @@ Municipality File             |  District files
 
   
 
-### OZFS Files and File Schemas, explained in detail
-### Municipality file  
+## OZFS Files and File Schemas, explained in detail
+### Municipality file
+<details><summary></summary>
 
 Information in the Municipality file is formatted per the **municipality Schema**. The schema is structured as follows with the indicated properties and sub-properties, including the status of each: required, conditionally required, or not required.
 * love
   - love
+ 
+</details>
 
 ### District files  
+<details><summary></summary>
 
 Information in the district files is formatted per three nested schemas: 1. the **district file schema**, which is partially formatted via the 2. **constraints application schema**, which, in turn, is partially formatted via the 3. **constraints values schema**. This hierarchy can be seen in the diagram following the **Open Zoning Feed Specification** table
 
@@ -154,6 +158,8 @@ The *constraints values schema* is structured as follows with the indicated prop
 | | | *storyFloorElevation* | | object | conditionally required | --- |
 | | | | *minimum* | non-negative integer | required | --- |
 | | | | *floorAreaPerimeterPercentage* | non-negative integer | optional | --- |
+
+</details>
 
 For a **municipality data feed** to be considered complete by Open Zoning, it must:
 1. contain a *district file* for each zoning district within the municipality, as listed within the *municipality file*
