@@ -190,7 +190,7 @@
 								{
 									"types": ["detached"],
 									"footprint": {
-										"total": {
+										"lotTotal": {
 											"maximum": {
 												"lesserOf" :[
 													{
@@ -217,16 +217,28 @@
 				]
 			}
 		},
-		"ADtypeOptionality": [
-			{
-				"types": "internal",
-				"stories": {
-					"maximum": 1
-				}
-			}
-		]
 		{
-			"constraintsModule": ["height", "stories"],
+			"constraintsModule": ["stories"],
+			"lot": {
+				"developmentOptionality": [
+					{
+						"developmentType": "primary/accessory",
+						"accessoryStructures": {
+							"ADtypeOptionality": [
+								{
+									"types": "internal",
+									"stories": {
+										"maximum": 1
+									}
+								}
+							]
+						}
+					}
+				]
+			}
+		},
+		{
+			"constraintsModule": ["height"],
 			"lot": {
 				"developmentOptionality": [
 					{
@@ -299,9 +311,6 @@
 				"developmentOptionality": [
 					{
 						"developmentType": "primary/accessory",
-						"primaryStructures": {
-
-						},
 				 		"accessoryStructures": {
 				 			"ADallowedLotLocation": {
 				 				"ADtypeOptionality": [
@@ -318,7 +327,6 @@
 				 			"bulkOptionality": [
 				 				{
 				 					"bulk": "ADU",
-				 	
 				 					"ADtypeOptionality": [
 				 						{
 				 							"type": "detached",
