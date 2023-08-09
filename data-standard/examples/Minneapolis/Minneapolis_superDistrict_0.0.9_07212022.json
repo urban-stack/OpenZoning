@@ -18,7 +18,7 @@
 		"bulkOptionality": [
 			{
 				"bulks": ["single-family", "two-family"],
-				"allowances": {
+				"accessoryStructures": {
 					"num": 1,
 					"types": "ADU, garage", //I need to check this for factuality
 				}
