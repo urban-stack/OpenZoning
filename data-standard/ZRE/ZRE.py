@@ -1,4 +1,5 @@
 from nested_constraints_extractor import extract_nested_constraints_wrapper
+import os
 
 
 def merge_dictionaries_based_on_hierarchy(dicts, hierarchy):
@@ -45,14 +46,14 @@ def merge_dictionaries_based_on_hierarchy(dicts, hierarchy):
 # Define the hierarchy
 districtsHierarchy = ["superDistrict", "base", "overlay_1", "overlay_2"]
 
-# Test extractions
-"../"
-
 
 # Make this more automated basically running the files in a for loop
 
 file1 = extract_nested_constraints_wrapper(
     '../schema_vikranth/tests/data/districts/BFI3_district.json')
+
+# file2 = extract_nested_constraints_wrapper(
+# '../schema_vikranth/tests/data/districts/BFI3_district.json')
 file2 = extract_nested_constraints_wrapper(
     '../schema_vikranth/tests/data/districts/super_district.json')
 # file3 = extract_nested_constraints_wrapper(
@@ -88,5 +89,6 @@ ZRE_output = {
     **merge_output
 }
 
-print("-------------********THISSSSS********---------------")
+print("-------------********THISSSSS********---------------\n\n")
 print(ZRE_output)
+print("\n\n----------------------------\n\n")

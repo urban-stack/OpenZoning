@@ -1,0 +1,21 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "ZRE Debugger",
+      "type": "python",
+      "request": "launch",
+      "program": "C:\\Users\\saivi\\OneDrive\\Desktop\\OpenZoning\\data-standard\\ZRE\\ZRE.py",
+      "console": "integratedTerminal",
+      "cwd": "${fileDirname}"
+    },
+    {
+      "name": "Nested Constraints Extractor Debugger",
+      "type": "python",
+      "request": "launch",
+      "program": "C:\\Users\\saivi\\OneDrive\\Desktop\\OpenZoning\\data-standard\\ZRE\\nested_constraints_extractor.py",
+      "console": "integratedTerminal",
+      "cwd": "${fileDirname}"
+    }
+  ]
+}
