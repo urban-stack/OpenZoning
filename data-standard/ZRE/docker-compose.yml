@@ -1,0 +1,19 @@
+# Commands to run this file
+
+# docker-compose build
+# docker-compose up -d
+# docker exec -it zre_oz-container_1 /bin/bash
+
+version: "3.8"
+services:
+  oz-container:
+    image: oz-image
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ../../.:/app
+    working_dir: /app/data-standard/ZRE
+    stdin_open: true
+    tty: true
+    command: /bin/bash
