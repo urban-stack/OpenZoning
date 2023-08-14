@@ -76,6 +76,34 @@
 		{
 			"constraintsModule": "FAR",
 			"lot": {
+				"bulkOptionalities": [
+					{
+						"bulks": ["two-family", "three-family"],
+						"FAR": {
+							"premiums": {
+								"Affordable housing floor area premium": {
+									"value": 0.1,
+									"type": "addition",
+									"application": "per unit",
+									"exemption": "1 unit"
+									"condition": "https://library.municode.com/mn/minneapolis/codes/code_of_ordinances?nodeId=MICOOR_TIT20ZOCO_CH552BUFOOVDI_ARTIIIINMAFLAR_552.230SIHRMIDWCOLIUS"
+								},
+								"Environmental sustainability floor area premium": {
+									"value": 0.1,
+									"type": "addition",
+									"application": "per development",
+									"condition": "https://library.municode.com/mn/minneapolis/codes/code_of_ordinances?nodeId=MICOOR_TIT20ZOCO_CH552BUFOOVDI_ARTIIIINMAFLAR_552.230SIHRMIDWCOLIUS"
+								},
+								"Enclosed parking": {
+									"value": 0.3,
+									"type": "addition",
+									"application": "per development",
+									"condition": "https://library.municode.com/mn/minneapolis/codes/code_of_ordinances?nodeId=MICOOR_TIT20ZOCO_CH552BUFOOVDI_ARTIIIINMAFLAR_552.230SIHRMIDWCOLIUS"
+								}
+							}
+						}
+					}
+				],
 				"districtTypeGroups": [
 					{
 						"districtTypes": ["Residential", "Office Residential"],
