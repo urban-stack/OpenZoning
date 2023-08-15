@@ -12,21 +12,16 @@
 	//  	- chapter 546: Residence Districts
 	//  		- article I. - General Provisions
 	//			- article V. - R2B Multiple-family District
-
-	"allowedUses": {
-		"permitted": ["single-family", "two-family", "three-family"], 
-		"conditional": [],
-		"accessoryStructuresPermissions": {
-			"bulkOptionalities": [
-				{
-					"bulks": ["single-family", "two-family"],
-					"allowedAccessoryStructures": {
-						"num": 1,
-						"types": "ADU, garage", //I need to check this for factuality
-					}
+	"accessoryStructuresPermissions": {
+		"bulkOptionalities": [
+			{
+				"bulks": ["single-family", "two-family"],
+				"allowedAccessoryStructures": {
+					"num": 1,
+					"types": "ADU, garage", //I need to check this for factuality
 				}
-			]
-		}
+			}
+		]
 	},
 	}
 	"constraints": [
@@ -196,7 +191,50 @@
 					}	
 				]
 			}
-		}
+		},
+		{
+            "constraintsModule": ["premiums"],
+			"lot": {
+                "FAR": {
+                    "developmentOptionalities": [
+    					{
+    						"developmentType": "primary/accessory",
+    			 			"primaryStructures": {
+    							"bulkOptionalities": [
+    								{
+    									"bulks": ["single-family", "two-family", "three-family"],
+                                        "premiums": [
+                                            {
+                                                "name": "Affordable housing floor area premium"
+                                                "value": 0.1,
+                                                "type": "addition",
+                                                "application": "per unit",
+                                                "exemption": "1 unit"
+                                                "condition": "https://library.municode.com/mn/minneapolis/codes/code_of_ordinances?nodeId=MICOOR_TIT20ZOCO_CH552BUFOOVDI_ARTIIIINMAFLAR_552.230SIHRMIDWCOLIUS"
+                                            },
+                                            {
+                                                "name": "Environmental sustainability floor area premium"
+                                                "value": 0.1,
+                                                "type": "addition",
+                                                "application": "per development",
+                                                "condition": "https://library.municode.com/mn/minneapolis/codes/code_of_ordinances?nodeId=MICOOR_TIT20ZOCO_CH552BUFOOVDI_ARTIIIINMAFLAR_552.230SIHRMIDWCOLIUS"
+                                            },
+                                            {
+                                                "name": "Enclosed parking"
+												"value": 0.3,
+												"type": "addition",
+												"application": "per development",
+												"condition": "https://library.municode.com/mn/minneapolis/codes/code_of_ordinances?nodeId=MICOOR_TIT20ZOCO_CH552BUFOOVDI_ARTIIIINMAFLAR_552.230SIHRMIDWCOLIUS"
+											}
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        },
 		{
 			"constraintsModule": "footprint",
 			"lot": {
