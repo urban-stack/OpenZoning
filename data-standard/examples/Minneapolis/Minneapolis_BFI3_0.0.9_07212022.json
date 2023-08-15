@@ -1,13 +1,11 @@
 {
 	"district": {
-		"identifier": "MN-HennepinCo-Minneapolis-BFI3", //-all bulks/uses
+		"identifier": "MN-HennepinCo-Minneapolis-BFI3",
 		"name": "BFI3 Interior 3 Built Form Overlay District",
+		"zoning_code": "BFI3"
 	},
-	"last_updated": "20220721",
+	"last_updated": "20230815",
 	"author": "OZFS Team",
-	"usePermissions": {
-		"permitted": ["single-family", "two-family", "three-family"]
-	}
 	"constraints": [
 		{
 			"constraintsModule": ["height", "stories"],
@@ -30,9 +28,9 @@
 									"stories": {
 										"max": 2.5,
 									}
-								}
+								},
 								{
-									"bulks": ["three-family", "cluster"],
+									"bulks": ["three-family"],
 									"height": {
 										"maximum": 42
 									},
@@ -40,12 +38,12 @@
 										"maximum": 3,
 									}
 								}
-							],
-						},	
+							]
+						}	
 					}
 				]
 			}
-		}
+		},
 		{
 			"constraintsModule": "setbacks",
 			"lot": {
@@ -56,17 +54,12 @@
 				 			"setbacks": {
 								"front": 20,
 								"rear": 5,
-								"side": { //the variances in values per height still need to be incorporated
+								"side": { 
 									"bulkOptionalities": [
 										{
-											"bulks": ["single-family", "two-family", "three-family"],
+											"bulks": ["single-family", "two-family", "three-family", "four-plus-family"],
 											"interior": 5,
 											"corner": 8,
-										}
-										{
-											"bulks": "allOthers",
-											"interior": "...",
-											"corner": "...",
 										}
 									]
 								}
@@ -75,91 +68,63 @@
 					}
 				]
 			}
-		}
+		},
 		{
 			"constraintsModule": "FAR",
 			"lot": {
-				"bulkOptionalities": [
-					{
-						"bulks": ["two-family", "three-family"],
-						"FAR": {
-							"premiums": {
-								"Affordable housing floor area premium": {
-									"value": 0.1,
-									"type": "addition",
-									"application": "per unit",
-									"exemption": "1 unit"
-									"condition": "https://library.municode.com/mn/minneapolis/codes/code_of_ordinances?nodeId=MICOOR_TIT20ZOCO_CH552BUFOOVDI_ARTIIIINMAFLAR_552.230SIHRMIDWCOLIUS"
-								},
-								"Environmental sustainability floor area premium": {
-									"value": 0.1,
-									"type": "addition",
-									"application": "per development",
-									"condition": "https://library.municode.com/mn/minneapolis/codes/code_of_ordinances?nodeId=MICOOR_TIT20ZOCO_CH552BUFOOVDI_ARTIIIINMAFLAR_552.230SIHRMIDWCOLIUS"
-								},
-								"Enclosed parking": {
-									"value": 0.3,
-									"type": "addition",
-									"application": "per development",
-									"condition": "https://library.municode.com/mn/minneapolis/codes/code_of_ordinances?nodeId=MICOOR_TIT20ZOCO_CH552BUFOOVDI_ARTIIIINMAFLAR_552.230SIHRMIDWCOLIUS"
-								}
-							}
-						}
-					}
-				],
 				"districtTypeGroups": [
 					{
 						"districtTypes": ["Residential", "Office Residential"],
 						"bulkOptionalities": [
 							{
-								"bulks": "single-family",
+								"bulks": ["single-family"],
 								"FAR": {
 									"residential": 0.5
 								}
-							}
+							},
 							{
-								"bulks": "two-family",
+								"bulks": ["two-family"],
 								"FAR": {
 									"residential": 0.6
 								}
-							}
+							},
 							{
-								"bulks": "three-family",
+								"bulks": ["three-family"],
 								"FAR": {
 									"residential": 0.7
 								}
-							}
+							},
 							{
-								"bulks": "four-family",
+								"bulks": ["four-family"],
 								"FAR": {
 									"residential": 1.4
 								}
 							}
 						]
-					}
+					},
 					{
 						"districtTypes": "allOthers",
 						"bulkOptionalities": [
 							{
-								"bulks": "single-family",
+								"bulks": ["single-family"],
 								"FAR": {
 									"residential": 0.5
 								}
-							}
+							},
 							{
-								"bulks": "two-family",
+								"bulks": ["two-family"],
 								"FAR": {
 									"residential": 0.6
 								}
-							}
+							},
 							{
-								"bulks": "three-family",
+								"bulks": ["three-family"],
 								"FAR": {
 									"residential": 0.7
 								}
-							}
+							},
 							{
-								"bulks": "four-family",
+								"bulks": ["four-family"],
 								"FAR": {
 									"residential": 1.6
 								}
@@ -168,7 +133,7 @@
 					}
 				]
 			}
-		}
+		},
 		{
 			"constraintsModule": ["lotArea", "lotWidth"],
 			"lot": {
@@ -177,12 +142,12 @@
 						"developmentType": "primary/accessory",
 			 			"bulkOptionalities": [
 							{
-								"bulks": "four-family-plus",
+								"bulks": "four-plus-family",
 								"lotArea": {
 									"minimum": 5000, //sqf
 									"maximum": 18000 //sqf
 								},
-								"lotWidth": { //this doesn't work -- lot width should be defined by lot boundary: side
+								"lotWidth": {
 									"minimum": 40 //feet
 								}
 							}
@@ -190,14 +155,25 @@
 					}	
 				]
 			}
-		}
+		},
 		{
 			"constraintsModule": "lotCoverage",
 			"lot": {
 				"lotCoverage": {
 					"max": 0.6
-				},
+				}
 			}	
+		},
+		{
+			"constraintsModule": "premiums",
+			"lot": {
+				"premiums": {
+					"maximum": 1
+				},
+				"FAR": {
+					"allowedPremiums": "Enclosed Parking"
+				}
+			}
 		}
 	]
 }
