@@ -5,9 +5,7 @@
 	},
 	"last_updated": "20220721",
 	"author": "OZFS Team",
-	"usePermissions": {
-		"permitted": ["single-family", "two-family", "three-family"]
-	}
+	},
 	"constraints": [
 		{
 			"constraintsModule": ["height", "stories"],
@@ -45,7 +43,7 @@
 					}
 				]
 			}
-		}
+		},
 		{
 			"constraintsModule": "setbacks",
 			"lot": {
@@ -56,60 +54,33 @@
 				 			"setbacks": {
 								"front": 20,
 								"rear": 5,
-								"side": { //the variances in values per height still need to be incorporated
-									"bulkOptionalities": [
-										{
-											"bulks": ["single-family", "two-family", "three-family"],
-											"interior": 5,
-											"corner": 8,
-										}
-										{
-											"bulks": "allOthers",
-											"interior": "...",
-											"corner": "...",
-										}
-									]
+								"side": {
+									"interior": 5,
+									"corner": 8
 								}
 							}
 						}	
 					}
 				]
 			}
-		}
+		},
+		{
+			"constraintsModule": "premiums",
+			"lot": {
+				"premiums": {
+					"maximum": 1
+				},
+				"FAR": {
+					"allowedPremiums": "Enclosed Parking"
+				}
+			}
+		},
 		{
 			"constraintsModule": "FAR",
 			"lot": {
-				"bulkOptionalities": [
-					{
-						"bulks": ["two-family", "three-family"],
-						"FAR": {
-							"premiums": {
-								"Affordable housing floor area premium": {
-									"value": 0.1,
-									"type": "addition",
-									"application": "per unit",
-									"exemption": "1 unit"
-									"condition": "https://library.municode.com/mn/minneapolis/codes/code_of_ordinances?nodeId=MICOOR_TIT20ZOCO_CH552BUFOOVDI_ARTIIIINMAFLAR_552.230SIHRMIDWCOLIUS"
-								},
-								"Environmental sustainability floor area premium": {
-									"value": 0.1,
-									"type": "addition",
-									"application": "per development",
-									"condition": "https://library.municode.com/mn/minneapolis/codes/code_of_ordinances?nodeId=MICOOR_TIT20ZOCO_CH552BUFOOVDI_ARTIIIINMAFLAR_552.230SIHRMIDWCOLIUS"
-								},
-								"Enclosed parking": {
-									"value": 0.3,
-									"type": "addition",
-									"application": "per development",
-									"condition": "https://library.municode.com/mn/minneapolis/codes/code_of_ordinances?nodeId=MICOOR_TIT20ZOCO_CH552BUFOOVDI_ARTIIIINMAFLAR_552.230SIHRMIDWCOLIUS"
-								}
-							}
-						}
-					}
-				],
 				"districtTypeGroups": [
 					{
-						"districtTypes": ["Residential", "Office Residential"],
+						"districtTypes": ["Urban Neighborhood", "Residential Mixed"],
 						"bulkOptionalities": [
 							{
 								"bulks": "single-family",
@@ -168,7 +139,7 @@
 					}
 				]
 			}
-		}
+		},
 		{
 			"constraintsModule": ["lotArea", "lotWidth"],
 			"lot": {
@@ -190,13 +161,16 @@
 					}	
 				]
 			}
-		}
+		},
 		{
-			"constraintsModule": "lotCoverage",
+			"constraintsModule": ["lotCoverage", "imperviousSurfaceCoverage"],
 			"lot": {
 				"lotCoverage": {
 					"max": 0.6
 				},
+				"imperviousSurfaceCoverage": {
+					"max": 0.75
+				}
 			}	
 		}
 	]
