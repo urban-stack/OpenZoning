@@ -246,15 +246,25 @@
 					{
 						"developmentType": "primary/accessory",
 			 			"primaryStructures": {
-							"stories": {
-								"floorAreaContribution": [
-									{
-										"storyType": "basement",
-										"FACvalue": 0,
-										"condition": "Basement floor area if the finished floor of the first story is forty-two (42) inches or less from natural grade for more than fifty (50) percent of the total perimeter." 
+							"bulkOptionalities": [
+								{
+									"bulks": ["single-family", "two-family", "three-family"],
+									"stories": {
+										"floorAreaContribution": [
+											{
+												"storyType": "basement",
+												"FACvalue": 0,
+												"condition": "Basement floor area if the finished floor of the first story is forty-two (42) inches or less from natural grade for more than fifty (50) percent of the total perimeter." 
+											},
+											{
+												"storyType": "half story",
+												"FACvalue": 0,
+											}
+										],
+										"maxStoryHeight": 14
 									}
-								]
-							}
+								}
+							]
 						},
 						"accessoryStructures": {
 							"typeOptionality": [ //we can workshop this title
