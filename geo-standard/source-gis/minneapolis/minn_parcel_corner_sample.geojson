@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "minn_parcel_corner_sample",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "fid": 118850, "OBJECTID": 405346, "PID": "3302924110111", "HOUSE_NO": 2321, "FRAC_HOUSE_NO": "   ", "STREET_NM": "COLFAX AVE S        ", "CONDO_NO": "     ", "LOT": "011", "BLOCK": "006", "BUILD_YR": "1913", "PARCEL_AREA": 6720.9106781700002, "LAT": 44.959283, "LON": -93.291461, "ShapeSTArea": 623.84832253796208, "ShapeSTLength": 112.47742523214784 }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -93.2912084, 44.9593585 ], [ -93.2917286, 44.9593596 ], [ -93.2917293, 44.9592226 ], [ -93.2912089, 44.9592218 ], [ -93.2912085, 44.9593383 ], [ -93.2912084, 44.9593585 ] ] ] } }
-]
-}

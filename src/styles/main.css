@@ -1,0 +1,15 @@
+.outline-text {
+  -webkit-text-stroke: 2px black;
+  -webkit-text-fill-color: transparent;
+  cursor: "pointer";
+}
+
+.outline-text:hover {
+  -webkit-text-stroke: none;
+  -webkit-text-fill-color: none;
+}
+
+.bg-opacity-50 {
+  background-image: linear-gradient(to bottom, green 50%, transparent 50%);
+  background-size: 2px 8px;
+}
