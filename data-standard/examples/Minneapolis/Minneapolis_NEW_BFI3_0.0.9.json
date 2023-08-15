@@ -64,17 +64,6 @@
 			}
 		},
 		{
-			"constraintsModule": "premiums",
-			"lot": {
-				"premiums": {
-					"maximum": 1
-				},
-				"FAR": {
-					"allowedPremiums": "Enclosed Parking"
-				}
-			}
-		},
-		{
 			"constraintsModule": "FAR",
 			"lot": {
 				"districtTypeGroups": [
@@ -171,6 +160,17 @@
 					"max": 0.75
 				}
 			}	
+		},
+		{
+			"constraintsModule": "premiums",
+			"lot": {
+				"premiums": {
+					"maximum": 1
+				},
+				"FAR": {
+					"allowedPremiums": "Enclosed Parking"
+				}
+			}
 		}
 	]
 }
