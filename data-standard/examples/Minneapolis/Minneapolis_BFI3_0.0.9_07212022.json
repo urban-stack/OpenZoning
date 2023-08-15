@@ -177,7 +177,7 @@
 						"developmentType": "primary/accessory",
 			 			"bulkOptionalities": [
 							{
-								"bulks": "multi-family",
+								"bulks": "four-family-plus",
 								"lotArea": {
 									"minimum": 5000, //sqf
 									"maximum": 18000 //sqf
