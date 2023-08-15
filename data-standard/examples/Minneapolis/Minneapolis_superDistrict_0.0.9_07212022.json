@@ -1,9 +1,9 @@
 {
 	"district": {
-		"identifier": "MN-HennepinCo-Minneapolis-R2B", //-all bulks/uses
-		"name": "R2B Multiple-Family District",
+		"identifier": "MN-HennepinCo-Minneapolis-super",
+		"name": "super district",
 	},
-	"last_updated": "20220705",
+	"last_updated": "20230815",
 	"author": "OZFS Team",
 	//notes: this base district contains all constraints that are "generally" listed, i.e. within the following sections of Minneapolis's code: 
 	//	- chapter 535: Regulations of General Applicability
@@ -17,8 +17,8 @@
 			{
 				"bulks": ["single-family", "two-family"],
 				"allowedAccessoryStructures": {
-					"num": 1,
-					"types": "ADU, garage", //I need to check this for factuality
+					"maximum": 1,
+					"types": "ADU, garage",
 				}
 			}
 		]
@@ -35,9 +35,11 @@
 	 					},
 	 					"efficiency": {
 	 						"minimum": 350
-	 					}
+	 					},
+						"ADU": {
+							"minimum": 300
+						}
 					}
-
 				},
 				"developmentOptionalities": [
 					{
@@ -46,12 +48,12 @@
 							"bulkOptionalities": [
 								{
 									"bulks": ["single-family", "two-family", "three-family"],
-									"floorwidth": { //we should have a field for a municipality's defining which access width is measured for each muni.
+									"floorwidth": {
 										"minimum": {
 											"value": 18, //feet
-											"applicableFloorArea": 0.8 //this is only applicable to 80% of any floor area
+											"applicableFloorArea": 0.8
 										}
-									},
+									}
 								}
 							]
 						},
@@ -62,8 +64,7 @@
 									"ADtypeOptionality": [
 										{
 											"ADtype": "detached",
-											"floorArea": {
-												// "minimum": 300, not sure where this came from atm
+											"totalFloorArea": {
 												"maximum": [
 													{
 														"lesserOf": 
@@ -177,14 +178,13 @@
 						"developmentType": "primary/accessory",
 			 			"bulkOptionalities": [
 							{
-								"bulks": "multi-family",
+								"bulks": "four-plus-family",
 								"lotArea": {
 									"minimum": 5000, //sqf
 									"maximum": 7500 //sqf
 								},
 								"lotWidth": {
-									//"interior": { I'm currently operating under the assumption that width implies side yard
-									"minimum": [15, [22, "driveway"]], //if principal entrance facing the interior lot line
+									"minimum": [15, [22, "driveway"]]
 								}
 							}
 						]
@@ -198,9 +198,6 @@
 				"developmentOptionalities": [
 					{
 						"developmentType": "primary/accessory",
-			 			"primaryStructures": {
-						
-						},
 						"accessoryStructures": {
 							"footprint": {
 								"maximum": {
@@ -229,7 +226,7 @@
 									}
 								}
 							]
-						},
+						}
 					}	
 				]
 			}
