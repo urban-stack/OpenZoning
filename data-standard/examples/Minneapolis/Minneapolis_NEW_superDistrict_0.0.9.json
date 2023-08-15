@@ -7,7 +7,7 @@
 	"author": "OZFS Team",
 	//notes: this base district contains all constraints that are "generally" listed, i.e. within the following sections of Minneapolis's code: 
 	//	- CHAPTER 540. BUILT FORM OVERLAY DISTRICTS
-    //        - ARTICLE II. FLOOR AREA RATIO
+    //        - ARTICLE II. FLOOR AREA RATIO.
     //            - 540.120. Gross floor area computation for single-, two-, or three-family dwellings.
     "accessoryStructuresPermissions": {
 	},
