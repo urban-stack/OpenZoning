@@ -34,7 +34,9 @@
 												"FACvalue": 0,
 											}
 										],
-										"maxStoryHeight": 14
+										"storyHeight": {
+											"maximum": 14
+										}
 									}
 								}
 							]
@@ -94,11 +96,11 @@
                                             },
                                             {
                                                 "name": "Enclosed parking"
-            									"value": 0.3,
-            									"type": "addition",
-            									"application": "per development",
-            									"condition": "https://library.municode.com/mn/minneapolis/codes/code_of_ordinances?nodeId=MICOOR_TIT20ZOCO_CH552BUFOOVDI_ARTIIIINMAFLAR_552.230SIHRMIDWCOLIUS"
-            								}
+												"value": 0.3,
+												"type": "addition",
+												"application": "per development",
+												"condition": "https://library.municode.com/mn/minneapolis/codes/code_of_ordinances?nodeId=MICOOR_TIT20ZOCO_CH552BUFOOVDI_ARTIIIINMAFLAR_552.230SIHRMIDWCOLIUS"
+											}
                                         ]
                                     }
                                 ]
