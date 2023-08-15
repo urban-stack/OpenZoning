@@ -92,6 +92,10 @@ def post_processing_final_constraints(merge_output, lots_gpkg):
 
             districtTypeGroups = constraints["districtTypeGroups"]
 
+            # The code for extracting specific districtTypeGroups
+            # from the constraints since we already know from the geopackage file
+            # the type of district
+
             # for districtType, value in districtTypeGroups.items():
             # print("-------------********sssssss********---------------\n\n")
             # print(districtType in available_districtTypes)
@@ -139,12 +143,14 @@ file1 = extract_nested_constraints_wrapper(
 file2 = extract_nested_constraints_wrapper(
     '../schema_vikranth/tests/data/districts/super_district.json')
 
+file3 = extract_nested_constraints_wrapper(
+    '../schema_vikranth/tests/data/districts/R2B_multipleFamily_district.json')
 
 # file3 = extract_nested_constraints_wrapper(
 #     '../schema_vikranth/tests/data/districts/overall.json')
 
 
-merged_dict = {**file1, **file2}
+merged_dict = {**file1, **file2, **file3}
 
 
 # Merge the dictionaries based on the hierarchy
