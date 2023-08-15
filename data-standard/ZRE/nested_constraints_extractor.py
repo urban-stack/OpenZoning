@@ -26,17 +26,11 @@ def extract_nested_constraints(nested_dict, base_data=None):
         #
         # print(f"Key : {k},\n v:{v} \n\n")
         if k == "bulkOptionality":
-            print(v)
+            # print(v)
             for option in v:
                 # Check if "bulks" is a list or a string and convert to list if necessary
                 bulks = option["bulks"] if isinstance(
                     option["bulks"], list) else [option["bulks"]]
-
-                print("this is bulks")
-
-                print(bulks)
-
-                print("\n")
 
                 for bulk in bulks:
                     if bulk not in constraints:
@@ -73,7 +67,7 @@ def extract_nested_constraints(nested_dict, base_data=None):
                                     {districtType: v for districtType in districtTypes})
 
                            # Issue
-                           ## Status : Pending
+                           ## Status : Fixed
                             #  This is the issue because the
                             # old districtTypeGroups is being replaced
                             #  by the new one
@@ -142,8 +136,8 @@ def extract_nested_constraints(nested_dict, base_data=None):
             # print(f"Key : {k},\n v:{v} \n\n")
 
             extracted_constraints = extract_nested_constraints(v, base_data)
-            print(constraints)
-            print(k)
+            # print(constraints)
+            # print(k)
             for k1, v1 in extracted_constraints.items():
                 prevBulkConstaints = constraints.get(k1, {})
                 tempConstraints = {k: v1}
@@ -155,7 +149,7 @@ def extract_nested_constraints(nested_dict, base_data=None):
             #     # This works for most cases
             #     k: {**constraints.get(k, {}), **v} for k, v in extracted_constraints.items()}
 
-            print(constraints)
+            # print(constraints)
 
             # print("***** DICT GOING UP A LEVEL *****!")
             # print("constraints: ")
