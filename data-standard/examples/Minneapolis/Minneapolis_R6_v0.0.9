@@ -1,0 +1,35 @@
+{
+	"district": {
+		"identifier": "MN-HennepinCo-Minneapolis-R6", //-all bulks/uses
+		"name": "R6 Multiple-Family District",
+	},
+	"last_updated": "20230815",
+	"author": "OZFS Team",
+	"usePermissions": {
+		"permitted": ["three-family", "four-plus-family"],
+	},
+	"constraints": [
+		{
+			"constraintsModule": ["lotArea", "lotWidth"],
+			"lot": {
+				"developmentOptionalities": [
+					{
+						"developmentType": "primary/accessory",
+			 			"bulkOptionalities": [
+							{
+								"bulks": ["three-family"],
+								"lotArea": {
+									"minimum": 5000, //sqf
+									"maximum": 7500 //sqf
+								},
+								"lotWidth": { //this doesn't work -- lot width should be defined by lot boundary: side
+									"minimum": 40 //feet
+								}
+							}
+						]
+					}
+				]
+			}
+		}
+	]
+}
