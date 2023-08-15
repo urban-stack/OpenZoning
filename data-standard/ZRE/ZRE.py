@@ -92,22 +92,22 @@ def post_processing_final_constraints(merge_output, lots_gpkg):
 
             districtTypeGroups = constraints["districtTypeGroups"]
 
-            for districtType, value in districtTypeGroups.items():
-                print("-------------********sssssss********---------------\n\n")
-                print(districtType in available_districtTypes)
-                print(zoning)
-                print(zoning == available_districtTypes[districtType])
-                print("-------------********sssssss********---------------\n\n")
+            # for districtType, value in districtTypeGroups.items():
+            # print("-------------********sssssss********---------------\n\n")
+            # print(districtType in available_districtTypes)
+            # print(zoning)
+            # print(zoning == available_districtTypes[districtType])
+            # print("-------------********sssssss********---------------\n\n")
 
-                if(districtType in available_districtTypes and zoning == available_districtTypes[districtType]):
-                    bulkType[available_districtTypes[districtType]
-                             ] = value[available_districtTypes[districtType]]
-                    break
+            # if(districtType in available_districtTypes and zoning == available_districtTypes[districtType]):
+            #     bulkType[available_districtTypes[districtType]
+            #              ] = value[available_districtTypes[districtType]]
+            #     break
             # print("-------------********THISSSSS********---------------\n\n")
             # print(constraints)
             # print("-------------****************---------------\n\n")
 
-            del constraints["districtTypeGroups"]
+            # del constraints["districtTypeGroups"]
 
         # if(index == 0):
         #     print(temp_output)
@@ -157,6 +157,6 @@ merge_output = merge_dictionaries_based_on_hierarchy(
 ZRE_output = post_processing_final_constraints(merge_output, gdf)
 
 
-# print("-------------********THISSSSS********---------------\n\n")
-# print(ZRE_output)
-# print("\n\n----------------------------\n\n")
+print("-------------********THISSSSS********---------------\n\n")
+print(ZRE_output)
+print("\n\n----------------------------\n\n")

@@ -12,51 +12,18 @@
           },
           "developmentType": "primary/accessory",
           "primaryStructures": {
-            "stories": { "maximum": 3 },
             "height": { "maximum": 42 },
             "setbacks": {
               "front": 20,
               "rear": 5,
               "side": { "interior": 5, "corner": 8 }
-            }
+            },
+            "stories": { "maximum": 3 }
           },
-          "lotCoverage": { "maximum": 0.6 }
-        },
-        "two-family": {
-          "floorArea": {
-            "unit": {
-              "standard": { "minimum": 500 },
-              "efficiency": { "minimum": 350 }
-            }
-          },
-          "developmentType": "primary/accessory",
-          "primaryStructures": {
-            "stories": { "max": 2.5 },
-            "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
-            "setbacks": {
-              "front": 20,
-              "rear": 5,
-              "side": { "interior": 5, "corner": 8 }
-            }
-          },
-          "lotCoverage": { "maximum": 0.6 }
-        },
-        "single-family": {
-          "floorArea": {
-            "unit": {
-              "standard": { "minimum": 500 },
-              "efficiency": { "minimum": 350 }
-            }
-          },
-          "developmentType": "primary/accessory",
-          "primaryStructures": {
-            "stories": { "max": 2.5 },
-            "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
-            "setbacks": {
-              "front": 20,
-              "rear": 5,
-              "side": { "interior": 5, "corner": 8 }
-            }
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 0.7 } },
+            "Office Residential": { "FAR": { "residential": 0.7 } },
+            "allOthers": { "FAR": { "residential": 0.7 } }
           },
           "lotCoverage": { "maximum": 0.6 }
         },
@@ -68,8 +35,32 @@
             }
           },
           "developmentType": "primary/accessory",
-          "lotCoverage": { "maximum": 0.6 },
-          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } }
+          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } },
+          "lotCoverage": { "maximum": 0.6 }
+        },
+        "two-family": {
+          "floorArea": {
+            "unit": {
+              "standard": { "minimum": 500 },
+              "efficiency": { "minimum": 350 }
+            }
+          },
+          "developmentType": "primary/accessory",
+          "primaryStructures": {
+            "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
+            "setbacks": {
+              "front": 20,
+              "rear": 5,
+              "side": { "interior": 5, "corner": 8 }
+            },
+            "stories": { "max": 2.5 }
+          },
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 0.6 } },
+            "Office Residential": { "FAR": { "residential": 0.6 } },
+            "allOthers": { "FAR": { "residential": 0.6 } }
+          },
+          "lotCoverage": { "maximum": 0.6 }
         },
         "Community residential facility, 0-16 people": {
           "floorArea": {
@@ -79,8 +70,32 @@
             }
           },
           "developmentType": "primary/accessory",
-          "lotCoverage": { "maximum": 0.6 },
-          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } }
+          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } },
+          "lotCoverage": { "maximum": 0.6 }
+        },
+        "single-family": {
+          "floorArea": {
+            "unit": {
+              "standard": { "minimum": 500 },
+              "efficiency": { "minimum": 350 }
+            }
+          },
+          "developmentType": "primary/accessory",
+          "primaryStructures": {
+            "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
+            "setbacks": {
+              "front": 20,
+              "rear": 5,
+              "side": { "interior": 5, "corner": 8 }
+            },
+            "stories": { "max": 2.5 }
+          },
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 0.5 } },
+            "Office Residential": { "FAR": { "residential": 0.5 } },
+            "allOthers": { "FAR": { "residential": 0.5 } }
+          },
+          "lotCoverage": { "maximum": 0.6 }
         },
         "cluster": {
           "primaryStructures": {
@@ -88,15 +103,21 @@
             "stories": { "maximum": 3 }
           }
         },
-        "multi-family": {
-          "lotArea": { "minimum": 5000, "maximum": 18000 },
-          "lotWidth": { "minimum": 40 }
+        "four-family": {
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 1.4 } },
+            "Office Residential": { "FAR": { "residential": 1.4 } },
+            "allOthers": { "FAR": { "residential": 1.6 } }
+          }
         },
-        "four-family": {},
         "allOthers": {
           "primaryStructures": {
             "setbacks": { "side": { "interior": "...", "corner": "..." } }
           }
+        },
+        "multi-family": {
+          "lotArea": { "minimum": 5000, "maximum": 18000 },
+          "lotWidth": { "minimum": 40 }
         }
       },
       "superDistrict": {
@@ -109,14 +130,30 @@
           },
           "developmentType": "primary/accessory",
           "primaryStructures": {
-            "stories": { "maximum": 3 },
             "height": { "maximum": 42 },
             "setbacks": {
               "front": 20,
               "rear": 5,
               "side": { "interior": 5, "corner": 8 }
+            },
+            "stories": { "maximum": 3 }
+          },
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 0.7 } },
+            "Office Residential": { "FAR": { "residential": 0.7 } },
+            "allOthers": { "FAR": { "residential": 0.7 } }
+          },
+          "lotCoverage": { "maximum": 0.6 }
+        },
+        "intentional community": {
+          "floorArea": {
+            "unit": {
+              "standard": { "minimum": 500 },
+              "efficiency": { "minimum": 350 }
             }
           },
+          "developmentType": "primary/accessory",
+          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } },
           "lotCoverage": { "maximum": 0.6 }
         },
         "two-family": {
@@ -128,45 +165,20 @@
           },
           "developmentType": "primary/accessory",
           "primaryStructures": {
-            "stories": { "max": 2.5 },
             "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
             "setbacks": {
               "front": 20,
               "rear": 5,
               "side": { "interior": 5, "corner": 8 }
-            }
+            },
+            "stories": { "max": 2.5 }
+          },
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 0.6 } },
+            "Office Residential": { "FAR": { "residential": 0.6 } },
+            "allOthers": { "FAR": { "residential": 0.6 } }
           },
           "lotCoverage": { "maximum": 0.6 }
-        },
-        "single-family": {
-          "floorArea": {
-            "unit": {
-              "standard": { "minimum": 500 },
-              "efficiency": { "minimum": 350 }
-            }
-          },
-          "developmentType": "primary/accessory",
-          "primaryStructures": {
-            "stories": { "max": 2.5 },
-            "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
-            "setbacks": {
-              "front": 20,
-              "rear": 5,
-              "side": { "interior": 5, "corner": 8 }
-            }
-          },
-          "lotCoverage": { "maximum": 0.6 }
-        },
-        "intentional community": {
-          "floorArea": {
-            "unit": {
-              "standard": { "minimum": 500 },
-              "efficiency": { "minimum": 350 }
-            }
-          },
-          "developmentType": "primary/accessory",
-          "lotCoverage": { "maximum": 0.6 },
-          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } }
         },
         "Community residential facility, 0-16 people": {
           "floorArea": {
@@ -176,61 +188,39 @@
             }
           },
           "developmentType": "primary/accessory",
-          "lotCoverage": { "maximum": 0.6 },
-          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } }
-        }
-      },
-      "overlay_1": {
-        "three-family": {
-          "districtTypeGroups": {
-            "Residential": { "FAR": { "residential": 0.7 } },
-            "Office Residential": { "FAR": { "residential": 0.7 } },
-            "allOthers": { "FAR": { "residential": 0.7 } }
-          },
-          "developmentType": "primary/accessory",
-          "lotCoverage": { "maximum": 0.6 },
-          "primaryStructures": {
-            "stories": { "maximum": 3 },
-            "height": { "maximum": 42 },
-            "setbacks": {
-              "front": 20,
-              "rear": 5,
-              "side": { "interior": 5, "corner": 8 }
-            }
-          }
+          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } },
+          "lotCoverage": { "maximum": 0.6 }
         },
-        "cluster": {
-          "primaryStructures": {
-            "height": { "maximum": 42 },
-            "stories": { "maximum": 3 }
-          }
-        },
-        "multi-family": {
-          "lotArea": { "minimum": 5000, "maximum": 18000 },
-          "lotWidth": { "minimum": 40 }
-        },
-        "intentional community": {
-          "developmentType": "primary/accessory",
-          "lotCoverage": { "maximum": 0.6 },
-          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } }
-        },
-        "four-family": {},
         "single-family": {
-          "districtTypeGroups": {
-            "Residential": { "FAR": { "residential": 0.5 } },
-            "Office Residential": { "FAR": { "residential": 0.5 } },
-            "allOthers": { "FAR": { "residential": 0.5 } }
+          "floorArea": {
+            "unit": {
+              "standard": { "minimum": 500 },
+              "efficiency": { "minimum": 350 }
+            }
           },
           "developmentType": "primary/accessory",
-          "lotCoverage": { "maximum": 0.6 },
           "primaryStructures": {
-            "stories": { "max": 2.5 },
             "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
             "setbacks": {
               "front": 20,
               "rear": 5,
               "side": { "interior": 5, "corner": 8 }
-            }
+            },
+            "stories": { "max": 2.5 }
+          },
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 0.5 } },
+            "Office Residential": { "FAR": { "residential": 0.5 } },
+            "allOthers": { "FAR": { "residential": 0.5 } }
+          },
+          "lotCoverage": { "maximum": 0.6 }
+        }
+      },
+      "overlay_1": {
+        "cluster": {
+          "primaryStructures": {
+            "height": { "maximum": 42 },
+            "stories": { "maximum": 3 }
           }
         },
         "two-family": {
@@ -239,16 +229,51 @@
             "Office Residential": { "FAR": { "residential": 0.6 } },
             "allOthers": { "FAR": { "residential": 0.6 } }
           },
-          "developmentType": "primary/accessory",
-          "lotCoverage": { "maximum": 0.6 },
           "primaryStructures": {
-            "stories": { "max": 2.5 },
             "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
             "setbacks": {
               "front": 20,
               "rear": 5,
               "side": { "interior": 5, "corner": 8 }
-            }
+            },
+            "stories": { "max": 2.5 }
+          },
+          "lotCoverage": { "maximum": 0.6 },
+          "developmentType": "primary/accessory"
+        },
+        "Community residential facility, 0-16 people": {
+          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } },
+          "lotCoverage": { "maximum": 0.6 },
+          "developmentType": "primary/accessory"
+        },
+        "intentional community": {
+          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } },
+          "lotCoverage": { "maximum": 0.6 },
+          "developmentType": "primary/accessory"
+        },
+        "single-family": {
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 0.5 } },
+            "Office Residential": { "FAR": { "residential": 0.5 } },
+            "allOthers": { "FAR": { "residential": 0.5 } }
+          },
+          "primaryStructures": {
+            "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
+            "setbacks": {
+              "front": 20,
+              "rear": 5,
+              "side": { "interior": 5, "corner": 8 }
+            },
+            "stories": { "max": 2.5 }
+          },
+          "lotCoverage": { "maximum": 0.6 },
+          "developmentType": "primary/accessory"
+        },
+        "four-family": {
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 1.4 } },
+            "Office Residential": { "FAR": { "residential": 1.4 } },
+            "allOthers": { "FAR": { "residential": 1.6 } }
           }
         },
         "allOthers": {
@@ -256,10 +281,27 @@
             "setbacks": { "side": { "interior": "...", "corner": "..." } }
           }
         },
-        "Community residential facility, 0-16 people": {
-          "developmentType": "primary/accessory",
+        "three-family": {
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 0.7 } },
+            "Office Residential": { "FAR": { "residential": 0.7 } },
+            "allOthers": { "FAR": { "residential": 0.7 } }
+          },
+          "primaryStructures": {
+            "height": { "maximum": 42 },
+            "setbacks": {
+              "front": 20,
+              "rear": 5,
+              "side": { "interior": 5, "corner": 8 }
+            },
+            "stories": { "maximum": 3 }
+          },
           "lotCoverage": { "maximum": 0.6 },
-          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } }
+          "developmentType": "primary/accessory"
+        },
+        "multi-family": {
+          "lotArea": { "minimum": 5000, "maximum": 18000 },
+          "lotWidth": { "minimum": 40 }
         }
       }
     }
@@ -277,51 +319,18 @@
           },
           "developmentType": "primary/accessory",
           "primaryStructures": {
-            "stories": { "maximum": 3 },
             "height": { "maximum": 42 },
             "setbacks": {
               "front": 20,
               "rear": 5,
               "side": { "interior": 5, "corner": 8 }
-            }
+            },
+            "stories": { "maximum": 3 }
           },
-          "lotCoverage": { "maximum": 0.6 }
-        },
-        "two-family": {
-          "floorArea": {
-            "unit": {
-              "standard": { "minimum": 500 },
-              "efficiency": { "minimum": 350 }
-            }
-          },
-          "developmentType": "primary/accessory",
-          "primaryStructures": {
-            "stories": { "max": 2.5 },
-            "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
-            "setbacks": {
-              "front": 20,
-              "rear": 5,
-              "side": { "interior": 5, "corner": 8 }
-            }
-          },
-          "lotCoverage": { "maximum": 0.6 }
-        },
-        "single-family": {
-          "floorArea": {
-            "unit": {
-              "standard": { "minimum": 500 },
-              "efficiency": { "minimum": 350 }
-            }
-          },
-          "developmentType": "primary/accessory",
-          "primaryStructures": {
-            "stories": { "max": 2.5 },
-            "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
-            "setbacks": {
-              "front": 20,
-              "rear": 5,
-              "side": { "interior": 5, "corner": 8 }
-            }
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 0.7 } },
+            "Office Residential": { "FAR": { "residential": 0.7 } },
+            "allOthers": { "FAR": { "residential": 0.7 } }
           },
           "lotCoverage": { "maximum": 0.6 }
         },
@@ -333,8 +342,32 @@
             }
           },
           "developmentType": "primary/accessory",
-          "lotCoverage": { "maximum": 0.6 },
-          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } }
+          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } },
+          "lotCoverage": { "maximum": 0.6 }
+        },
+        "two-family": {
+          "floorArea": {
+            "unit": {
+              "standard": { "minimum": 500 },
+              "efficiency": { "minimum": 350 }
+            }
+          },
+          "developmentType": "primary/accessory",
+          "primaryStructures": {
+            "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
+            "setbacks": {
+              "front": 20,
+              "rear": 5,
+              "side": { "interior": 5, "corner": 8 }
+            },
+            "stories": { "max": 2.5 }
+          },
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 0.6 } },
+            "Office Residential": { "FAR": { "residential": 0.6 } },
+            "allOthers": { "FAR": { "residential": 0.6 } }
+          },
+          "lotCoverage": { "maximum": 0.6 }
         },
         "Community residential facility, 0-16 people": {
           "floorArea": {
@@ -344,8 +377,32 @@
             }
           },
           "developmentType": "primary/accessory",
-          "lotCoverage": { "maximum": 0.6 },
-          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } }
+          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } },
+          "lotCoverage": { "maximum": 0.6 }
+        },
+        "single-family": {
+          "floorArea": {
+            "unit": {
+              "standard": { "minimum": 500 },
+              "efficiency": { "minimum": 350 }
+            }
+          },
+          "developmentType": "primary/accessory",
+          "primaryStructures": {
+            "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
+            "setbacks": {
+              "front": 20,
+              "rear": 5,
+              "side": { "interior": 5, "corner": 8 }
+            },
+            "stories": { "max": 2.5 }
+          },
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 0.5 } },
+            "Office Residential": { "FAR": { "residential": 0.5 } },
+            "allOthers": { "FAR": { "residential": 0.5 } }
+          },
+          "lotCoverage": { "maximum": 0.6 }
         },
         "cluster": {
           "primaryStructures": {
@@ -353,15 +410,21 @@
             "stories": { "maximum": 3 }
           }
         },
-        "multi-family": {
-          "lotArea": { "minimum": 5000, "maximum": 18000 },
-          "lotWidth": { "minimum": 40 }
+        "four-family": {
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 1.4 } },
+            "Office Residential": { "FAR": { "residential": 1.4 } },
+            "allOthers": { "FAR": { "residential": 1.6 } }
+          }
         },
-        "four-family": {},
         "allOthers": {
           "primaryStructures": {
             "setbacks": { "side": { "interior": "...", "corner": "..." } }
           }
+        },
+        "multi-family": {
+          "lotArea": { "minimum": 5000, "maximum": 18000 },
+          "lotWidth": { "minimum": 40 }
         }
       },
       "superDistrict": {
@@ -374,14 +437,30 @@
           },
           "developmentType": "primary/accessory",
           "primaryStructures": {
-            "stories": { "maximum": 3 },
             "height": { "maximum": 42 },
             "setbacks": {
               "front": 20,
               "rear": 5,
               "side": { "interior": 5, "corner": 8 }
+            },
+            "stories": { "maximum": 3 }
+          },
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 0.7 } },
+            "Office Residential": { "FAR": { "residential": 0.7 } },
+            "allOthers": { "FAR": { "residential": 0.7 } }
+          },
+          "lotCoverage": { "maximum": 0.6 }
+        },
+        "intentional community": {
+          "floorArea": {
+            "unit": {
+              "standard": { "minimum": 500 },
+              "efficiency": { "minimum": 350 }
             }
           },
+          "developmentType": "primary/accessory",
+          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } },
           "lotCoverage": { "maximum": 0.6 }
         },
         "two-family": {
@@ -393,45 +472,20 @@
           },
           "developmentType": "primary/accessory",
           "primaryStructures": {
-            "stories": { "max": 2.5 },
             "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
             "setbacks": {
               "front": 20,
               "rear": 5,
               "side": { "interior": 5, "corner": 8 }
-            }
+            },
+            "stories": { "max": 2.5 }
+          },
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 0.6 } },
+            "Office Residential": { "FAR": { "residential": 0.6 } },
+            "allOthers": { "FAR": { "residential": 0.6 } }
           },
           "lotCoverage": { "maximum": 0.6 }
-        },
-        "single-family": {
-          "floorArea": {
-            "unit": {
-              "standard": { "minimum": 500 },
-              "efficiency": { "minimum": 350 }
-            }
-          },
-          "developmentType": "primary/accessory",
-          "primaryStructures": {
-            "stories": { "max": 2.5 },
-            "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
-            "setbacks": {
-              "front": 20,
-              "rear": 5,
-              "side": { "interior": 5, "corner": 8 }
-            }
-          },
-          "lotCoverage": { "maximum": 0.6 }
-        },
-        "intentional community": {
-          "floorArea": {
-            "unit": {
-              "standard": { "minimum": 500 },
-              "efficiency": { "minimum": 350 }
-            }
-          },
-          "developmentType": "primary/accessory",
-          "lotCoverage": { "maximum": 0.6 },
-          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } }
         },
         "Community residential facility, 0-16 people": {
           "floorArea": {
@@ -441,61 +495,39 @@
             }
           },
           "developmentType": "primary/accessory",
-          "lotCoverage": { "maximum": 0.6 },
-          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } }
-        }
-      },
-      "overlay_1": {
-        "three-family": {
-          "districtTypeGroups": {
-            "Residential": { "FAR": { "residential": 0.7 } },
-            "Office Residential": { "FAR": { "residential": 0.7 } },
-            "allOthers": { "FAR": { "residential": 0.7 } }
-          },
-          "developmentType": "primary/accessory",
-          "lotCoverage": { "maximum": 0.6 },
-          "primaryStructures": {
-            "stories": { "maximum": 3 },
-            "height": { "maximum": 42 },
-            "setbacks": {
-              "front": 20,
-              "rear": 5,
-              "side": { "interior": 5, "corner": 8 }
-            }
-          }
+          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } },
+          "lotCoverage": { "maximum": 0.6 }
         },
-        "cluster": {
-          "primaryStructures": {
-            "height": { "maximum": 42 },
-            "stories": { "maximum": 3 }
-          }
-        },
-        "multi-family": {
-          "lotArea": { "minimum": 5000, "maximum": 18000 },
-          "lotWidth": { "minimum": 40 }
-        },
-        "intentional community": {
-          "developmentType": "primary/accessory",
-          "lotCoverage": { "maximum": 0.6 },
-          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } }
-        },
-        "four-family": {},
         "single-family": {
-          "districtTypeGroups": {
-            "Residential": { "FAR": { "residential": 0.5 } },
-            "Office Residential": { "FAR": { "residential": 0.5 } },
-            "allOthers": { "FAR": { "residential": 0.5 } }
+          "floorArea": {
+            "unit": {
+              "standard": { "minimum": 500 },
+              "efficiency": { "minimum": 350 }
+            }
           },
           "developmentType": "primary/accessory",
-          "lotCoverage": { "maximum": 0.6 },
           "primaryStructures": {
-            "stories": { "max": 2.5 },
             "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
             "setbacks": {
               "front": 20,
               "rear": 5,
               "side": { "interior": 5, "corner": 8 }
-            }
+            },
+            "stories": { "max": 2.5 }
+          },
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 0.5 } },
+            "Office Residential": { "FAR": { "residential": 0.5 } },
+            "allOthers": { "FAR": { "residential": 0.5 } }
+          },
+          "lotCoverage": { "maximum": 0.6 }
+        }
+      },
+      "overlay_1": {
+        "cluster": {
+          "primaryStructures": {
+            "height": { "maximum": 42 },
+            "stories": { "maximum": 3 }
           }
         },
         "two-family": {
@@ -504,16 +536,51 @@
             "Office Residential": { "FAR": { "residential": 0.6 } },
             "allOthers": { "FAR": { "residential": 0.6 } }
           },
-          "developmentType": "primary/accessory",
-          "lotCoverage": { "maximum": 0.6 },
           "primaryStructures": {
-            "stories": { "max": 2.5 },
             "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
             "setbacks": {
               "front": 20,
               "rear": 5,
               "side": { "interior": 5, "corner": 8 }
-            }
+            },
+            "stories": { "max": 2.5 }
+          },
+          "lotCoverage": { "maximum": 0.6 },
+          "developmentType": "primary/accessory"
+        },
+        "Community residential facility, 0-16 people": {
+          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } },
+          "lotCoverage": { "maximum": 0.6 },
+          "developmentType": "primary/accessory"
+        },
+        "intentional community": {
+          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } },
+          "lotCoverage": { "maximum": 0.6 },
+          "developmentType": "primary/accessory"
+        },
+        "single-family": {
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 0.5 } },
+            "Office Residential": { "FAR": { "residential": 0.5 } },
+            "allOthers": { "FAR": { "residential": 0.5 } }
+          },
+          "primaryStructures": {
+            "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
+            "setbacks": {
+              "front": 20,
+              "rear": 5,
+              "side": { "interior": 5, "corner": 8 }
+            },
+            "stories": { "max": 2.5 }
+          },
+          "lotCoverage": { "maximum": 0.6 },
+          "developmentType": "primary/accessory"
+        },
+        "four-family": {
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 1.4 } },
+            "Office Residential": { "FAR": { "residential": 1.4 } },
+            "allOthers": { "FAR": { "residential": 1.6 } }
           }
         },
         "allOthers": {
@@ -521,10 +588,27 @@
             "setbacks": { "side": { "interior": "...", "corner": "..." } }
           }
         },
-        "Community residential facility, 0-16 people": {
-          "developmentType": "primary/accessory",
+        "three-family": {
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 0.7 } },
+            "Office Residential": { "FAR": { "residential": 0.7 } },
+            "allOthers": { "FAR": { "residential": 0.7 } }
+          },
+          "primaryStructures": {
+            "height": { "maximum": 42 },
+            "setbacks": {
+              "front": 20,
+              "rear": 5,
+              "side": { "interior": 5, "corner": 8 }
+            },
+            "stories": { "maximum": 3 }
+          },
           "lotCoverage": { "maximum": 0.6 },
-          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } }
+          "developmentType": "primary/accessory"
+        },
+        "multi-family": {
+          "lotArea": { "minimum": 5000, "maximum": 18000 },
+          "lotWidth": { "minimum": 40 }
         }
       }
     }
@@ -542,51 +626,18 @@
           },
           "developmentType": "primary/accessory",
           "primaryStructures": {
-            "stories": { "maximum": 3 },
             "height": { "maximum": 42 },
             "setbacks": {
               "front": 20,
               "rear": 5,
               "side": { "interior": 5, "corner": 8 }
-            }
+            },
+            "stories": { "maximum": 3 }
           },
-          "lotCoverage": { "maximum": 0.6 }
-        },
-        "two-family": {
-          "floorArea": {
-            "unit": {
-              "standard": { "minimum": 500 },
-              "efficiency": { "minimum": 350 }
-            }
-          },
-          "developmentType": "primary/accessory",
-          "primaryStructures": {
-            "stories": { "max": 2.5 },
-            "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
-            "setbacks": {
-              "front": 20,
-              "rear": 5,
-              "side": { "interior": 5, "corner": 8 }
-            }
-          },
-          "lotCoverage": { "maximum": 0.6 }
-        },
-        "single-family": {
-          "floorArea": {
-            "unit": {
-              "standard": { "minimum": 500 },
-              "efficiency": { "minimum": 350 }
-            }
-          },
-          "developmentType": "primary/accessory",
-          "primaryStructures": {
-            "stories": { "max": 2.5 },
-            "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
-            "setbacks": {
-              "front": 20,
-              "rear": 5,
-              "side": { "interior": 5, "corner": 8 }
-            }
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 0.7 } },
+            "Office Residential": { "FAR": { "residential": 0.7 } },
+            "allOthers": { "FAR": { "residential": 0.7 } }
           },
           "lotCoverage": { "maximum": 0.6 }
         },
@@ -598,8 +649,32 @@
             }
           },
           "developmentType": "primary/accessory",
-          "lotCoverage": { "maximum": 0.6 },
-          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } }
+          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } },
+          "lotCoverage": { "maximum": 0.6 }
+        },
+        "two-family": {
+          "floorArea": {
+            "unit": {
+              "standard": { "minimum": 500 },
+              "efficiency": { "minimum": 350 }
+            }
+          },
+          "developmentType": "primary/accessory",
+          "primaryStructures": {
+            "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
+            "setbacks": {
+              "front": 20,
+              "rear": 5,
+              "side": { "interior": 5, "corner": 8 }
+            },
+            "stories": { "max": 2.5 }
+          },
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 0.6 } },
+            "Office Residential": { "FAR": { "residential": 0.6 } },
+            "allOthers": { "FAR": { "residential": 0.6 } }
+          },
+          "lotCoverage": { "maximum": 0.6 }
         },
         "Community residential facility, 0-16 people": {
           "floorArea": {
@@ -609,8 +684,32 @@
             }
           },
           "developmentType": "primary/accessory",
-          "lotCoverage": { "maximum": 0.6 },
-          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } }
+          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } },
+          "lotCoverage": { "maximum": 0.6 }
+        },
+        "single-family": {
+          "floorArea": {
+            "unit": {
+              "standard": { "minimum": 500 },
+              "efficiency": { "minimum": 350 }
+            }
+          },
+          "developmentType": "primary/accessory",
+          "primaryStructures": {
+            "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
+            "setbacks": {
+              "front": 20,
+              "rear": 5,
+              "side": { "interior": 5, "corner": 8 }
+            },
+            "stories": { "max": 2.5 }
+          },
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 0.5 } },
+            "Office Residential": { "FAR": { "residential": 0.5 } },
+            "allOthers": { "FAR": { "residential": 0.5 } }
+          },
+          "lotCoverage": { "maximum": 0.6 }
         },
         "cluster": {
           "primaryStructures": {
@@ -618,15 +717,21 @@
             "stories": { "maximum": 3 }
           }
         },
-        "multi-family": {
-          "lotArea": { "minimum": 5000, "maximum": 18000 },
-          "lotWidth": { "minimum": 40 }
+        "four-family": {
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 1.4 } },
+            "Office Residential": { "FAR": { "residential": 1.4 } },
+            "allOthers": { "FAR": { "residential": 1.6 } }
+          }
         },
-        "four-family": {},
         "allOthers": {
           "primaryStructures": {
             "setbacks": { "side": { "interior": "...", "corner": "..." } }
           }
+        },
+        "multi-family": {
+          "lotArea": { "minimum": 5000, "maximum": 18000 },
+          "lotWidth": { "minimum": 40 }
         }
       },
       "superDistrict": {
@@ -639,14 +744,30 @@
           },
           "developmentType": "primary/accessory",
           "primaryStructures": {
-            "stories": { "maximum": 3 },
             "height": { "maximum": 42 },
             "setbacks": {
               "front": 20,
               "rear": 5,
               "side": { "interior": 5, "corner": 8 }
+            },
+            "stories": { "maximum": 3 }
+          },
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 0.7 } },
+            "Office Residential": { "FAR": { "residential": 0.7 } },
+            "allOthers": { "FAR": { "residential": 0.7 } }
+          },
+          "lotCoverage": { "maximum": 0.6 }
+        },
+        "intentional community": {
+          "floorArea": {
+            "unit": {
+              "standard": { "minimum": 500 },
+              "efficiency": { "minimum": 350 }
             }
           },
+          "developmentType": "primary/accessory",
+          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } },
           "lotCoverage": { "maximum": 0.6 }
         },
         "two-family": {
@@ -658,45 +779,20 @@
           },
           "developmentType": "primary/accessory",
           "primaryStructures": {
-            "stories": { "max": 2.5 },
             "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
             "setbacks": {
               "front": 20,
               "rear": 5,
               "side": { "interior": 5, "corner": 8 }
-            }
+            },
+            "stories": { "max": 2.5 }
+          },
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 0.6 } },
+            "Office Residential": { "FAR": { "residential": 0.6 } },
+            "allOthers": { "FAR": { "residential": 0.6 } }
           },
           "lotCoverage": { "maximum": 0.6 }
-        },
-        "single-family": {
-          "floorArea": {
-            "unit": {
-              "standard": { "minimum": 500 },
-              "efficiency": { "minimum": 350 }
-            }
-          },
-          "developmentType": "primary/accessory",
-          "primaryStructures": {
-            "stories": { "max": 2.5 },
-            "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
-            "setbacks": {
-              "front": 20,
-              "rear": 5,
-              "side": { "interior": 5, "corner": 8 }
-            }
-          },
-          "lotCoverage": { "maximum": 0.6 }
-        },
-        "intentional community": {
-          "floorArea": {
-            "unit": {
-              "standard": { "minimum": 500 },
-              "efficiency": { "minimum": 350 }
-            }
-          },
-          "developmentType": "primary/accessory",
-          "lotCoverage": { "maximum": 0.6 },
-          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } }
         },
         "Community residential facility, 0-16 people": {
           "floorArea": {
@@ -706,61 +802,39 @@
             }
           },
           "developmentType": "primary/accessory",
-          "lotCoverage": { "maximum": 0.6 },
-          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } }
-        }
-      },
-      "overlay_1": {
-        "three-family": {
-          "districtTypeGroups": {
-            "Residential": { "FAR": { "residential": 0.7 } },
-            "Office Residential": { "FAR": { "residential": 0.7 } },
-            "allOthers": { "FAR": { "residential": 0.7 } }
-          },
-          "developmentType": "primary/accessory",
-          "lotCoverage": { "maximum": 0.6 },
-          "primaryStructures": {
-            "stories": { "maximum": 3 },
-            "height": { "maximum": 42 },
-            "setbacks": {
-              "front": 20,
-              "rear": 5,
-              "side": { "interior": 5, "corner": 8 }
-            }
-          }
+          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } },
+          "lotCoverage": { "maximum": 0.6 }
         },
-        "cluster": {
-          "primaryStructures": {
-            "height": { "maximum": 42 },
-            "stories": { "maximum": 3 }
-          }
-        },
-        "multi-family": {
-          "lotArea": { "minimum": 5000, "maximum": 18000 },
-          "lotWidth": { "minimum": 40 }
-        },
-        "intentional community": {
-          "developmentType": "primary/accessory",
-          "lotCoverage": { "maximum": 0.6 },
-          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } }
-        },
-        "four-family": {},
         "single-family": {
-          "districtTypeGroups": {
-            "Residential": { "FAR": { "residential": 0.5 } },
-            "Office Residential": { "FAR": { "residential": 0.5 } },
-            "allOthers": { "FAR": { "residential": 0.5 } }
+          "floorArea": {
+            "unit": {
+              "standard": { "minimum": 500 },
+              "efficiency": { "minimum": 350 }
+            }
           },
           "developmentType": "primary/accessory",
-          "lotCoverage": { "maximum": 0.6 },
           "primaryStructures": {
-            "stories": { "max": 2.5 },
             "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
             "setbacks": {
               "front": 20,
               "rear": 5,
               "side": { "interior": 5, "corner": 8 }
-            }
+            },
+            "stories": { "max": 2.5 }
+          },
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 0.5 } },
+            "Office Residential": { "FAR": { "residential": 0.5 } },
+            "allOthers": { "FAR": { "residential": 0.5 } }
+          },
+          "lotCoverage": { "maximum": 0.6 }
+        }
+      },
+      "overlay_1": {
+        "cluster": {
+          "primaryStructures": {
+            "height": { "maximum": 42 },
+            "stories": { "maximum": 3 }
           }
         },
         "two-family": {
@@ -769,16 +843,51 @@
             "Office Residential": { "FAR": { "residential": 0.6 } },
             "allOthers": { "FAR": { "residential": 0.6 } }
           },
-          "developmentType": "primary/accessory",
-          "lotCoverage": { "maximum": 0.6 },
           "primaryStructures": {
-            "stories": { "max": 2.5 },
             "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
             "setbacks": {
               "front": 20,
               "rear": 5,
               "side": { "interior": 5, "corner": 8 }
-            }
+            },
+            "stories": { "max": 2.5 }
+          },
+          "lotCoverage": { "maximum": 0.6 },
+          "developmentType": "primary/accessory"
+        },
+        "Community residential facility, 0-16 people": {
+          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } },
+          "lotCoverage": { "maximum": 0.6 },
+          "developmentType": "primary/accessory"
+        },
+        "intentional community": {
+          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } },
+          "lotCoverage": { "maximum": 0.6 },
+          "developmentType": "primary/accessory"
+        },
+        "single-family": {
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 0.5 } },
+            "Office Residential": { "FAR": { "residential": 0.5 } },
+            "allOthers": { "FAR": { "residential": 0.5 } }
+          },
+          "primaryStructures": {
+            "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
+            "setbacks": {
+              "front": 20,
+              "rear": 5,
+              "side": { "interior": 5, "corner": 8 }
+            },
+            "stories": { "max": 2.5 }
+          },
+          "lotCoverage": { "maximum": 0.6 },
+          "developmentType": "primary/accessory"
+        },
+        "four-family": {
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 1.4 } },
+            "Office Residential": { "FAR": { "residential": 1.4 } },
+            "allOthers": { "FAR": { "residential": 1.6 } }
           }
         },
         "allOthers": {
@@ -786,10 +895,27 @@
             "setbacks": { "side": { "interior": "...", "corner": "..." } }
           }
         },
-        "Community residential facility, 0-16 people": {
-          "developmentType": "primary/accessory",
+        "three-family": {
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 0.7 } },
+            "Office Residential": { "FAR": { "residential": 0.7 } },
+            "allOthers": { "FAR": { "residential": 0.7 } }
+          },
+          "primaryStructures": {
+            "height": { "maximum": 42 },
+            "setbacks": {
+              "front": 20,
+              "rear": 5,
+              "side": { "interior": 5, "corner": 8 }
+            },
+            "stories": { "maximum": 3 }
+          },
           "lotCoverage": { "maximum": 0.6 },
-          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } }
+          "developmentType": "primary/accessory"
+        },
+        "multi-family": {
+          "lotArea": { "minimum": 5000, "maximum": 18000 },
+          "lotWidth": { "minimum": 40 }
         }
       }
     }
@@ -807,51 +933,18 @@
           },
           "developmentType": "primary/accessory",
           "primaryStructures": {
-            "stories": { "maximum": 3 },
             "height": { "maximum": 42 },
             "setbacks": {
               "front": 20,
               "rear": 5,
               "side": { "interior": 5, "corner": 8 }
-            }
+            },
+            "stories": { "maximum": 3 }
           },
-          "lotCoverage": { "maximum": 0.6 }
-        },
-        "two-family": {
-          "floorArea": {
-            "unit": {
-              "standard": { "minimum": 500 },
-              "efficiency": { "minimum": 350 }
-            }
-          },
-          "developmentType": "primary/accessory",
-          "primaryStructures": {
-            "stories": { "max": 2.5 },
-            "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
-            "setbacks": {
-              "front": 20,
-              "rear": 5,
-              "side": { "interior": 5, "corner": 8 }
-            }
-          },
-          "lotCoverage": { "maximum": 0.6 }
-        },
-        "single-family": {
-          "floorArea": {
-            "unit": {
-              "standard": { "minimum": 500 },
-              "efficiency": { "minimum": 350 }
-            }
-          },
-          "developmentType": "primary/accessory",
-          "primaryStructures": {
-            "stories": { "max": 2.5 },
-            "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
-            "setbacks": {
-              "front": 20,
-              "rear": 5,
-              "side": { "interior": 5, "corner": 8 }
-            }
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 0.7 } },
+            "Office Residential": { "FAR": { "residential": 0.7 } },
+            "allOthers": { "FAR": { "residential": 0.7 } }
           },
           "lotCoverage": { "maximum": 0.6 }
         },
@@ -863,8 +956,32 @@
             }
           },
           "developmentType": "primary/accessory",
-          "lotCoverage": { "maximum": 0.6 },
-          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } }
+          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } },
+          "lotCoverage": { "maximum": 0.6 }
+        },
+        "two-family": {
+          "floorArea": {
+            "unit": {
+              "standard": { "minimum": 500 },
+              "efficiency": { "minimum": 350 }
+            }
+          },
+          "developmentType": "primary/accessory",
+          "primaryStructures": {
+            "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
+            "setbacks": {
+              "front": 20,
+              "rear": 5,
+              "side": { "interior": 5, "corner": 8 }
+            },
+            "stories": { "max": 2.5 }
+          },
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 0.6 } },
+            "Office Residential": { "FAR": { "residential": 0.6 } },
+            "allOthers": { "FAR": { "residential": 0.6 } }
+          },
+          "lotCoverage": { "maximum": 0.6 }
         },
         "Community residential facility, 0-16 people": {
           "floorArea": {
@@ -874,8 +991,32 @@
             }
           },
           "developmentType": "primary/accessory",
-          "lotCoverage": { "maximum": 0.6 },
-          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } }
+          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } },
+          "lotCoverage": { "maximum": 0.6 }
+        },
+        "single-family": {
+          "floorArea": {
+            "unit": {
+              "standard": { "minimum": 500 },
+              "efficiency": { "minimum": 350 }
+            }
+          },
+          "developmentType": "primary/accessory",
+          "primaryStructures": {
+            "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
+            "setbacks": {
+              "front": 20,
+              "rear": 5,
+              "side": { "interior": 5, "corner": 8 }
+            },
+            "stories": { "max": 2.5 }
+          },
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 0.5 } },
+            "Office Residential": { "FAR": { "residential": 0.5 } },
+            "allOthers": { "FAR": { "residential": 0.5 } }
+          },
+          "lotCoverage": { "maximum": 0.6 }
         },
         "cluster": {
           "primaryStructures": {
@@ -883,15 +1024,21 @@
             "stories": { "maximum": 3 }
           }
         },
-        "multi-family": {
-          "lotArea": { "minimum": 5000, "maximum": 18000 },
-          "lotWidth": { "minimum": 40 }
+        "four-family": {
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 1.4 } },
+            "Office Residential": { "FAR": { "residential": 1.4 } },
+            "allOthers": { "FAR": { "residential": 1.6 } }
+          }
         },
-        "four-family": {},
         "allOthers": {
           "primaryStructures": {
             "setbacks": { "side": { "interior": "...", "corner": "..." } }
           }
+        },
+        "multi-family": {
+          "lotArea": { "minimum": 5000, "maximum": 18000 },
+          "lotWidth": { "minimum": 40 }
         }
       },
       "superDistrict": {
@@ -904,14 +1051,30 @@
           },
           "developmentType": "primary/accessory",
           "primaryStructures": {
-            "stories": { "maximum": 3 },
             "height": { "maximum": 42 },
             "setbacks": {
               "front": 20,
               "rear": 5,
               "side": { "interior": 5, "corner": 8 }
+            },
+            "stories": { "maximum": 3 }
+          },
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 0.7 } },
+            "Office Residential": { "FAR": { "residential": 0.7 } },
+            "allOthers": { "FAR": { "residential": 0.7 } }
+          },
+          "lotCoverage": { "maximum": 0.6 }
+        },
+        "intentional community": {
+          "floorArea": {
+            "unit": {
+              "standard": { "minimum": 500 },
+              "efficiency": { "minimum": 350 }
             }
           },
+          "developmentType": "primary/accessory",
+          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } },
           "lotCoverage": { "maximum": 0.6 }
         },
         "two-family": {
@@ -923,45 +1086,20 @@
           },
           "developmentType": "primary/accessory",
           "primaryStructures": {
-            "stories": { "max": 2.5 },
             "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
             "setbacks": {
               "front": 20,
               "rear": 5,
               "side": { "interior": 5, "corner": 8 }
-            }
+            },
+            "stories": { "max": 2.5 }
+          },
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 0.6 } },
+            "Office Residential": { "FAR": { "residential": 0.6 } },
+            "allOthers": { "FAR": { "residential": 0.6 } }
           },
           "lotCoverage": { "maximum": 0.6 }
-        },
-        "single-family": {
-          "floorArea": {
-            "unit": {
-              "standard": { "minimum": 500 },
-              "efficiency": { "minimum": 350 }
-            }
-          },
-          "developmentType": "primary/accessory",
-          "primaryStructures": {
-            "stories": { "max": 2.5 },
-            "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
-            "setbacks": {
-              "front": 20,
-              "rear": 5,
-              "side": { "interior": 5, "corner": 8 }
-            }
-          },
-          "lotCoverage": { "maximum": 0.6 }
-        },
-        "intentional community": {
-          "floorArea": {
-            "unit": {
-              "standard": { "minimum": 500 },
-              "efficiency": { "minimum": 350 }
-            }
-          },
-          "developmentType": "primary/accessory",
-          "lotCoverage": { "maximum": 0.6 },
-          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } }
         },
         "Community residential facility, 0-16 people": {
           "floorArea": {
@@ -971,61 +1109,39 @@
             }
           },
           "developmentType": "primary/accessory",
-          "lotCoverage": { "maximum": 0.6 },
-          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } }
-        }
-      },
-      "overlay_1": {
-        "three-family": {
-          "districtTypeGroups": {
-            "Residential": { "FAR": { "residential": 0.7 } },
-            "Office Residential": { "FAR": { "residential": 0.7 } },
-            "allOthers": { "FAR": { "residential": 0.7 } }
-          },
-          "developmentType": "primary/accessory",
-          "lotCoverage": { "maximum": 0.6 },
-          "primaryStructures": {
-            "stories": { "maximum": 3 },
-            "height": { "maximum": 42 },
-            "setbacks": {
-              "front": 20,
-              "rear": 5,
-              "side": { "interior": 5, "corner": 8 }
-            }
-          }
+          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } },
+          "lotCoverage": { "maximum": 0.6 }
         },
-        "cluster": {
-          "primaryStructures": {
-            "height": { "maximum": 42 },
-            "stories": { "maximum": 3 }
-          }
-        },
-        "multi-family": {
-          "lotArea": { "minimum": 5000, "maximum": 18000 },
-          "lotWidth": { "minimum": 40 }
-        },
-        "intentional community": {
-          "developmentType": "primary/accessory",
-          "lotCoverage": { "maximum": 0.6 },
-          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } }
-        },
-        "four-family": {},
         "single-family": {
-          "districtTypeGroups": {
-            "Residential": { "FAR": { "residential": 0.5 } },
-            "Office Residential": { "FAR": { "residential": 0.5 } },
-            "allOthers": { "FAR": { "residential": 0.5 } }
+          "floorArea": {
+            "unit": {
+              "standard": { "minimum": 500 },
+              "efficiency": { "minimum": 350 }
+            }
           },
           "developmentType": "primary/accessory",
-          "lotCoverage": { "maximum": 0.6 },
           "primaryStructures": {
-            "stories": { "max": 2.5 },
             "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
             "setbacks": {
               "front": 20,
               "rear": 5,
               "side": { "interior": 5, "corner": 8 }
-            }
+            },
+            "stories": { "max": 2.5 }
+          },
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 0.5 } },
+            "Office Residential": { "FAR": { "residential": 0.5 } },
+            "allOthers": { "FAR": { "residential": 0.5 } }
+          },
+          "lotCoverage": { "maximum": 0.6 }
+        }
+      },
+      "overlay_1": {
+        "cluster": {
+          "primaryStructures": {
+            "height": { "maximum": 42 },
+            "stories": { "maximum": 3 }
           }
         },
         "two-family": {
@@ -1034,16 +1150,51 @@
             "Office Residential": { "FAR": { "residential": 0.6 } },
             "allOthers": { "FAR": { "residential": 0.6 } }
           },
-          "developmentType": "primary/accessory",
-          "lotCoverage": { "maximum": 0.6 },
           "primaryStructures": {
-            "stories": { "max": 2.5 },
             "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
             "setbacks": {
               "front": 20,
               "rear": 5,
               "side": { "interior": 5, "corner": 8 }
-            }
+            },
+            "stories": { "max": 2.5 }
+          },
+          "lotCoverage": { "maximum": 0.6 },
+          "developmentType": "primary/accessory"
+        },
+        "Community residential facility, 0-16 people": {
+          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } },
+          "lotCoverage": { "maximum": 0.6 },
+          "developmentType": "primary/accessory"
+        },
+        "intentional community": {
+          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } },
+          "lotCoverage": { "maximum": 0.6 },
+          "developmentType": "primary/accessory"
+        },
+        "single-family": {
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 0.5 } },
+            "Office Residential": { "FAR": { "residential": 0.5 } },
+            "allOthers": { "FAR": { "residential": 0.5 } }
+          },
+          "primaryStructures": {
+            "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
+            "setbacks": {
+              "front": 20,
+              "rear": 5,
+              "side": { "interior": 5, "corner": 8 }
+            },
+            "stories": { "max": 2.5 }
+          },
+          "lotCoverage": { "maximum": 0.6 },
+          "developmentType": "primary/accessory"
+        },
+        "four-family": {
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 1.4 } },
+            "Office Residential": { "FAR": { "residential": 1.4 } },
+            "allOthers": { "FAR": { "residential": 1.6 } }
           }
         },
         "allOthers": {
@@ -1051,10 +1202,27 @@
             "setbacks": { "side": { "interior": "...", "corner": "..." } }
           }
         },
-        "Community residential facility, 0-16 people": {
-          "developmentType": "primary/accessory",
+        "three-family": {
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 0.7 } },
+            "Office Residential": { "FAR": { "residential": 0.7 } },
+            "allOthers": { "FAR": { "residential": 0.7 } }
+          },
+          "primaryStructures": {
+            "height": { "maximum": 42 },
+            "setbacks": {
+              "front": 20,
+              "rear": 5,
+              "side": { "interior": 5, "corner": 8 }
+            },
+            "stories": { "maximum": 3 }
+          },
           "lotCoverage": { "maximum": 0.6 },
-          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } }
+          "developmentType": "primary/accessory"
+        },
+        "multi-family": {
+          "lotArea": { "minimum": 5000, "maximum": 18000 },
+          "lotWidth": { "minimum": 40 }
         }
       }
     }
@@ -1072,51 +1240,18 @@
           },
           "developmentType": "primary/accessory",
           "primaryStructures": {
-            "stories": { "maximum": 3 },
             "height": { "maximum": 42 },
             "setbacks": {
               "front": 20,
               "rear": 5,
               "side": { "interior": 5, "corner": 8 }
-            }
+            },
+            "stories": { "maximum": 3 }
           },
-          "lotCoverage": { "maximum": 0.6 }
-        },
-        "two-family": {
-          "floorArea": {
-            "unit": {
-              "standard": { "minimum": 500 },
-              "efficiency": { "minimum": 350 }
-            }
-          },
-          "developmentType": "primary/accessory",
-          "primaryStructures": {
-            "stories": { "max": 2.5 },
-            "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
-            "setbacks": {
-              "front": 20,
-              "rear": 5,
-              "side": { "interior": 5, "corner": 8 }
-            }
-          },
-          "lotCoverage": { "maximum": 0.6 }
-        },
-        "single-family": {
-          "floorArea": {
-            "unit": {
-              "standard": { "minimum": 500 },
-              "efficiency": { "minimum": 350 }
-            }
-          },
-          "developmentType": "primary/accessory",
-          "primaryStructures": {
-            "stories": { "max": 2.5 },
-            "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
-            "setbacks": {
-              "front": 20,
-              "rear": 5,
-              "side": { "interior": 5, "corner": 8 }
-            }
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 0.7 } },
+            "Office Residential": { "FAR": { "residential": 0.7 } },
+            "allOthers": { "FAR": { "residential": 0.7 } }
           },
           "lotCoverage": { "maximum": 0.6 }
         },
@@ -1128,8 +1263,32 @@
             }
           },
           "developmentType": "primary/accessory",
-          "lotCoverage": { "maximum": 0.6 },
-          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } }
+          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } },
+          "lotCoverage": { "maximum": 0.6 }
+        },
+        "two-family": {
+          "floorArea": {
+            "unit": {
+              "standard": { "minimum": 500 },
+              "efficiency": { "minimum": 350 }
+            }
+          },
+          "developmentType": "primary/accessory",
+          "primaryStructures": {
+            "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
+            "setbacks": {
+              "front": 20,
+              "rear": 5,
+              "side": { "interior": 5, "corner": 8 }
+            },
+            "stories": { "max": 2.5 }
+          },
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 0.6 } },
+            "Office Residential": { "FAR": { "residential": 0.6 } },
+            "allOthers": { "FAR": { "residential": 0.6 } }
+          },
+          "lotCoverage": { "maximum": 0.6 }
         },
         "Community residential facility, 0-16 people": {
           "floorArea": {
@@ -1139,8 +1298,32 @@
             }
           },
           "developmentType": "primary/accessory",
-          "lotCoverage": { "maximum": 0.6 },
-          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } }
+          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } },
+          "lotCoverage": { "maximum": 0.6 }
+        },
+        "single-family": {
+          "floorArea": {
+            "unit": {
+              "standard": { "minimum": 500 },
+              "efficiency": { "minimum": 350 }
+            }
+          },
+          "developmentType": "primary/accessory",
+          "primaryStructures": {
+            "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
+            "setbacks": {
+              "front": 20,
+              "rear": 5,
+              "side": { "interior": 5, "corner": 8 }
+            },
+            "stories": { "max": 2.5 }
+          },
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 0.5 } },
+            "Office Residential": { "FAR": { "residential": 0.5 } },
+            "allOthers": { "FAR": { "residential": 0.5 } }
+          },
+          "lotCoverage": { "maximum": 0.6 }
         },
         "cluster": {
           "primaryStructures": {
@@ -1148,15 +1331,21 @@
             "stories": { "maximum": 3 }
           }
         },
-        "multi-family": {
-          "lotArea": { "minimum": 5000, "maximum": 18000 },
-          "lotWidth": { "minimum": 40 }
+        "four-family": {
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 1.4 } },
+            "Office Residential": { "FAR": { "residential": 1.4 } },
+            "allOthers": { "FAR": { "residential": 1.6 } }
+          }
         },
-        "four-family": {},
         "allOthers": {
           "primaryStructures": {
             "setbacks": { "side": { "interior": "...", "corner": "..." } }
           }
+        },
+        "multi-family": {
+          "lotArea": { "minimum": 5000, "maximum": 18000 },
+          "lotWidth": { "minimum": 40 }
         }
       },
       "superDistrict": {
@@ -1169,14 +1358,30 @@
           },
           "developmentType": "primary/accessory",
           "primaryStructures": {
-            "stories": { "maximum": 3 },
             "height": { "maximum": 42 },
             "setbacks": {
               "front": 20,
               "rear": 5,
               "side": { "interior": 5, "corner": 8 }
+            },
+            "stories": { "maximum": 3 }
+          },
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 0.7 } },
+            "Office Residential": { "FAR": { "residential": 0.7 } },
+            "allOthers": { "FAR": { "residential": 0.7 } }
+          },
+          "lotCoverage": { "maximum": 0.6 }
+        },
+        "intentional community": {
+          "floorArea": {
+            "unit": {
+              "standard": { "minimum": 500 },
+              "efficiency": { "minimum": 350 }
             }
           },
+          "developmentType": "primary/accessory",
+          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } },
           "lotCoverage": { "maximum": 0.6 }
         },
         "two-family": {
@@ -1188,45 +1393,20 @@
           },
           "developmentType": "primary/accessory",
           "primaryStructures": {
-            "stories": { "max": 2.5 },
             "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
             "setbacks": {
               "front": 20,
               "rear": 5,
               "side": { "interior": 5, "corner": 8 }
-            }
+            },
+            "stories": { "max": 2.5 }
+          },
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 0.6 } },
+            "Office Residential": { "FAR": { "residential": 0.6 } },
+            "allOthers": { "FAR": { "residential": 0.6 } }
           },
           "lotCoverage": { "maximum": 0.6 }
-        },
-        "single-family": {
-          "floorArea": {
-            "unit": {
-              "standard": { "minimum": 500 },
-              "efficiency": { "minimum": 350 }
-            }
-          },
-          "developmentType": "primary/accessory",
-          "primaryStructures": {
-            "stories": { "max": 2.5 },
-            "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
-            "setbacks": {
-              "front": 20,
-              "rear": 5,
-              "side": { "interior": 5, "corner": 8 }
-            }
-          },
-          "lotCoverage": { "maximum": 0.6 }
-        },
-        "intentional community": {
-          "floorArea": {
-            "unit": {
-              "standard": { "minimum": 500 },
-              "efficiency": { "minimum": 350 }
-            }
-          },
-          "developmentType": "primary/accessory",
-          "lotCoverage": { "maximum": 0.6 },
-          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } }
         },
         "Community residential facility, 0-16 people": {
           "floorArea": {
@@ -1236,61 +1416,39 @@
             }
           },
           "developmentType": "primary/accessory",
-          "lotCoverage": { "maximum": 0.6 },
-          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } }
-        }
-      },
-      "overlay_1": {
-        "three-family": {
-          "districtTypeGroups": {
-            "Residential": { "FAR": { "residential": 0.7 } },
-            "Office Residential": { "FAR": { "residential": 0.7 } },
-            "allOthers": { "FAR": { "residential": 0.7 } }
-          },
-          "developmentType": "primary/accessory",
-          "lotCoverage": { "maximum": 0.6 },
-          "primaryStructures": {
-            "stories": { "maximum": 3 },
-            "height": { "maximum": 42 },
-            "setbacks": {
-              "front": 20,
-              "rear": 5,
-              "side": { "interior": 5, "corner": 8 }
-            }
-          }
+          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } },
+          "lotCoverage": { "maximum": 0.6 }
         },
-        "cluster": {
-          "primaryStructures": {
-            "height": { "maximum": 42 },
-            "stories": { "maximum": 3 }
-          }
-        },
-        "multi-family": {
-          "lotArea": { "minimum": 5000, "maximum": 18000 },
-          "lotWidth": { "minimum": 40 }
-        },
-        "intentional community": {
-          "developmentType": "primary/accessory",
-          "lotCoverage": { "maximum": 0.6 },
-          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } }
-        },
-        "four-family": {},
         "single-family": {
-          "districtTypeGroups": {
-            "Residential": { "FAR": { "residential": 0.5 } },
-            "Office Residential": { "FAR": { "residential": 0.5 } },
-            "allOthers": { "FAR": { "residential": 0.5 } }
+          "floorArea": {
+            "unit": {
+              "standard": { "minimum": 500 },
+              "efficiency": { "minimum": 350 }
+            }
           },
           "developmentType": "primary/accessory",
-          "lotCoverage": { "maximum": 0.6 },
           "primaryStructures": {
-            "stories": { "max": 2.5 },
             "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
             "setbacks": {
               "front": 20,
               "rear": 5,
               "side": { "interior": 5, "corner": 8 }
-            }
+            },
+            "stories": { "max": 2.5 }
+          },
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 0.5 } },
+            "Office Residential": { "FAR": { "residential": 0.5 } },
+            "allOthers": { "FAR": { "residential": 0.5 } }
+          },
+          "lotCoverage": { "maximum": 0.6 }
+        }
+      },
+      "overlay_1": {
+        "cluster": {
+          "primaryStructures": {
+            "height": { "maximum": 42 },
+            "stories": { "maximum": 3 }
           }
         },
         "two-family": {
@@ -1299,16 +1457,51 @@
             "Office Residential": { "FAR": { "residential": 0.6 } },
             "allOthers": { "FAR": { "residential": 0.6 } }
           },
-          "developmentType": "primary/accessory",
-          "lotCoverage": { "maximum": 0.6 },
           "primaryStructures": {
-            "stories": { "max": 2.5 },
             "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
             "setbacks": {
               "front": 20,
               "rear": 5,
               "side": { "interior": 5, "corner": 8 }
-            }
+            },
+            "stories": { "max": 2.5 }
+          },
+          "lotCoverage": { "maximum": 0.6 },
+          "developmentType": "primary/accessory"
+        },
+        "Community residential facility, 0-16 people": {
+          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } },
+          "lotCoverage": { "maximum": 0.6 },
+          "developmentType": "primary/accessory"
+        },
+        "intentional community": {
+          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } },
+          "lotCoverage": { "maximum": 0.6 },
+          "developmentType": "primary/accessory"
+        },
+        "single-family": {
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 0.5 } },
+            "Office Residential": { "FAR": { "residential": 0.5 } },
+            "allOthers": { "FAR": { "residential": 0.5 } }
+          },
+          "primaryStructures": {
+            "height": { "wall": { "max": 28 }, "roof": { "max": 33 } },
+            "setbacks": {
+              "front": 20,
+              "rear": 5,
+              "side": { "interior": 5, "corner": 8 }
+            },
+            "stories": { "max": 2.5 }
+          },
+          "lotCoverage": { "maximum": 0.6 },
+          "developmentType": "primary/accessory"
+        },
+        "four-family": {
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 1.4 } },
+            "Office Residential": { "FAR": { "residential": 1.4 } },
+            "allOthers": { "FAR": { "residential": 1.6 } }
           }
         },
         "allOthers": {
@@ -1316,10 +1509,27 @@
             "setbacks": { "side": { "interior": "...", "corner": "..." } }
           }
         },
-        "Community residential facility, 0-16 people": {
-          "developmentType": "primary/accessory",
+        "three-family": {
+          "districtTypeGroups": {
+            "Residential": { "FAR": { "residential": 0.7 } },
+            "Office Residential": { "FAR": { "residential": 0.7 } },
+            "allOthers": { "FAR": { "residential": 0.7 } }
+          },
+          "primaryStructures": {
+            "height": { "maximum": 42 },
+            "setbacks": {
+              "front": 20,
+              "rear": 5,
+              "side": { "interior": 5, "corner": 8 }
+            },
+            "stories": { "maximum": 3 }
+          },
           "lotCoverage": { "maximum": 0.6 },
-          "primaryStructures": { "setbacks": { "front": 20, "rear": 5 } }
+          "developmentType": "primary/accessory"
+        },
+        "multi-family": {
+          "lotArea": { "minimum": 5000, "maximum": 18000 },
+          "lotWidth": { "minimum": 40 }
         }
       }
     }
