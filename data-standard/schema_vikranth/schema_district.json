@@ -68,12 +68,12 @@
           "type": "boolean"
         },
         "bulkOptionality": {
-          "$ref": "schema_constraints object_final.json#/definitions/bulkOptionality"
+          "$ref": "schema_constraints object.json#/definitions/bulkOptionality"
         }
       }
     },
     "constraints": {
-      "$ref": "schema_constraints object_final.json#/properties/constraints"
+      "$ref": "schema_constraints object.json#/properties/constraints"
     }
   }
 }

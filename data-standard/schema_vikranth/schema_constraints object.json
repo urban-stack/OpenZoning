@@ -1,151 +1,658 @@
 {
-  "$id": "https://github.com/urban-stack/OpenZoning/blob/main/data-standard/definitons.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$comment": "MDS's meta-schema: http://json-schema.org/draft-06/schema#",
-  "title": "Common schema definitions for OZFS",
+  "type": "object",
   "definitions": {
-    "structureNum": {
-      "$id": "#/definitions/structureNum",
-      "$comment": "can it be anything other than an object? I don't think so. ",
-      "type": "integer",
-      "description": "..."
+    "maximum": {
+      "$comment": "TODO: Fix this one ",
+      "type": "number"
     },
-    "structureName": {
-      "$id": "#/definitions/structureNum",
-      "$comment": "can it be anything other than an object? I don't think so. ",
-      "type": "string",
-      "description": "...",
-      "enum": ["primary", "accessory"],
-      "uniqueItems": true
+    "minimum": {
+      "$comment": "TODO: Fix this one ",
+      "type": "number"
     },
-    "structureBulkOptions": {
-      "$id": "#/definitions/structureBulkOptions",
-      "$comment": "can it be anything other than an object? I don't think so. ",
-      "type": "object",
-      "description": "...",
-      "properties": {
-        "structureBulkNum": {
-          "$id": "#/definitions/structureBulkOptions/structureBulkNum",
-          "$ref": "#/definitions/structureBulkNum"
-        },
-        "structureBulkName": {
-          "$id": "#/definitions/structureBulkOptions/structureBulkName",
-          "$ref": "#/definitions/structureBulkName"
-        },
-        "basePlanes": {
-          "$id": "#/definitions/structureBulkOptions/basePlanes",
-          "$ref": "#/definitions/basePlanes"
-        },
-        "stories": {
-          "$id": "#/definitions/structureBulkOptions/stories",
-          "$ref": "#/definitions/stories"
-        },
-        "FAR": {
-          "$id": "#/definitions/structureBulkOptions/FAR",
-          "$ref": "#/definitions/FAR"
-        }
-      }
-    },
-    "structures": {
-      "$id": "#/definitions/structures",
-      "$comment": "can it be anything other than an object? I don't think so. ",
-      "type": "object",
-      "description": "...",
-      "properties": {
-        "structureNum": {
-          "$id": "#/definitions/structures/structureNum",
-          "$ref": "#/definitions/structureNum"
-        },
-        "structureName": {
-          "$id": "#/definitions/structures/structureName",
-          "$ref": "#/definitions/structureName"
-        },
-        "structureBulkOptions": {
-          "$id": "#/definitions/structures/structureBulkOptions",
-          "$ref": "#/definitions/structureBulkOptions"
-        }
-      }
-    },
-    "lot": {
-      "$id": "#/definitions/lot",
-      "$comment": "can it be anything other than an object? I don't think so. ",
-      "type": "object",
-      "description": "...",
-      "properties": {
-        "lotCoverage": {
-          "$id": "#/definitions/lot/lotCoverage",
-          "$ref": "#/definitions/lotCoverage"
-        },
-        "structures": {
-          "$id": "#/definitions/lot/structures",
-          "$ref": "#/definitions/structures"
-        }
-      }
-    },
-    "constraints": {
-      "$id": "#/definitions/constraint",
-      "type": "object",
-      "$comment": "can it be anything other than an object? I don't think so. ",
-      "description": "...",
-      "properties": {
-        "lot": {
-          "$id": "#/definitions/constraints/lot",
-          "$ref": "#/definitions/lot"
-        }
-      }
-    },
-    "lotCoverage": {
-      "$id": "...",
-      "$comment": "can it be anything other than an object? I don't think so. ",
-      "type": "object",
-      "description": "...",
-      "properties": {
-        "maximum": {
-          "$id": "...",
-          "type": "number",
-          "format": "decimal"
-        },
-        "minimum": {
-          "$id": "...",
-          "type": "number",
-          "format": "decimal"
-        }
-      }
-    },
-    "developmentOptionality": {
-      "$id": "#/definitions/...",
+    "constraintsModule": {
       "type": "array",
-      "description": "this module establishes a heirarchy level for development options",
+      "items": {
+        "enum": [
+          "floorArea",
+          "FAR",
+          "floorWidth",
+          "lotArea",
+          "lotWidth",
+          "footprint",
+          "height",
+          "stories",
+          "storyFloors",
+          "lotCoverage",
+          "allowedUses",
+          "district",
+          "setbacks"
+        ]
+      },
+      "minItems": 1
+    },
+    "bulkOptionality": {
+      "type": "array",
       "items": {
         "type": "object",
-        "enum": ["developmentType", "primaryStructures", "accessoryStructures"]
-      },
-      "developmentType": {
-        "$id": "#/definitions/...",
-        "type": "object",
-        "description": "module establishing the type of development that the ensuing nested constraints apply to",
         "properties": {
-          "primaryAccessory": {
-            "$id": "#/definitions/developmentOptionality/primaryAccessory",
-            "$ref": "#/definitions/devTypeSchema"
+          "bulks": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "single-family",
+                "two-family",
+                "three-family",
+                "multi-family"
+              ]
+            }
           },
-          "other": {
-            "$id": "#/definitions/developmentOptionality/other",
-            "$ref": "#/definitions/devTypeSchema"
+          "floorAreaAD": {
+            "type": "object",
+            "properties": {
+              "maximumAD": {
+                "$comment": "TODO: Renaming this to floorAreaAD to floorAreaADOptionality",
+                "type": "array",
+                "items": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "interior": {
+            "type": "number"
+          },
+          "corner": {
+            "type": "number"
+          },
+          "allowances": {
+            "type": "object",
+            "properties": {
+              "num": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "types": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": ["ADU", "garage"]
+                }
+              }
+            }
           }
         }
       },
-      "primaryStructures": {
-        "$id": "#/definitions/primaryStructures",
-        "type": "object"
-      },
-      "accessoryStructures": {
-        "$id": "#/definitions/accessoryStructures",
-        "type": "object"
-      },
-      "devTypeSchema": {
-        "$id": "#/definitions/devTypeSchema",
-        "type": "object"
+      "allOf": [
+        {
+          "$ref": "#/definitions/dynamicConstraints"
+        }
+      ]
+    },
+    "garageOptionality": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "garageType": {
+            "type": "object",
+            "properties": {
+              "not": {
+                "type": "string",
+                "items": {
+                  "enum": [
+                    "single-family",
+                    "two-family",
+                    "three-family",
+                    "multi-family"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/dynamicConstraints"
+          }
+        ]
+      }
+    },
+    "ADtypeOptionality": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "ADtype": {
+            "type": "array",
+            "items": {
+              "enum": ["interior", "attached", "detached"]
+            }
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/dynamicConstraints"
+          },
+          {
+            "$comment": "prevent circular references",
+            "$ref": "#/definitions/ADbulkOptionality"
+          }
+        ]
+      }
+    },
+    "ADbulkOptionality": {
+      "$comment": "Recheck this with Luke",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "ADbulk": {
+            "type": "array",
+            "items": {
+              "enum": ["ADU", "garage"]
+            }
+          },
+          "ADtypeOptionality": {
+            "$ref": "#/definitions/ADtypeOptionality"
+          }
+        }
+      }
+    },
+    "districtTypeGroups": {
+      "type": "array",
+      "items": {
+        "allOf": [
+          {
+            "type": "object",
+            "properties": {
+              "districts": {
+                "type": "array",
+                "items": {
+                  "enum": ["district1", "district2"]
+                }
+              }
+            }
+          },
+          {
+            "$ref": "#/definitions/bulkOptionality"
+          }
+        ]
+      }
+    },
+    "dynamicConstraints": {
+      "properties": {
+        "maximum": {
+          "type": "number",
+          "$comment": "exclusiveMinimum: 0"
+        },
+        "minimum": {
+          "type": "number"
+        },
+        "constraintsModule": {
+          "$ref": "#/definitions/constraintsModule"
+        },
+        "height": {
+          "$comment": "Renamed this to height instead of heightValue",
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "number"
+            },
+            "wall": {
+              "type": "object",
+              "properties": {
+                "maximum": {
+                  "$ref": "#/definitions/maximum",
+                  "$comment": "exclusiveMinimum: 0"
+                },
+                "minimum": {
+                  "$ref": "#/definitions/minimum"
+                }
+              }
+            },
+            "roof": {
+              "type": "object",
+              "properties": {
+                "maximum": {
+                  "$ref": "#/definitions/maximum",
+                  "$comment": "exclusiveMinimum: 0"
+                },
+                "minimum": {
+                  "$ref": "#/definitions/minimum"
+                }
+              }
+            }
+          }
+        },
+        "FAR": {
+          "type": "object",
+          "properties": {
+            "residential": {
+              "type": "number"
+            },
+            "commercial": {
+              "type": "number"
+            }
+          }
+        },
+        "floorArea": {
+          "type": "object",
+          "properties": {
+            "standard": {
+              "type": "object",
+              "properties": {
+                "minimum": {
+                  "$ref": "#/definitions/minimum"
+                }
+              }
+            },
+            "efficiency": {
+              "type": "object",
+              "properties": {
+                "minimum": {
+                  "$ref": "#/definitions/minimum"
+                }
+              }
+            },
+            "minimum": {
+              "$ref": "#/definitions/minimum"
+            },
+            "maximum": {
+              "$ref": "#/definitions/maximum"
+            },
+            "totalFloorArea": {
+              "type": "number"
+            }
+          }
+        },
+        "floorWidth": {
+          "type": "object",
+          "properties": {
+            "minimum": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "number",
+                  "$comment": "exclusiveMinimum: 0"
+                },
+                "applicableFloorArea": {
+                  "type": "number",
+                  "$comment": "exclusiveMinimum: 1, exclusiveMaximum: 1"
+                }
+              }
+            }
+          }
+        },
+        "lotArea": {
+          "type": "object",
+          "properties": {
+            "minimum": {
+              "$ref": "#/definitions/minimum"
+            },
+            "maximum": {
+              "$ref": "#/definitions/maximum"
+            }
+          }
+        },
+        "lotWidth": {
+          "type": "object",
+          "properties": {
+            "minimum": {
+              "$ref": "#/definitions/minimum"
+            }
+          }
+        },
+        "footprint": {
+          "type": "object",
+          "properties": {
+            "maximum": {
+              "type": "object",
+              "properties": {
+                "leastof": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "oneOf": [
+                      {
+                        "properties": {
+                          "greaterOf": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "maximum": {
+                                  "oneOf": [
+                                    {
+                                      "type": "integer"
+                                    },
+                                    {
+                                      "type": "string"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "properties": {
+                          "maximum": {
+                            "type": "integer"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "floorAreaAD": {
+          "type": "object",
+          "properties": {
+            "maximum": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "stories": {
+          "type": "object",
+          "properties": {
+            "maximum": {
+              "$ref": "#/definitions/maximum"
+            }
+          }
+        },
+        "storyFloors": {
+          "type": "object",
+          "properties": {
+            "storyHeight": {
+              "type": "object",
+              "properties": {
+                "maximum": {
+                  "$ref": "#/definitions/maximum"
+                }
+              }
+            },
+            "storyType": {
+              "type": "string"
+            },
+            "storiesContribution": {
+              "type": "number"
+            },
+
+            "floorAreaContribution": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "number"
+                },
+                "floorElev": {
+                  "type": "object",
+                  "properties": {
+                    "minimum": {
+                      "$ref": "#/definitions/minimum"
+                    },
+                    "maximum": {
+                      "$ref": "#/definitions/maximum"
+                    },
+                    "floorPerimeter": {
+                      "type": "object",
+                      "properties": {
+                        "floorArea": {
+                          "type": "number"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "setbacks": {
+          "type": "object",
+          "properties": {
+            "front": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                }
+              ]
+            },
+            "rear": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                }
+              ]
+            },
+            "side": {
+              "type": "object",
+              "properties": {
+                "interior": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "corner": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "bulkOptionality": {
+                  "$ref": "#/definitions/bulkOptionality"
+                }
+              }
+            },
+            "fromAnotherStructure": {
+              "type": "object",
+              "properties": {
+                "primaryResidentialStructure": {
+                  "type": "number"
+                },
+                "habitableDwelling": {
+                  "type": "number"
+                }
+              }
+            },
+            "bulkOptionality": {
+              "$ref": "#/definitions/bulkOptionality"
+            },
+            "lotCoverage": {
+              "type": "object",
+              "properties": {
+                "maximum": {
+                  "$ref": "#/definitions/maximum"
+                }
+              }
+            }
+          }
+        },
+        "lotCoverage": {
+          "type": "object",
+          "properties": {
+            "maximum": {
+              "$ref": "#/definitions/maximum"
+            }
+          }
+        },
+        "allowedUses": {
+          "type": "object",
+          "properties": {
+            "permitted": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "single-family",
+                  "two-family",
+                  "three-family",
+                  "multi-family"
+                ]
+              }
+            },
+            "conditional": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "single-family",
+                  "two-family",
+                  "three-family",
+                  "multi-family"
+                ]
+              }
+            },
+            "accessoryStructuresPermissions": {
+              "type": "object",
+              "properties": {
+                "allowedNumADs": {
+                  "type": "boolean"
+                },
+                "allowedTypesADs": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "constraints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "constraintsModule": {
+            "$ref": "#/definitions/constraintsModule"
+          },
+          "lot": {
+            "allOf": [
+              {
+                "$ref": "#/definitions/dynamicConstraints"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "developmentOptionality": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "developmentType": {
+                          "enum": ["primary/accessory", "cluster development"]
+                        },
+                        "primaryStructures": {
+                          "type": "object",
+                          "properties": {
+                            "bulkOptionality": {
+                              "$ref": "#/definitions/bulkOptionality"
+                            }
+                          }
+                        },
+                        "accessoryStructures": {
+                          "type": "object",
+                          "properties": {
+                            "ADtypeOptionality": {
+                              "$ref": "#/definitions/bulkOptionality"
+                            },
+                            "ADbulkOptionality": {
+                              "$ref": "#/definitions/ADbulkOptionality"
+                            },
+                            "bulkOptionality": {
+                              "$ref": "#/definitions/bulkOptionality"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "constraintsModule": {
+                    "$ref": "#/definitions/constraintsModule"
+                  },
+                  "bulkOptionality": {
+                    "$ref": "#/definitions/bulkOptionality"
+                  },
+                  "districtTypeGroups": {
+                    "$ref": "#/definitions/districtTypeGroups"
+                  }
+                },
+                "additionalProperties": false
+              }
+            ]
+          }
+        }
       }
     }
   }
