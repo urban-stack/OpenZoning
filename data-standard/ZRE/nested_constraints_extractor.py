@@ -66,49 +66,13 @@ def extract_nested_constraints(nested_dict, base_data=None):
                                 constraints[k]["districtTypeGroups"].update(
                                     {districtType: v for districtType in districtTypes})
 
-                           # Issue
-                           ## Status : Fixed
-                            #  This is the issue because the
-                            # old districtTypeGroups is being replaced
-                            #  by the new one
-
-                            # What you need to do here is take in the old value
-                            # make sure its added to the new one and also add the new
-                            # value to it
-
-                            # Especially when there nare two districtTypeGroups objects
-                            # this is the issue
-
-                            # constraints[k] = {
-                            #     "districtTypeGroups": {
-                            #         districtType: v for districtType in districtTypes
-                            #     }
-                            # }
             return constraints
-            #################################
-            #     for district in districtTypes:
-            #         if district not in constraints:
-            #             constraints[district] = {}
-
-            #         # print(len(option.items()))
-
-            #         for key, value in option.items():
-            #             # print(key)
-            #             if key != "districtTypes":
-            #                 # print(value)
-
-            #                 extracted_constraints = extract_nested_constraints(
-            #                     {key: value}, base_data)
-
-            #                 constraints[district] = extracted_constraints
-            # return {"districtTypeGroups": constraints}
 
         elif k == "constraintsModule":
             continue
 
         elif k == "setbacks":
-            # print(f"k: {k} \n")
-            # print(f"v: {v} \n \n")
+
             extracted_constraints = extract_nested_constraints(
                 v, base_data)
 
@@ -131,52 +95,25 @@ def extract_nested_constraints(nested_dict, base_data=None):
             return extracted_constraints
 
         elif isinstance(v, dict):
-            # print("\n\n")
-            # print("!!!!!! DICT GOING DOWN A LEVEL !!!!!!!")
-            # print(f"Key : {k},\n v:{v} \n\n")
 
             extracted_constraints = extract_nested_constraints(v, base_data)
-            # print(constraints)
-            # print(k)
+
             for k1, v1 in extracted_constraints.items():
                 prevBulkConstaints = constraints.get(k1, {})
                 tempConstraints = {k: v1}
                 constraints[k1] = {**prevBulkConstaints, **tempConstraints}
 
-            # constraints = {
-            #     #  k: {**constraints.get(k1, {}), **v1} for k1, v1 in extracted_constraints.items()}
-
-            #     # This works for most cases
-            #     k: {**constraints.get(k, {}), **v} for k, v in extracted_constraints.items()}
-
-            # print(constraints)
-
-            # print("***** DICT GOING UP A LEVEL *****!")
-            # print("constraints: ")
-            # print(constraints)
         elif isinstance(v, list):
             for i, item in enumerate(v):
                 # print(f"Key: {k}")
 
-                # print("ITEMS IN LIST: ", item)
+                # print("ITEMS IN LIST: ", item
                 if isinstance(item, dict):
-                    # print("\n")
-                    # print("!!!!!! DICT1 GOING DOWN A LEVEL !!!!!!!")
-                    # print(f"Key : {k},\n v:{v} \n\n")
+
                     extracted_constraints = extract_nested_constraints(
                         item, base_data)
                     constraints = {
                         k: {**constraints.get(k, {}), **v} for k, v in extracted_constraints.items()}
-                    # for k1, v1 in extracted_constraints.items():
-                    #     prevBulkConstaints = constraints.get(k1, {})
-                    #     tempConstraints = {k: v1}
-                    #     constraints[k1] = {
-                    #         **prevBulkConstaints, **tempConstraints}
-
-                    # constraints.update(
-                    #     extract_nested_constraints(item, base_data))
-
-                # What happens if its not a dict???
 
         else:
             # Check if 'bulkOptionality' was not encountered and base_data is available
@@ -198,39 +135,24 @@ def extract_nested_constraints_wrapper(file_path):
         open(file_path, 'r'))
 
     base_data = json.load(
-        open('../schema_vikranth/tests/data/districts/R2B_multipleFamily_district.json', 'r'))
+        open('/app/data-standard/schema_vikranth/tests/data/districts/R2B_multipleFamily_district.json', 'r'))
 
     constraints = {}
-    # constraints = []
+    # constraints = [
 
     for i, constraint in enumerate(data['constraints']):
-        # constraints[f"constraint_{i+1}"] = extract_nested_constraints(
-        #     constraint,  base_data)
 
         temp_constraint = extract_nested_constraints(
             constraint,  base_data)
 
-        # print(temp_constraint)
-        # print("\n\n")
-
         constraints = merge_dicts(constraints, temp_constraint)
-
-        # for key, value in temp_constraint.items():
-        # if key in constraints:
-        #     constraints[key].update(value)
-        # else:
-        #     constraints[key] = value
-
-        # constraints[key] = {**constraints.get(key, {}), **value}
-
-    # print({data['district']['districtType']: constraints})
 
     return {data['district']['districtType']: constraints}
 
 
 # Comment this once the function is tested
 # final_constraints = extract_nested_constraints_wrapper(
-#     '../schema_vikranth/tests/data/districts/BFI3_district.json')
+#     '/app/data-standard/schema_vikranth/tests/data/districts/BFI3_district.json')
 
 # print("Nested constraitns\n")
 # print(final_constraints)
