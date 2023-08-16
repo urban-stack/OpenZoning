@@ -8,20 +8,6 @@ import geopandas as gpd
 from datetime import datetime
 from shapely.geometry import Polygon
 
-
-# This script can be run from the command line. It accepts a short code representing the base directory (i.e. `minn` where the districts subdirectory resides), as well as either a series of coordinates or a GIS file to represent a parcel.
-# It will find any districts that intersect with the parcel and write the results to a JSON file output/intersecting_districts_{timestamp}.json.
-
-# You can run the script with coordinates like this:
-# python scripts/return_intersecting_districts.py minn --coords x1 y1 x2 y2 x3 y3
-
-# Or with a GIS file like this:
-# python scripts/return_intersecting_districts.py minn --file path_to_your_file
-
-
-# TODO: Make this file able to process multiple parcels, right now it takes in cordinates and outputs what it currently outputs
-
-
 import re
 import os
 import json
