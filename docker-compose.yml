@@ -2,7 +2,7 @@
 
 # docker-compose build
 # docker-compose up -d
-# docker exec -it zre_oz-container_1 /bin/bash
+# docker exec -it oz-container /bin/bash
 
 version: "3.8"
 services:

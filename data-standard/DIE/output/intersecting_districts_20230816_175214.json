@@ -1,0 +1,11 @@
+[
+  {
+    "priority": 0,
+    "file_name": "minn_superdistrict",
+    "district": "Minneapolis_Superdistrict"
+  },
+  { "priority": 1, "file_name": "minn_primary_zoning", "district": "UN2" },
+  { "priority": 1, "file_name": "minn_secondary_zoning", "district": "R5" },
+  { "priority": 1, "file_name": "minn_secondary_zoning", "district": "R4" },
+  { "priority": 2, "file_name": "minn_built_form", "district": "BFI3" }
+]
