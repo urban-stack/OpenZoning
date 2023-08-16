@@ -56,115 +56,6 @@
 									}
 								}
 							]
-						},
-						"accessoryStructures": {	
-							"ADbulkOptionality": [
-								{
-									"ADbulk": "ADU",
-									"ADtypeOptionality": [
-										{
-											"ADtype": "detached",
-											"totalFloorArea": {
-												"maximum": [
-													{
-														"lesserOf": 
-														{
-															"greaterOf": [
-																{
-																	"maximum": 1300
-																}
-																{
-																	"maximum": "16% of gross floor area of principal structure"
-																}
-															]
-														},
-														{
-															"maximum": 1600,
-														}
-													}
-												] 
-											}
-										},
-									]
-								}
-								{
-									"ADbulk": "garage",
-									"ADtypeOptionality": [
-										{
-											"ADtype": ["detached", "attached"],
-											"districtTypeGroups": [
-												{
-													"districts": ["Residential", "OR1"],
-													"bulkOptionality": [
-														{
-															"bulks": ["single-family", "two-family", "three-family"],
-															"floorArea": {
-																// "minimum": 300, not sure where this came from atm
-																"maximum": [
-																	{
-																		"greaterOf": [
-																			{
-																				"maximum": 676
-																			}
-																			{
-																				"maximum": "lotArea: 10%"
-																			}
-																		]
-																	},
-																	{
-																		"maximum": 1000,
-																	}
-																] 
-															}
-														},
-														{
-															"bulks": "all others",
-															"floorArea": {
-																"maximum": [
-																	{
-																		"greaterOf": [
-																			{
-																				"maximum": 676
-																			}
-																			{
-																				"maximum": "lotArea: 10%"
-																			}
-																		]
-																	},
-																] 
-															}
-														},
-													]
-												}
-												{
-													"districts": "all others",
-													"garageOptionality" : [
-														{
-															"garageType": {
-																"not": ["interior", "entirely below grade", "2+ stoires"]
-															},
-															"floorArea": {
-																"maximum": [
-																	{
-																		"greaterOf": [
-																			{
-																				"maximum": 676
-																			}
-																			{
-																				"maximum": "lotArea: 10%"
-																			}
-																		]
-																	},
-																] 
-															}
-														}
-													]
-												}
-											]
-										}
-									]
-								}
-							]
 						}
 					}
 				]
@@ -193,45 +84,6 @@
 			}
 		},
 		{
-			"constraintsModule": "footprint",
-			"lot": {
-				"developmentOptionalities": [
-					{
-						"developmentType": "primary/accessory",
-						"accessoryStructures": {
-							"footprint": {
-								"maximum": {
-									"leastof" :[
-										{
-											"greaterOf": [
-												{
-													"maximum": 676
-												}
-												{
-													"maximum": "10% of the lot area"
-												}
-											]
-										},
-										{
-											"maximum": 1000,
-										}
-									]
-								}
-							},
-							"typeOptionality": [ //we can workshop this title
-								{
-									"types": ["internal", "attached"],
-									"floorArea": {
-										"maximum": [800, ["V1_before 2015", "max. = floor area of the first floor of the primary structure"]]
-									}
-								}
-							]
-						}
-					}	
-				]
-			}
-		}
-		{
 			"constraintsModule": ["height", "stories"],
 			"lot": {
 				"developmentOptionalities": [
@@ -259,128 +111,7 @@
 									}
 								}
 							]
-						},
-						"accessoryStructures": {
-							"typeOptionality": [ //we can workshop this title
-								{
-									"types": "internal",
-									"stories": {
-										"maximum": 1
-									}
-								}
-								{
-									"types": "attached",
-									"height": {
-										"wall": {
-											"maximum": 14
-										},
-										"roof": {
-											"maximum": 20
-										}
-									}
-								}
-								{
-									"types": "detached",
-									"districtTypeGroups": [
-										{
-											"districts": ["Residential", "OR1"],
-											"height": {
-												"wall": {
-													"maximum": [10, [14, "..."]]
-												},
-												"roof": {
-													"maximum": [10, [16, "..."], [20, "..."]]
-												}
-											}
-										}
-										{
-											"districts": "all others",
-											"bulkOptionality": [
-												{
-													"bulks": ["single-family", "two-family", "three-family"],
-													"height": {
-														"wall": {
-															"maximum": [10, [14, "..."]]
-														},
-														"roof": {
-															"maximum": [10, [16, "..."], [20, "..."]]
-														}
-													}
-												}
-											]
-										}
-									]
-								}
-							]
-						},
-					}	
-				]
-			}
-		},
-		{
-			"constraintsModule": ["setbacks", "ADlotLocation"],
-			"lot": {
-				"developmentOptionalities": [
-					{
-						"developmentType": "primary/accessory",
-						"primaryStructures": {
-
-						},
-				 		"accessoryStructures": {
-				 			"ADlotLocation": {
-				 				"typeOptionality": [
-				 					{
-				 						"type": "attached",
-				 						"ADlotLocation": ["interior side yard", "rear yard"]
-				 					}
-				 					{
-				 						"type": "detached",
-				 						"ADlotLocation": "rear yard",
-				 					}
-				 				]
-				 			},
-				 			"bulkOptionality": [
-				 				{
-				 					"bulk": "ADU",
-				 					"setbacks": {
-					 					"rear": [3, [1, "located in greater of rear 40 feet or 20% of the lot AND setback:fromPrimaryStructure:min.:10 AND height:max: 16'"]], 
-					 					"side": {
-					 						"interior": [3, [1, "located in greater of rear 40 feet or 20% of the lot AND setback:fromPrimaryStructure: min.:10"]]
-					 					},
-					 				},
-				 					"typeOptionality": [
-				 						{
-				 							"type": "detached",
-				 							"setbacks": {
-				 								"fromAnotherStructure": {
-				 									"primaryResidentialStructure": 20,
-				 									"habitableDwelling": 6
-				 								}
-				 							},
-				 						}
-									]
-				 				},
-				 				{
-				 					"bulk": "garage",
-				 					"setbacks": {
-					 					"rear": [3, [0, "if garge doors face lot line"], [1, "located in greater of rear 40 feet or 20% of the lot AND setback:fromPrimaryStructure: min.:10 AND height:max: 16"]], 
-					 					"side": {
-					 						"interior": [3, [0, "if garage doors face lot line"], [1, "located in greater of rear 40 feet or 20% of the lot AND setback:fromPrimaryStructure: min.:10 AND height:max: 16"]]
-					 					},
-					 				},
-				 					"typeOptionality": [
-				 						{
-				 							"type": "detached",
-				 							"setbacks": {
-				 								"fromAnotherStructure": {
-				 									"habitableDwelling": 6
-				 								}
-				 							}			 							
-				 						}
-				 					]
-				 				}
-				 			]
-						}	
+						}
 					}
 				]
 			}
@@ -388,42 +119,42 @@
 		{
             "constraintsModule": ["premiums"],
 			"lot": {
-                "FAR": {
-                    "developmentOptionalities": [
-    					{
-    						"developmentType": "primary/accessory",
-    			 			"primaryStructures": {
-    							"bulkOptionalities": [
-    								{
-    									"bulks": ["single-family", "two-family", "three-family"],
-                                        "premiums": [
-                                            {
-                                                "name": "Affordable housing floor area premium"
-                                                "value": 0.1,
-                                                "type": "addition",
-                                                "application": "per unit",
-                                                "exemption": "1 unit"
-                                                "condition": "https://library.municode.com/mn/minneapolis/codes/code_of_ordinances?nodeId=MICOOR_TIT20ZOCO_CH552BUFOOVDI_ARTIIIINMAFLAR_552.230SIHRMIDWCOLIUS"
-                                            },
-                                            {
-                                                "name": "Environmental sustainability floor area premium"
-                                                "value": 0.1,
-                                                "type": "addition",
-                                                "application": "per development",
-                                                "condition": "https://library.municode.com/mn/minneapolis/codes/code_of_ordinances?nodeId=MICOOR_TIT20ZOCO_CH552BUFOOVDI_ARTIIIINMAFLAR_552.230SIHRMIDWCOLIUS"
-                                            },
-                                            {
-                                                "name": "Enclosed parking"
+				"FAR": {
+					"developmentOptionalities": [
+						{
+							"developmentType": "primary/accessory",
+							"primaryStructures": {
+								"bulkOptionalities": [
+									{
+										"bulks": ["single-family", "two-family", "three-family"],
+										"premiums": [
+											{
+												"name": "Affordable housing floor area premium"
+												"value": 0.1,
+												"type": "addition",
+												"application": "per unit",
+												"exemption": "1 unit"
+												"condition": "https://library.municode.com/mn/minneapolis/codes/code_of_ordinances?nodeId=MICOOR_TIT20ZOCO_CH552BUFOOVDI_ARTIIIINMAFLAR_552.230SIHRMIDWCOLIUS"
+											},
+											{
+												"name": "Environmental sustainability floor area premium"
+												"value": 0.1,
+												"type": "addition",
+												"application": "per development",
+												"condition": "https://library.municode.com/mn/minneapolis/codes/code_of_ordinances?nodeId=MICOOR_TIT20ZOCO_CH552BUFOOVDI_ARTIIIINMAFLAR_552.230SIHRMIDWCOLIUS"
+											},
+											{
+												"name": "Enclosed parking"
 												"value": 0.3,
 												"type": "addition",
 												"application": "per development",
 												"condition": "https://library.municode.com/mn/minneapolis/codes/code_of_ordinances?nodeId=MICOOR_TIT20ZOCO_CH552BUFOOVDI_ARTIIIINMAFLAR_552.230SIHRMIDWCOLIUS"
 											}
-                                        ]
-                                    }
-                                ]
-                            }
-                        }
+										]
+									}
+								]
+                        	}
+						}
                     ]
                 }
             }
