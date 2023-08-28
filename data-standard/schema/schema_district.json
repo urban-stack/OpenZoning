@@ -1,0 +1,79 @@
+{
+  "$id": "District File Schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "$comment": "Add a reference to constraints file",
+  "properties": {
+    "district": {
+      "type": "object",
+      "properties": {
+        "identifier": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "districtType": {
+          "type": "string",
+          "enum": ["superDistrict", "base", "overlay1", "overlay2"]
+        }
+      },
+      "required": ["identifier", "name"]
+    },
+    "last_updated": {
+      "type": "string",
+      "pattern": "^[0-9]{8}$"
+    },
+    "author": {
+      "type": "string"
+    },
+    "usePermissions": {
+      "type": "object",
+      "properties": {
+        "permitted": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "single-family",
+              "two-family",
+              "three-family",
+              "intentional community",
+              "Community residential facility, 0-16 people"
+            ]
+          }
+        },
+        "conditional": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "single-family",
+              "two-family",
+              "three-family",
+              "multi-family",
+              "cluster development"
+            ]
+          }
+        }
+      }
+    },
+    "accessoryStructuresPermissions": {
+      "type": "object",
+      "properties": {
+        "allowedNumADs": {
+          "type": "boolean"
+        },
+        "allowedTypesADs": {
+          "type": "boolean"
+        },
+        "bulkOptionality": {
+          "$ref": "schema_constraints object.json#/definitions/bulkOptionality"
+        }
+      }
+    },
+    "constraints": {
+      "$ref": "schema_constraints object.json#/properties/constraints"
+    }
+  }
+}
