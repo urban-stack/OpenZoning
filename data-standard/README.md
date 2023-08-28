@@ -10,11 +10,11 @@ description: 'Making Zoning Meaningful: Open Zoning, Open Possibilities'
 
 This wiki deep dives into the technological backend that is supporting this effort:
 
-* [**the Open Zoning Feed Specification**](./#the-open-zoning-feed-specification-explained), as well as the concept of data feeds
+* [**the Open Zoning Feed Specification**](./#the-open-zoning-feed-specification-explained) **(OZFS)**, as well as the concept of data feeds
 * [**using our API to access our zoning information**](./#using-our-api-to-pull-zoning-information) from our OZ zoning database
-* [**creating a municipality feed** ](./#creating-a-municipality-feed)
+* [**creating a municipality feed** ](./#creating-a-municipality-feed)that complies with the OZFS standards
 * [**contributing to an existing municipality's zoning database**](./#contributing-to-an-existing-municipalitys-zoning-database)
-* [**our backend processing "engines"**](./#our-backend-processing-engines)**, resolving zoning information into build information**
+* [**our backend processing "engines"**](./#our-backend-processing-engines)**,** resolving zoning information into build information
 
 ***
 
