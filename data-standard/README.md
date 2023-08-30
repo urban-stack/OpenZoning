@@ -64,8 +64,8 @@ This wiki deep dives into the technological backend that is supporting this effo
 
 (description)
 
-{% content-ref url="contributing-to-an-existing-municipalitys-zoning-database/page-1.md" %}
-[page-1.md](contributing-to-an-existing-municipalitys-zoning-database/page-1.md)
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
 {% endcontent-ref %}
 
 ***
