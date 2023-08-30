@@ -6,9 +6,11 @@ description: 'Making Zoning Meaningful: Open Zoning, Open Possibilities'
 
 ## Overview and Table of Contents
 
-**Open Zoning's mission** is to democratize zoning codes, transforming them into legible, actionable data to spark a bottoms-up response to the housing crisis.&#x20;
+**Open Zoning's is a joint effort between the Harvard Urban Stack Lab and the Jacob's Urban Tech Hub at Cornell Tech.**
 
-This wiki deep dives into the technological backend that is supporting this effort:
+**Our  mission** is to democratize zoning codes, transforming them into legible, actionable data to spark a bottoms-up response to the housing crisis.&#x20;
+
+**This wiki deep dives into** the technological backend that is supporting this effort:
 
 * [**the Open Zoning Feed Specification**](./#the-open-zoning-feed-specification-explained) **(OZFS)**, as well as the concept of data feeds
 * [**using our API to access our zoning information**](./#using-our-api-to-pull-zoning-information) from our OZ zoning database
@@ -18,7 +20,7 @@ This wiki deep dives into the technological backend that is supporting this effo
 
 ***
 
-## the Open Zoning Feed Specification explained
+## the Open Zoning Feed Specification, explained
 
 **The Open Zoning Feed Specification (OZFS)** is a first-of-its-kind national data language for zoning codes, allowing zoning codes to be machine-readable. The following information is meant to explain the OZFS in full and in a way that is accessible to anyone.
 
@@ -40,17 +42,25 @@ This wiki deep dives into the technological backend that is supporting this effo
 
 ***
 
-## Using our API to pull zoning information
+## Open Zoning-Hosted Datasets and How to Download Them
 
 (description)
 
-{% content-ref url="using-our-api-to-pull-zoning-information/page-1.md" %}
-[page-1.md](using-our-api-to-pull-zoning-information/page-1.md)
+{% content-ref url="open-zoning-hosted-datasets/open-zoning-hosted-datasets-an-overview.md" %}
+[open-zoning-hosted-datasets-an-overview.md](open-zoning-hosted-datasets/open-zoning-hosted-datasets-an-overview.md)
+{% endcontent-ref %}
+
+{% content-ref url="open-zoning-hosted-datasets/municipality-feeds-dataset.md" %}
+[municipality-feeds-dataset.md](open-zoning-hosted-datasets/municipality-feeds-dataset.md)
+{% endcontent-ref %}
+
+{% content-ref url="open-zoning-hosted-datasets/parcel-resolved-zoning-information-dataset.md" %}
+[parcel-resolved-zoning-information-dataset.md](open-zoning-hosted-datasets/parcel-resolved-zoning-information-dataset.md)
 {% endcontent-ref %}
 
 ***
 
-## Creating a Municipality feed
+## Creating a Municipality Feed for Your Municipality
 
 (description)
 
@@ -60,17 +70,15 @@ This wiki deep dives into the technological backend that is supporting this effo
 
 ***
 
-## Contributing to an existing Municipality's zoning database
+## Contributing to an Existing Municipality Feed
 
 (description)
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
-{% endcontent-ref %}
-
 ***
 
-## Our backend processing "engines"
+## Our Backend Processing "Engines" and How to Download Them&#x20;
+
+(description)
 
 {% content-ref url="our-backend-processing-engines/the-district-intersection-engine.md" %}
 [the-district-intersection-engine.md](our-backend-processing-engines/the-district-intersection-engine.md)
@@ -83,3 +91,9 @@ This wiki deep dives into the technological backend that is supporting this effo
 {% content-ref url="our-backend-processing-engines/the-spatial-engine.md" %}
 [the-spatial-engine.md](our-backend-processing-engines/the-spatial-engine.md)
 {% endcontent-ref %}
+
+***
+
+## Using our API to pull zoning information
+
+(description)

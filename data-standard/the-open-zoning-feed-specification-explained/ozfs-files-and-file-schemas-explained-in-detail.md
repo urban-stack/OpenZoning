@@ -1,28 +1,42 @@
 # 🗃 OZFS Files and File Schemas, explained in detail
 
+(explain the roles of each file in more detail, the different types of district files (and their ethos: strict recording of the zoning code), and how each are used within our engines to resolve zoning information at the parcel level (maybe this latter part goes into the "Engines" section)
+
+***
+
 ## the Municipality File
 
 Information in the Municipality file is formatted per the **municipality Schema**. The schema is structured as follows with the indicated properties and sub-properties, including the status of each: required, conditionally required, or not required.
 
 * ...
 
+### Municipality File example
+
+(image here)
+
+(explanation here)
+
 ***
 
 ## the Districts file
 
-Information in the district files is formatted per three nested schemas:&#x20;
+Information in the district files is formatted per three nested schemas:
 
 * the **district file schema**, which is partially formatted via the
   * **constraints application schema**, which, in turn, is partially formatted via the
-    * **constraints values schema**.&#x20;
+    * **constraints values schema**.
 
 This hierarchy can be seen in the diagram following the [**Open Zoning Feed Specification Structure** table](the-open-zoning-feed-specification-ozfs.md#open-zoning-feed-specification-structure).
+
+\*need to add a field for possible values for each property/sub-property
+
+\*need to talk about district type
 
 ### **1. districts file schema**
 
 The **districts file schema** is structured as follows with the indicated properties and sub-properties, including the status of each: required, conditionally required, or not required.
 
-<table><thead><tr><th width="155">property</th><th width="175">sub-property</th><th>type</th><th>required</th><th>description</th></tr></thead><tbody><tr><td>district</td><td></td><td>object</td><td>required</td><td></td></tr><tr><td></td><td>identifier</td><td>string</td><td>required</td><td></td></tr><tr><td></td><td>name</td><td>string</td><td>required</td><td></td></tr><tr><td>author</td><td></td><td>string</td><td>required</td><td></td></tr><tr><td>dateCreated</td><td></td><td>date</td><td>required</td><td></td></tr><tr><td>lastUpdated</td><td></td><td>array</td><td>required</td><td></td></tr><tr><td>constraints</td><td></td><td>array of objects</td><td>required</td><td></td></tr><tr><td></td><td>constraintsModule</td><td>list</td><td>required</td><td></td></tr><tr><td></td><td>lot</td><td>object</td><td>required</td><td></td></tr></tbody></table>
+<table><thead><tr><th width="155">property</th><th width="175">sub-property</th><th>type</th><th>required</th><th>description</th></tr></thead><tbody><tr><td>district</td><td></td><td>object</td><td>required</td><td></td></tr><tr><td></td><td>identifier</td><td>string</td><td>required</td><td></td></tr><tr><td></td><td>name</td><td>string</td><td>required</td><td></td></tr><tr><td></td><td>districtType</td><td>string</td><td>required</td><td></td></tr><tr><td></td><td>districtID</td><td>string</td><td>required</td><td></td></tr><tr><td>author</td><td></td><td>string</td><td>required</td><td></td></tr><tr><td>dateCreated</td><td></td><td>date</td><td>required</td><td></td></tr><tr><td>lastUpdated</td><td></td><td>array</td><td>required</td><td></td></tr><tr><td>constraints</td><td></td><td>array of objects</td><td>required</td><td></td></tr><tr><td></td><td>constraintsModule</td><td>list</td><td>required</td><td></td></tr><tr><td></td><td>lot</td><td>object</td><td>required</td><td></td></tr></tbody></table>
 
 ***
 
@@ -58,3 +72,7 @@ Field types
 * Time - Time in the HH:MM:SS format (H:MM:SS is also accepted). The time is measured from "noon minus 12h" of the service day (effectively midnight except for days on which daylight savings time changes occur. For more information, see the guidelines article). For times occurring after midnight, enter the time as a value greater than 24:00:00 in HH:MM:SS local time for the day on which the trip schedule begins. Example: 14:30:00 for 2:30PM or 25:35:00 for 1:35AM on the next day.
 * Text - A string of UTF-8 characters, which is aimed to be displayed and which must therefore be human readable.
 * URL - A fully qualified URL that includes http:// or https://, and any special characters in the URL must be correctly escaped. See the following [http://www.w3.org/Addressing/URL/4\_URI\_Recommentations.html](http://www.w3.org/Addressing/URL/4\_URI\_Recommentations.html) for a description of how to create fully qualified URL values.
+
+### District Files examples
+
+(examples of each type of district file and how information within them is regulated by the Municipality file)

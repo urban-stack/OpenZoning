@@ -21,7 +21,7 @@ The Open Zoning Feed Specification specifies how a data feed of zoning data shou
 
 The OZFS is a rule book that allows municipalities to create their own data feed of zoning data, i.e. their unique **municipality data feed**. A municipality's data feed is the collection of its zoning information into files written in Open Zoning's pre-defined machine-readable language. Once the required files with the required zoning information have been created in OZ's language, machines can then understand a municipality's zoning.
 
-## OZFS files
+## OZFS files for regulating data feeds
 
 The OZFS is made up of only two types of files, the _municipality file_ and _district files_. Each **municipality data feed** has one municipality file but can and should have multiple district files. A **municipality data feed** is simply an online database with these two types of files in it. Both files are described in detail in the **OZFS Files and File Schemas, explained in detail** section.
 
@@ -37,8 +37,6 @@ Formatting the _municipality file_ and _district files_ are 4 Open Zoning schema
 | districts file    | districts file schema              | ...         |
 |                   | --> constraints application schema | ...         |
 |                   | ---> constraints values schema     | ...         |
-
-
 
 **Diagrams showing files-schemas relationships**
 
