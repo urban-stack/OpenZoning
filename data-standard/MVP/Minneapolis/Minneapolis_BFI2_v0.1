@@ -1,1 +1,123 @@
-
+{
+	"district": {
+		"identifier": "MN-HennepinCo-Minneapolis-BFI2",
+		"name": "BFI2 Interior 2 Built Form Overlay District",
+        "districtType": "overlay_1",
+        "districtId": "BFI2"
+	},
+	"last_updated": "20230905",
+	"author": "OZFS Team",
+	"constraints": [
+		{
+			"constraintsModule": ["height", "stories"],
+			"lot": {
+				"developmentOptionalities": [
+					{
+						"developmentType": "primary/accessory",
+				 		"primaryStructures": {
+                            "height": {
+                                "wall": {
+                                    "max": 28
+                                },
+                                "roof": {
+                                    "max": 33
+                                }
+                            },
+                            "stories": {
+                                "max": 2.5,
+                            }
+						}	
+					}
+				]
+			}
+		},
+		{
+			"constraintsModule": "setbacks",
+			"lot": {
+				"developmentOptionalities": [
+					{
+						"developmentType": "primary/accessory",
+				 		"primaryStructures": {
+				 			"setbacks": {
+								"front": 20,
+								"rear": 5,
+								"side": { 
+                                    "interior": 5,
+                                    "corner": 8
+								}
+							}
+						}	
+					}
+				]
+			}
+		},
+		{
+			"constraintsModule": "FAR",
+			"lot": {
+				"districtTypeGroups": [
+					{
+						"districtTypes": ["Residential", "Office Residential"],
+                        "FAR": {
+                            "residential": 0.5
+                        }
+					},
+					{
+						"districtTypes": "allOthers",
+						"bulkOptionalities": [
+							{
+								"bulks": ["single-family", "two-family", "three-family"],
+								"FAR": {
+									"residential": 0.5
+								}
+                            },
+							{
+								"bulks": ["four-family"],
+								"FAR": {
+									"residential": 1.4
+								}
+							}
+						]
+					}
+				]
+			}
+		},
+		{
+			"constraintsModule": ["lotArea", "lotWidth"],
+			"lot": {
+				"developmentOptionalities": [
+					{
+						"developmentType": "primary/accessory",
+			 			"bulkOptionalities": [
+							{
+								"bulks": "four-plus-family",
+								"lotArea": {
+									"minimum": 7500, //sqf
+									"maximum": 14000 //sqf
+								},
+								"lotWidth": {
+									"minimum": 50 //feet
+								}
+							}
+						]
+					}	
+				]
+			}
+		},
+		{
+			"constraintsModule": "lotCoverage",
+			"lot": {
+				"lotCoverage": {
+					"max": 0.45
+				}
+			}	
+		},
+		{
+			"constraintsModule": "premiums",
+			"lot": {
+				"premiums": {
+					"maximum": 0
+				}
+			}
+		}
+	]
+}
