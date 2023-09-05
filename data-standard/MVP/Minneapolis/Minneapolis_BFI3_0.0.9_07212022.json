@@ -2,7 +2,8 @@
 	"district": {
 		"identifier": "MN-HennepinCo-Minneapolis-BFI3",
 		"name": "BFI3 Interior 3 Built Form Overlay District",
-		"zoning_code": "BFI3"
+		"districtType": "overlay_1",
+	        "districtId": "BFI3"
 	},
 	"last_updated": "20230815",
 	"author": "OZFS Team",
@@ -144,11 +145,11 @@
 							{
 								"bulks": "four-plus-family",
 								"lotArea": {
-									"minimum": 5000, //sqf
-									"maximum": 18000 //sqf
+									"minimum": 5000,
+									"maximum": 18000
 								},
 								"lotWidth": {
-									"minimum": 40 //feet
+									"minimum": 40
 								}
 							}
 						]
