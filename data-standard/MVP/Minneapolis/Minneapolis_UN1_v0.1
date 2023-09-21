@@ -1,0 +1,36 @@
+{   
+	"district": {
+		"identifier": "MN-HennepinCo-Minneapolis-UN1", //-all bulks/uses
+	    "name": "UN1 Urban Neighborhood District",
+        "
+	},
+	"last_updated": "20230815",
+	"author": "OZFS Team",
+	"usePermissions": {
+		"permitted": ["single-family", "two-family", "three-family"]
+	},
+	"constraints": [
+		{
+			"constraintsModule": ["lotArea", "lotWidth"],
+			"lot": {
+				"developmentOptionalities": [
+					{
+						"developmentType": "primary/accessory",
+			 			"bulkOptionalities": [
+							{
+								"bulks": ["one-family", "two-family", "three-family"],
+								"lotArea": {
+									"minimum": 5000,
+									"maximum": 8999
+								},
+								"lotWidth": {
+									"minimum": 40
+								}
+							}
+						]
+					}
+				]
+			}
+		}
+	]
+}
