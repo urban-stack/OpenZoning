@@ -6,7 +6,7 @@ description: 'Making Zoning Meaningful: Open Zoning, Open Possibilities'
 
 ## Overview and Table of Contents
 
-**Open Zoning's is a joint effort between the Harvard Urban Stack Lab and the Jacob's Urban Tech Hub at Cornell Tech.**
+**Open Zoning is a joint effort between the Harvard Urban Stack Lab and the Jacob's Urban Tech Hub at Cornell Tech.**
 
 **Our  mission** is to democratize zoning codes, transforming them into legible, actionable data to spark a bottoms-up response to the housing crisis.&#x20;
 
