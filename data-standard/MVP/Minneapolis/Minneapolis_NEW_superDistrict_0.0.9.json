@@ -49,23 +49,23 @@
             "constraintsModule": ["floorArea"],
 			"lot": {
                 "developmentOptionalities": [
-					{
-						"developmentType": "primary/accessory",
-			 			"primaryStructures": {
-							"bulkOptionalities": [
-								{
-									"bulks": ["single-family", "two-family", "three-family"],
-                                    "floorArea": {
-                                        "grossFloorArea": {
-                                            "minimum": 2500
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                ]
-            }
+				{
+					"developmentType": "primary/accessory",
+					"primaryStructures": {
+						"bulkOptionalities": [
+							{
+								"bulks": ["single-family", "two-family", "three-family"],
+	                                    "floorArea": {
+	                                        "grossFloorArea": {
+	                                            "minimum": 2500
+	                                        }
+	                                    }
+	                                }
+	                            ]
+	                        }
+	                    }
+	                ]
+	            }
         },
         {
             "constraintsModule": ["premiums"],
