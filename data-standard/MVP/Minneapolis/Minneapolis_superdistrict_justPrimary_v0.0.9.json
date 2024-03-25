@@ -84,7 +84,7 @@
 			}
 		},
 		{
-			"constraintsModule": ["height", "stories"],
+			"constraintsModule": ["stories"],
 			"lot": {
 				"developmentOptionalities": [
 					{
