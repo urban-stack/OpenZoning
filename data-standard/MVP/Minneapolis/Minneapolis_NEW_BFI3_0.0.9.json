@@ -31,10 +31,10 @@
 								{
 									"bulks": ["three-family", "cluster"],
 									"height": {
-										"maximum": 42
+										"max": 42
 									},
 									"stories": {
-										"maximum": 3,
+										"max": 3,
 									}
 								}
 							],
