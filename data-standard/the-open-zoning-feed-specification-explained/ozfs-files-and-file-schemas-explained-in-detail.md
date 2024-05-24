@@ -1,4 +1,4 @@
-# 🗃 OZFS Files and File Schemas, explained in detail
+# 🗃️ OZFS Files and File Schemas, explained in detail
 
 (explain the roles of each file in more detail, the different types of district files (and their ethos: strict recording of the zoning code), and how each are used within our engines to resolve zoning information at the parcel level (maybe this latter part goes into the "Engines" section)
 
@@ -8,7 +8,11 @@
 
 Information in the Municipality file is formatted per the **municipality Schema**. The schema is structured as follows with the indicated properties and sub-properties, including the status of each: required, conditionally required, or not required.
 
-* ...
+|   |   |   |
+| - | - | - |
+|   |   |   |
+|   |   |   |
+|   |   |   |
 
 ### Municipality File example
 
@@ -18,25 +22,37 @@ Information in the Municipality file is formatted per the **municipality Schema*
 
 ***
 
-## the Districts file
+## the Open Zoning Districts file
 
-Information in the district files is formatted per three nested schemas:
+**Zoning districts, the basics**
 
-* the **district file schema**, which is partially formatted via the
-  * **constraints application schema**, which, in turn, is partially formatted via the
+Different types of development (e.g. residential, commercial, industrial) are regulated by different types of Base zoning districts (e.g. Residential districts, Commercial districts, and Industrial districts). Each major classification of development type will be assigned a Base district type. Usually, each district type is broken up into multiple districts. While these districts all regulate the same type of development, the zoning regulations will vary slightly between them. For instance, while housing can be developed on all Residential-zoned lots, some Residential districts only allow up to three-family housing developments, while others allow up to four-plus-family developments. &#x20;
+
+Cities will regulate additional zoning nuances inter-district through the use of Overlay Districts. The structure and use of these districts vary widely from municipality to municipality.
+
+**Zoning districts <> Open Zoning Districts file**
+
+The Open Zoning Districts file is the container for recording zoning information for municipalities' districts. Every district within a municipality that regulates housing that is below 6 stories should have its own district file. This file will contain general information about that zoning district (such as its zoning code abbreviation) as well as all zoning constraints that it regulates. The information and its format that is both allowed and required to be captured within a district file is regulated by the "districts file" schema. All district files will be checked for compatibility with this schema.&#x20;
+
+The districts file schema references two other Open Zoning schemas, the "constraints application" and "constraints values" schemas. In conjunction, these schemas encompass the whole of the portion of Open Zoning's machine-readable zoning language that regulates district-level zoning information.&#x20;
+
+\[for a quasi-visual of how the schemas reference one another] Information in the district files is formatted per three nested schemas:
+
+* the **district file schema.** A subsection of its information is formatted by the:
+  * **constraints application schema.** Within this schema, all constraint values (i.e. the actual numbers) are formatted via the:
     * **constraints values schema**.
 
 This hierarchy can be seen in the diagram following the [**Open Zoning Feed Specification Structure** table](the-open-zoning-feed-specification-ozfs.md#open-zoning-feed-specification-structure).
 
-\*need to add a field for possible values for each property/sub-property
-
-\*need to talk about district type
-
-### **1. districts file schema**
+### **1. the districts file schema**
 
 The **districts file schema** is structured as follows with the indicated properties and sub-properties, including the status of each: required, conditionally required, or not required.
 
-<table><thead><tr><th width="155">property</th><th width="175">sub-property</th><th>type</th><th>required</th><th>description</th></tr></thead><tbody><tr><td>district</td><td></td><td>object</td><td>required</td><td></td></tr><tr><td></td><td>identifier</td><td>string</td><td>required</td><td></td></tr><tr><td></td><td>name</td><td>string</td><td>required</td><td></td></tr><tr><td></td><td>districtType</td><td>string</td><td>required</td><td></td></tr><tr><td></td><td>districtID</td><td>string</td><td>required</td><td></td></tr><tr><td>author</td><td></td><td>string</td><td>required</td><td></td></tr><tr><td>dateCreated</td><td></td><td>date</td><td>required</td><td></td></tr><tr><td>lastUpdated</td><td></td><td>array</td><td>required</td><td></td></tr><tr><td>constraints</td><td></td><td>array of objects</td><td>required</td><td></td></tr><tr><td></td><td>constraintsModule</td><td>list</td><td>required</td><td></td></tr><tr><td></td><td>lot</td><td>object</td><td>required</td><td></td></tr></tbody></table>
+<table><thead><tr><th width="176">property</th><th width="175">sub-property</th><th width="137">type</th><th width="231">description</th><th width="187">required</th><th width="155">possible values</th></tr></thead><tbody><tr><td><em><strong>district</strong></em></td><td></td><td>object</td><td></td><td>required</td><td></td></tr><tr><td></td><td><em>identifier</em></td><td>key-value pair, the value being a string</td><td>(*needs to be finished)<br><br>the value is a unique state-municipality-district identifier, formatted via the OZ standard</td><td>required</td><td></td></tr><tr><td></td><td><em>name</em></td><td>key-value pair, the value being a string</td><td>the value is the full district name as written in the muni's zoning code; a list of possible values are contained within each municipality's file</td><td>required</td><td></td></tr><tr><td></td><td><em>districtType</em></td><td>key-value pair, the value being a string</td><td>the value is the district type as written in the muni's zoning code; a list of possible values are contained within each municipality's file</td><td>required</td><td></td></tr><tr><td></td><td><em>districtID</em></td><td>key-value pair, the value being a string</td><td>the value is the shortened district ID/code as written in the muni's zoning code; a list of possible values are contained within each municipality's file</td><td>required</td><td></td></tr><tr><td><em><strong>author</strong></em></td><td></td><td>string</td><td></td><td>required</td><td></td></tr><tr><td><em><strong>dateCreated</strong></em></td><td></td><td>date</td><td></td><td>required</td><td></td></tr><tr><td><em><strong>lastUpdated</strong></em></td><td></td><td>date</td><td></td><td>required</td><td></td></tr><tr><td><em><strong>usePermissions</strong></em></td><td></td><td>object</td><td></td><td>conditionally required; <br><br>required when:<br>the district type being recorded is a base district</td><td></td></tr><tr><td></td><td><em>permitted</em></td><td>key-value pair, the value being an array of strings</td><td>includes one or more bulk types</td><td>con</td><td>(in Minneapolis)<br>'single-family'; <br>'two-family'; <br>'three-family'; <br>'four-plus-family'</td></tr><tr><td><em><strong>accessoryStructuresPermissions</strong></em></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>(see eponymous table below)</td><td></td><td></td><td></td><td></td></tr><tr><td><em><strong>constraints</strong></em></td><td></td><td>array of objects</td><td></td><td>required</td><td></td></tr><tr><td></td><td>constraintsModule</td><td>list</td><td></td><td>required</td><td></td></tr><tr><td></td><td>lot</td><td>object</td><td></td><td>required</td><td></td></tr></tbody></table>
+
+_**accessoryStructuresPermissions**_ property table
+
+<table><thead><tr><th width="298">property</th><th>sub-property</th><th>sub-property</th><th></th></tr></thead><tbody><tr><td><em><strong>accessoryStructuresPermissions</strong></em></td><td></td><td></td><td></td></tr><tr><td></td><td><em>bulkOptionality</em></td><td></td><td></td></tr><tr><td></td><td></td><td><em>bulks</em></td><td></td></tr><tr><td></td><td></td><td><em>allowedAccessoryStructures</em></td><td></td></tr><tr><td></td><td></td><td></td><td><em>max</em></td></tr><tr><td></td><td></td><td></td><td><em>types</em></td></tr></tbody></table>
 
 ***
 
@@ -49,7 +65,7 @@ The **constraints application schema** is structured as follows with the indicat
 * Any of the following properties can be sub-properties of any other one, i.e. any property can be nested as a sub-property within any other property. The intent of this design is to allow the structure of the zoning code that is regulating the constraint to be captured as close as possible to how it is written.
 * Any of the following properties can take a constraint module as a sub-property. Constraint modules are defined within the **constraints value schema** section.
 
-<table><thead><tr><th width="239">property</th><th width="194">sub-property</th><th>type</th><th>required</th><th>description</th></tr></thead><tbody><tr><td><em><strong>bulkOptionality</strong></em></td><td></td><td>array of objects</td><td>optional</td><td></td></tr><tr><td></td><td><em>bulks</em></td><td>array</td><td>required</td><td></td></tr><tr><td><em><strong>developmentOptionality</strong></em></td><td></td><td>array of objects</td><td>optional</td><td></td></tr><tr><td></td><td><em>developmentType</em></td><td>enum</td><td>required</td><td></td></tr><tr><td></td><td><em>primaryStructures</em></td><td>object</td><td>optional</td><td></td></tr><tr><td></td><td><em>accessoryStructures</em></td><td>object</td><td>optional</td><td></td></tr><tr><td><em><strong>ADbulkOptionality</strong></em></td><td></td><td>array of objects</td><td>optional</td><td></td></tr><tr><td></td><td><em>ADbulk</em></td><td>enum</td><td>required</td><td></td></tr><tr><td><em><strong>ADtypeOptionality</strong></em></td><td></td><td>array of objects</td><td>conditionally optional</td><td></td></tr><tr><td></td><td><em>ADtype</em></td><td>enum</td><td>required</td><td></td></tr><tr><td><em><strong>disrictTypeGroups</strong></em></td><td></td><td>array of objects</td><td>conditionally optional</td><td></td></tr><tr><td></td><td><em>districtTypes</em></td><td>enum</td><td>required</td><td></td></tr></tbody></table>
+<table><thead><tr><th width="239">property</th><th width="194">sub-property</th><th>type</th><th>description</th><th>required</th><th> set of possible values,</th></tr></thead><tbody><tr><td><em><strong>bulkOptionality</strong></em> </td><td>(sub-properties apply to the objects within the array)</td><td>array of objects</td><td>applies constraints by bulks or bulk groups, each represented by an object</td><td>optional</td><td></td></tr><tr><td></td><td><em>bulks</em></td><td>key-value pair, the value being an array of strings</td><td>includes one or more bulk value; a list of possible values are contained within each municipality's file</td><td>required within parent constraint</td><td>(in Minneapolis)<br>'single-family'; <br>'two-family'; <br>'three-family'; <br>'four-plus-family'</td></tr><tr><td></td><td>(any constraints application module)<br><br>*same for any property </td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>(any constraint value module)<br><br>*same for any property </td><td></td><td></td><td></td><td></td></tr><tr><td><em><strong>developmentOptionality</strong></em></td><td><p></p><p>(sub-properties apply to the objects within the array)</p></td><td>array of objects</td><td>applies constraint values by development type; the "primary/accessory" type exists in all muni.s; muni.s may have unique dev. types</td><td>optional</td><td></td></tr><tr><td></td><td><em>developmentType</em></td><td>key-value pair, the value being a string</td><td>includes one development type value; a list of possible values are contained within each municipality's file</td><td>required within parent constraint</td><td>'primary/accessory';<br>(any other type defined within the municipality file)</td></tr><tr><td></td><td><em>primaryStructures</em></td><td>object</td><td>contains constraints and constraint values that apply to the primary structure of a development</td><td>conditionally required; <br><br>required when:<br><em>developmentType</em> = primary/acessory <strong>and</strong> <em>accessoryStructures</em> variable is not present</td><td></td></tr><tr><td></td><td><em>accessoryStructures</em></td><td>object</td><td>contains constraints and constraint values that apply to the accessory structure(s) of a development</td><td>conditionally required; <br><br>required when:<br><em>developmentType</em> = primary/acessory <strong>and</strong> <em>primaryStructures</em> variable is not present</td><td></td></tr><tr><td><em><strong>districtTypeGroups</strong></em></td><td>(sub-properties apply to the objects within the array)</td><td>array of objects</td><td>applies constraints by  districty types and type groupings, each represented by an object</td><td>optional</td><td></td></tr><tr><td></td><td><em>districtTypes</em></td><td>key-value pair, the value being an array of strings</td><td>includes one or more district type values; a list of possible values are contained within each municipality's file</td><td>required within parent constraint</td><td>(in Minneapolis)<br>'Residential';<br>'Office Residential';<br>'all other';<br>(any district ID for any district listed within the Municipality file)</td></tr><tr><td><em><strong>storyType</strong></em></td><td>(sub-properties apply to the objects within the array)</td><td>array of objects</td><td>applies constraints by  story type(s), each represented by an object</td><td>optional</td><td></td></tr><tr><td></td><td><em>stories</em></td><td>key-value pair, the value being an array of strings</td><td>includes one or more story values; a list of possible values are contained within each municipality's file</td><td>required within parent constraint</td><td>(in Minneapolis)<br>'half story';<br>'basement';<br>'all other'</td></tr></tbody></table>
 
 ### 3. constraint values schema
 

@@ -27,16 +27,16 @@ The OZFS is made up of only two types of files, the _municipality file_ and _dis
 
 ## OZFS file schemas
 
-Formatting the _municipality file_ and _district files_ are 4 Open Zoning schemas, i.e. instructions for the language that their contents must be written in, including what information is required, conditionally required, and optional. These schemas define the language and the structure of the zoning information language that these files must speak and that machines must be able to read. The Open Zoning schemas live as json files (a type of data meta-language) within this Github repository and are listed in the table below. They have been translated from their json format into a more human-readable form within the next section, **OZFS Files and File Schemas, explained in detail.**
+Formatting the _municipality file_ and _district files_ are 4 Open Zoning schemas, i.e. instructions for the language that their contents must be written in, including what information is required, conditionally required, and optional. These schemas define the aforementioned "language", a language for zoning information, that machines (i.e. in the instances of our Engines, the programming language Python) can understand. These files must adhere to the language as it is defined within these schemas, in the same way that verbal and written English communication must adhere to the English alphabet and all of its many grammatical rules. The Open Zoning schemas live as json files (a type of data meta-language) within this Github repository and are listed in the table below. They have been translated from their json format into a more human-readable form within the next section, **OZFS Files and File Schemas, explained in detail.**
 
 ### **Open Zoning Feed Specification structure**
 
-| file              | schema                             | description |
-| ----------------- | ---------------------------------- | ----------- |
-| municipality file | municipality file schema           | ...         |
-| districts file    | districts file schema              | ...         |
-|                   | --> constraints application schema | ...         |
-|                   | ---> constraints values schema     | ...         |
+| file              | schema                            | description |
+| ----------------- | --------------------------------- | ----------- |
+| municipality file | municipality file schema          | ...         |
+| districts file    | districts file schema             | ...         |
+|                   | -> constraints application schema | ...         |
+|                   | -> -> constraints values schema   | ...         |
 
 **Diagrams showing files-schemas relationships**
 

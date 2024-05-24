@@ -1,5 +1,5 @@
 ---
-description: 'Making Zoning Meaningful: Open Zoning, Open Possibilities'
+description: Making Zoning Meaningful
 ---
 
 # 🙌 Open Zoning
@@ -39,6 +39,12 @@ description: 'Making Zoning Meaningful: Open Zoning, Open Possibilities'
 {% content-ref url="the-open-zoning-feed-specification-explained/municipality-data-feed-completeness.md" %}
 [municipality-data-feed-completeness.md](the-open-zoning-feed-specification-explained/municipality-data-feed-completeness.md)
 {% endcontent-ref %}
+
+***
+
+## Open Zoning Technical Starter Kit (for future technical researchers completely new to the project)
+
+
 
 ***
 

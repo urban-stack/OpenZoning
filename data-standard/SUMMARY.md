@@ -6,13 +6,17 @@
 
 * [📖 Definitions for frequently used terms](the-open-zoning-feed-specification-explained/definitions-for-frequently-used-terms.md)
 * [🌟 the Open Zoning Feed Specification (OZFS)](the-open-zoning-feed-specification-explained/the-open-zoning-feed-specification-ozfs.md)
-* [🗃 OZFS Files and File Schemas, explained in detail](the-open-zoning-feed-specification-explained/ozfs-files-and-file-schemas-explained-in-detail.md)
+* [🗃️ OZFS Files and File Schemas, explained in detail](the-open-zoning-feed-specification-explained/ozfs-files-and-file-schemas-explained-in-detail.md)
 * [⭕ Municipality data feed completeness](the-open-zoning-feed-specification-explained/municipality-data-feed-completeness.md)
+
+***
+
+* [Open Zoning Technical Starter Kit](open-zoning-technical-starter-kit.md)
 
 ## Open Zoning-hosted Datasets
 
 * [📂 Open Zoning-hosted datasets, an overview](open-zoning-hosted-datasets/open-zoning-hosted-datasets-an-overview.md)
-* [🏙 Municipality Feeds dataset](open-zoning-hosted-datasets/municipality-feeds-dataset.md)
+* [🏙️ Municipality Feeds dataset](open-zoning-hosted-datasets/municipality-feeds-dataset.md)
 * [📦 Parcel-resolved zoning information dataset](open-zoning-hosted-datasets/parcel-resolved-zoning-information-dataset.md)
 
 ## Creating a municipality feed
